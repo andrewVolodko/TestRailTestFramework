@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 public class DashboardPage extends BasePage {
     private static final String PATH = "index.php?/dashboard";
 
+    // Locators
     protected static final By sidebarProjectAddBtnBy = By.id("sidebar-projects-add");
 
     public DashboardPage(BrowserService browserService, boolean openByUrl) {

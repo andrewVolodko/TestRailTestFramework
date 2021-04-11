@@ -13,4 +13,9 @@ public class DashboardPageSteps extends BaseStep {
     public DashboardPage getPageInstance(boolean openByUrl) {
         return new DashboardPage(browserService, openByUrl);
     }
+
+    public AddProjectPageSteps openAddProjectPage(){
+        new DashboardPage(browserService, false).getSidebarProjectAddBtn().click();
+        return new AddProjectPageSteps(browserService);
+    }
 }

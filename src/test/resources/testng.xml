@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Smoke Tests Suite">
-    <test name="LoginTests">
-        <parameter name="validEmail" value="atrostyanko+0401@gmail.com"/>
-        <parameter name="validPassword" value="QqtRK9elseEfAk6ilYcJ"/>
-        <parameter name="invalidEmail" value="invalid_email@mail.ru"/>
-        <parameter name="invalidPassword" value="invalidPass"/>
+    <parameter name="validEmail" value="atrostyanko+0401@gmail.com"/>
+    <parameter name="validPassword" value="QqtRK9elseEfAk6ilYcJ"/>
+    <parameter name="invalidEmail" value="invalid_email@mail.ru"/>
+    <parameter name="invalidPassword" value="invalidPass"/>
+<!--    <test name="LoginTests">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="ProjectCRUDTests">
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.ProjectCRUDTest"/>
         </classes>
     </test>
 </suite>
