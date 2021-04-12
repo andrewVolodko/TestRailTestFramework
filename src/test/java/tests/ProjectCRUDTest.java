@@ -69,5 +69,15 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
         this.projectName = project.getName();
     }
 
+    @Test(dependsOnMethods = "editProjectTest")
+    public void deleteProjectTest(){
+        var adminProjectsPageSteps = new AdminProjectsPageSteps(browserService).openPage();
+        var adminProjectsPage = adminProjectsPageSteps
+                .deleteProjectByName(this.projectName)
+                .getPageInstance();
 
+        Assert.assertFalse(adminProjectsPageSteps.isProjectExisted(this.projectName));
+        Assert.assertEquals(adminProjectsPage.getSuccessProjectCRUDMessage().getText(),
+                "Successfully deleted the project.");
+    }
 }

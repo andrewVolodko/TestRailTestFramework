@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import core.BrowserService;
 import models.ProjectRowModel;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class AdminProjectsPage extends BasePage {
     private static final String PATH = "index.php?/admin/projects/overview";
@@ -13,6 +14,7 @@ public class AdminProjectsPage extends BasePage {
     private static final By projectNameLinkBy = By.xpath("//td/a[normalize-space()]");
     private static final By projectEditBtnBy = By.className("icon-small-edit");
     private static final By projectDeleteBtnBy = By.className("icon-small-delete");
+    private static final By successProjectCRUDMessageBy = By.className("message-success");
 
     public AdminProjectsPage(BrowserService browserService) {
         super(browserService);
@@ -30,10 +32,14 @@ public class AdminProjectsPage extends BasePage {
     }
 
     public ProjectRowModel getProjectRowByName(String projectName){
-        var projectRow = driver.findElement(By.xpath(projectRowLocator.replace("%projectName%", projectName)));
+        var projectRow = this.driver.findElement(By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
         return new ProjectRowModel(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
+    }
+
+    public WebElement getSuccessProjectCRUDMessage(){
+        return this.driver.findElement(successProjectCRUDMessageBy);
     }
 }
