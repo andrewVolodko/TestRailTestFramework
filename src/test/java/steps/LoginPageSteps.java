@@ -22,7 +22,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         this.page.getPassInput().sendKeys(pass);
         this.page.getLoginBtn().click();
 
-        return new DashboardPageSteps(browserService);
+        return new DashboardPageSteps(this.browserService);
     }
     public LoginPageSteps loginWithInсorrectCreds(String email, String pass){
         this.page.getEmailInput().sendKeys(email);

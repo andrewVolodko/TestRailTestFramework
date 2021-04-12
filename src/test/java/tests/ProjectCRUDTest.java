@@ -1,30 +1,40 @@
 package tests;
 
 import baseTestTemplates.BaseTestWithClassDriverInitialization;
-import enums.ProjectType;
+import enums.ProjectMode;
 import models.ProjectModel;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import steps.AdminProjectsPageSteps;
 import steps.DashboardPageSteps;
 import steps.LoginPageSteps;
+import utils.Randomizer;
 
 public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
 
+    private String projectName;
+
     private DashboardPageSteps dashboardPageSteps;
+    private AdminProjectsPageSteps adminProjectsPageSteps;
 
     @DataProvider(name = "projectDataProvider")
-    public Object[][] dataProvider(){
-        return new ProjectModel[][] {
-                { new ProjectModel("123123TestProjectName", "", true, ProjectType.MULTIPLE)}
+    public Object[][] getProjectData() {
+        return new ProjectModel[][]{
+                {new ProjectModel(
+                        "Project - " + Randomizer.getRandomString(10),
+                        "",
+                        true,
+                        ProjectMode.MULTIPLE)
+                }
         };
     }
 
     @BeforeClass
     @Parameters({"validEmail", "validPassword"})
-    public void login(String email, String password){
+    public void login(String email, String password) {
         this.dashboardPageSteps = new LoginPageSteps(browserService)
                 .openPage()
                 .loginWithCorrectCreds(email, password);
@@ -32,11 +42,32 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
 
     @Test(dataProvider = "projectDataProvider")
     public void addProjectTest(ProjectModel project) {
-        var adminProjectsPage = this.dashboardPageSteps
+        this.adminProjectsPageSteps = this.dashboardPageSteps
                 .openAddProjectPage()
-                .addNewProject(project)
-                .getPageInstance();
+                .addNewProject(project);
 
-        Assert.assertTrue(adminProjectsPage.getProjectRowByName(project.getName()).getProjectNameLink().isDisplayed());
+        Assert.assertTrue(
+                this.adminProjectsPageSteps
+                        .getPageInstance()
+                        .getProjectRowByName(project.getName())
+                        .getProjectNameLink()
+                        .isDisplayed());
+
+        this.projectName = project.getName();
     }
+
+    @Test(dependsOnMethods = "addProjectTest", dataProvider = "projectDataProvider")
+    public void editProjectTest(ProjectModel project) {
+        var editedProject = this.adminProjectsPageSteps
+                .openEditProjectPageByName(this.projectName)
+                .editProject(project)
+                .openEditProjectPageByName(project.getName())
+                .getProjectData();
+
+        Assert.assertEquals(editedProject, project);
+
+        this.projectName = project.getName();
+    }
+
+
 }

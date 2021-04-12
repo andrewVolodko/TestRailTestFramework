@@ -15,4 +15,9 @@ public class AdminProjectsPageSteps extends BaseStep<AdminProjectsPage> {
         this.page.open();
         return this;
     }
+
+    public ProjectPageSteps openEditProjectPageByName(String projectName){
+        this.page.getProjectRowByName(projectName).getProjectEditBtn().click();
+        return new ProjectPageSteps(this.browserService);
+    }
 }
