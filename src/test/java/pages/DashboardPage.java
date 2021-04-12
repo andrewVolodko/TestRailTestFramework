@@ -11,14 +11,14 @@ public class DashboardPage extends BasePage {
     // Locators
     protected static final By sidebarProjectAddBtnBy = By.id("sidebar-projects-add");
 
-    public DashboardPage(BrowserService browserService, boolean openByUrl) {
-        super(browserService, openByUrl);
+    public DashboardPage(BrowserService browserService) {
+        super(browserService);
     }
 
     @Override
-    public DashboardPage open() {
+    public void open() {
         this.driver.get(baseUrl + PATH);
-        return this;
+        super.open();
     }
     @Override
     protected By getPageOpenedIndicatorEl() {

@@ -19,7 +19,7 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
     @Test
     @Parameters({"validEmail", "validPassword"})
     public void validCredsLoginTest(String email, String password) {
-        this.loginPageSteps.loginWithCorrectCreds(email, password);
+        this.loginPageSteps.openPage().loginWithCorrectCreds(email, password);
 
         Assert.assertEquals(browserService.getDriver().getTitle(), "All Projects - TestRail");
     }
@@ -28,8 +28,9 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
     @Parameters({"invalidEmail", "invalidPassword"})
     public void invalidCredsLoginTest(String email, String password) {
         var loginPage = this.loginPageSteps
-                        .loginWithInсorrectCreds(email, password)
-                        .getPageInstance(false);
+                .openPage()
+                .loginWithInсorrectCreds(email, password)
+                .getPageInstance();
 
         Assert.assertEquals(loginPage.getErrorLabel().getText(),
                 "Email/Login or Password is incorrect. Please try again.");
@@ -38,7 +39,7 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
     @Test
     @Parameters("validEmail")
     public void provideOnlyEmailLoginTest(String email) {
-        var loginPage = this.loginPageSteps.getPageInstance(true);
+        var loginPage = this.loginPageSteps.openPage().getPageInstance();
         loginPage.getEmailInput().sendKeys(email);
         loginPage.getLoginBtn().click();
 

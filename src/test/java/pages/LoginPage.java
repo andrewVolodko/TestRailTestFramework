@@ -14,14 +14,14 @@ public class LoginPage extends BasePage {
     protected static final By errorLabelBy = By.className("error-text");
     protected static final By fieldErrorBy = By.className("loginpage-message-image");
 
-    public LoginPage(BrowserService browserService, boolean openByUrl){
-        super(browserService, openByUrl);
+    public LoginPage(BrowserService browserService){
+        super(browserService);
     }
 
     @Override
-    public LoginPage open(){
+    public void open(){
         this.driver.get(baseUrl);
-        return this;
+        super.open();
     }
     @Override
     public By getPageOpenedIndicatorEl() {

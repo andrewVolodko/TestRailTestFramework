@@ -10,22 +10,19 @@ public abstract class BasePage {
     protected BrowserService browserService;
     public String baseUrl;
 
-    public BasePage(BrowserService browserService, boolean openByUrl) {
+    public BasePage(BrowserService browserService) {
         this.browserService = browserService;
         this.driver = browserService.getDriver();
         this.baseUrl = new PropertyReader().getUrl();
-
-        if(openByUrl)
-            this.open();
-
-        this.waitUntilOpen();
     }
 
-    public abstract BasePage open();
+    public void open() {
+        waitUntilOnPage();
+    }
 
     protected abstract By getPageOpenedIndicatorEl();
 
-    protected void waitUntilOpen() {
+    protected boolean waitUntilOnPage() {
         var isPageOpened = browserService.getWait()
                 .waitForVisibility(getPageOpenedIndicatorEl())
                 .isDisplayed();
@@ -33,19 +30,6 @@ public abstract class BasePage {
         if (!isPageOpened) {
             throw new AssertionError("Page was not opened");
         }
-
-//        int secondsCount = 0;
-//        boolean isPageOpenedIndicator = isPageOpened();
-//        while (!isPageOpenedIndicator && secondsCount < 5){
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            secondsCount++;
-//            isPageOpenedIndicator = isPageOpened();
-//        }
-
-
+        return true;
     }
 }

@@ -4,18 +4,21 @@ import baseEntities.BaseStep;
 import core.BrowserService;
 import pages.DashboardPage;
 
-public class DashboardPageSteps extends BaseStep {
+public class DashboardPageSteps extends BaseStep<DashboardPage> {
+
     public DashboardPageSteps(BrowserService browserService) {
-        super(browserService);
+        super(browserService, DashboardPage.class);
     }
 
     @Override
-    public DashboardPage getPageInstance(boolean openByUrl) {
-        return new DashboardPage(browserService, openByUrl);
+    public DashboardPageSteps openPage() {
+        this.page.open();
+        return this;
     }
 
     public AddProjectPageSteps openAddProjectPage(){
-        new DashboardPage(browserService, false).getSidebarProjectAddBtn().click();
+        this.page.getSidebarProjectAddBtn().click();
         return new AddProjectPageSteps(browserService);
     }
+
 }

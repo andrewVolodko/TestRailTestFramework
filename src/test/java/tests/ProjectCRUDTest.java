@@ -25,7 +25,9 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
     @BeforeClass
     @Parameters({"validEmail", "validPassword"})
     public void login(String email, String password){
-        this.dashboardPageSteps = new LoginPageSteps(browserService).loginWithCorrectCreds(email, password);
+        this.dashboardPageSteps = new LoginPageSteps(browserService)
+                .openPage()
+                .loginWithCorrectCreds(email, password);
     }
 
     @Test(dataProvider = "projectDataProvider")
@@ -33,9 +35,8 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
         var adminProjectsPage = this.dashboardPageSteps
                 .openAddProjectPage()
                 .addNewProject(project)
-                .getPageInstance(false);
+                .getPageInstance();
 
         Assert.assertTrue(adminProjectsPage.getProjectRowByName(project.getName()).getProjectNameLink().isDisplayed());
     }
-
 }

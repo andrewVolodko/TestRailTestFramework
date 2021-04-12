@@ -18,14 +18,14 @@ public class AddProjectPage extends BasePage {
     private static final By projectMultiModeRadioBtnBy = By.id("suite_mode_multi");
     private static final By addProjectBtnBy = By.id("accept");
 
-    public AddProjectPage(BrowserService browserService, boolean openByUrl) {
-        super(browserService, openByUrl);
+    public AddProjectPage(BrowserService browserService) {
+        super(browserService);
     }
 
     @Override
-    public AddProjectPage open() {
-        driver.get(baseUrl + PATH);
-        return this;
+    public void open() {
+        this.driver.get(baseUrl + PATH);
+        super.open();
     }
 
     @Override

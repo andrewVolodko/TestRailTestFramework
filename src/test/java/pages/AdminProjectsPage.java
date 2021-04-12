@@ -14,14 +14,14 @@ public class AdminProjectsPage extends BasePage {
     private static final By projectEditBtnBy = By.className("icon-small-edit");
     private static final By projectDeleteBtnBy = By.className("icon-small-delete");
 
-    public AdminProjectsPage(BrowserService browserService, boolean openByUrl) {
-        super(browserService, openByUrl);
+    public AdminProjectsPage(BrowserService browserService) {
+        super(browserService);
     }
 
     @Override
-    public BasePage open() {
-        driver.get(baseUrl + PATH);
-        return this;
+    public void open() {
+        this.driver.get(baseUrl + PATH);
+        super.open();
     }
 
     @Override

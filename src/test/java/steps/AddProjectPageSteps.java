@@ -1,34 +1,35 @@
 package steps;
 
-import baseEntities.BasePage;
 import baseEntities.BaseStep;
 import core.BrowserService;
 import models.ProjectModel;
 import pages.AddProjectPage;
 
-public class AddProjectPageSteps extends BaseStep {
+public class AddProjectPageSteps extends BaseStep<AddProjectPage> {
+
     public AddProjectPageSteps(BrowserService browserService) {
-        super(browserService);
+        super(browserService, AddProjectPage.class);
     }
 
     @Override
-    public BasePage getPageInstance(boolean openByUrl) {
-        return new AddProjectPage(browserService, openByUrl);
+    public AddProjectPageSteps openPage() {
+        this.page.open();
+        return this;
     }
 
     public AdminProjectsPageSteps addNewProject(ProjectModel project){
-        var addProjectPage = new AddProjectPage(browserService, false);
-        addProjectPage.getProjectNameInput().sendKeys(project.getName());
-        addProjectPage.getProjectAnnouncementsInput().sendKeys(project.getAnnouncement());
+        var addProjectPage = new AddProjectPage(browserService);
+        this.page.getProjectNameInput().sendKeys(project.getName());
+        this.page.getProjectAnnouncementsInput().sendKeys(project.getAnnouncement());
         if(project.isShowAnnouncement())
-            addProjectPage.getProjectShowAnnouncementsCheckbox().click();
+            this.page.getProjectShowAnnouncementsCheckbox().click();
         var modeRadioBtn = switch (project.getProjectType()){
-            case SINGLE_FOR_ALL_CASES -> addProjectPage.getProjectSingleModeRadioBtn();
-            case SINGLE_FOR_WITH_BASELINE -> addProjectPage.getProjectSingleBaselineModeRadioBtn();
-            case MULTIPLE -> addProjectPage.getProjectMultiModeRadioBtn();
+            case SINGLE_FOR_ALL_CASES -> this.page.getProjectSingleModeRadioBtn();
+            case SINGLE_FOR_WITH_BASELINE -> this.page.getProjectSingleBaselineModeRadioBtn();
+            case MULTIPLE -> this.page.getProjectMultiModeRadioBtn();
         };
         modeRadioBtn.click();
-        addProjectPage.getAddProjectBtn().click();
+        this.page.getAddProjectBtn().click();
         return new AdminProjectsPageSteps(browserService);
     }
 }

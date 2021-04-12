@@ -4,31 +4,31 @@ import baseEntities.BaseStep;
 import core.BrowserService;
 import pages.LoginPage;
 
-public class LoginPageSteps extends BaseStep {
+public class LoginPageSteps extends BaseStep<LoginPage> {
+
+
     public LoginPageSteps(BrowserService browserService) {
-        super(browserService);
+        super(browserService, LoginPage.class);
     }
 
     @Override
-    public LoginPage getPageInstance(boolean openByUrl) {
-        return new LoginPage(browserService, openByUrl);
+    public LoginPageSteps openPage() {
+        this.page.open();
+        return this;
     }
 
-
     public DashboardPageSteps loginWithCorrectCreds(String email, String pass){
-        var loginPage = new LoginPage(browserService, true);
-        loginPage.getEmailInput().sendKeys(email);
-        loginPage.getPassInput().sendKeys(pass);
-        loginPage.getLoginBtn().click();
+        this.page.getEmailInput().sendKeys(email);
+        this.page.getPassInput().sendKeys(pass);
+        this.page.getLoginBtn().click();
 
         return new DashboardPageSteps(browserService);
     }
     public LoginPageSteps loginWithInсorrectCreds(String email, String pass){
-        var loginPage = new LoginPage(browserService, true);
-        loginPage.getEmailInput().sendKeys(email);
-        loginPage.getPassInput().sendKeys(pass);
-        loginPage.getLoginBtn().click();
+        this.page.getEmailInput().sendKeys(email);
+        this.page.getPassInput().sendKeys(pass);
+        this.page.getLoginBtn().click();
 
-        return new LoginPageSteps(browserService);
+        return this;
     }
 }
