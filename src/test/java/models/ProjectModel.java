@@ -23,8 +23,9 @@ public class ProjectModel {
         return name;
     }
 
-    public void setName(String name) {
+    public ProjectModel setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getAnnouncement() {

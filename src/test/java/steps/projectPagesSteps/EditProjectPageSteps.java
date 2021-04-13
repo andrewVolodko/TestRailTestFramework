@@ -21,6 +21,7 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage>{
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();
         this.fillProjectData(project);
+        this.page.setCheckboxState(this.page.getCompletedProjectCheckboxBy(), project.getIsCompleted());
         this.page.getAddProjectBtn().click();
         return new AdminProjectsPageSteps(this.browserService);
     }

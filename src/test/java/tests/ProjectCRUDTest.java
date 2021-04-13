@@ -8,14 +8,20 @@ import steps.AdminProjectsPageSteps;
 import steps.DashboardPageSteps;
 import steps.LoginPageSteps;
 import testData.StaticDataProvider;
+import utils.Randomizer;
 
 
 public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
 
-    private String projectName;
+    private final ProjectModel curProjectData;
 
     private DashboardPageSteps dashboardPageSteps;
     private AdminProjectsPageSteps adminProjectsPageSteps;
+
+    @Factory(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class)
+    public ProjectCRUDTest(ProjectModel projectData) {
+        this.curProjectData = projectData;
+    }
 
     @BeforeClass
     @Parameters({"validEmail", "validPassword"})
@@ -25,42 +31,38 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
                 .loginWithCorrectCreds(email, password);
     }
 
-    @Test(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class)
-    public void addProjectTest(ProjectModel project) {
+    @Test
+    public void addProjectTest() {
         this.adminProjectsPageSteps = this.dashboardPageSteps
                 .openAddProjectPage()
-                .addNewProject(project);
+                .addNewProject(curProjectData);
 
         var createdProjectNameLink = this.adminProjectsPageSteps
                 .getPageInstance()
-                .getProjectRowByName(project.getName())
+                .getProjectRowByName(curProjectData.getName())
                 .getProjectNameLink();
         Assert.assertTrue(createdProjectNameLink.isDisplayed());
-
-        this.projectName = project.getName();
     }
 
-    @Test(dependsOnMethods = "addProjectTest", dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class)
-    public void editProjectTest(ProjectModel project) {
+    @Test (dependsOnMethods = "addProjectTest")
+    public void editProjectTest() {
         var editedProject = this.adminProjectsPageSteps
-                .openEditProjectPageByName(this.projectName)
-                .editProject(project)
-                .openEditProjectPageByName(project.getName())
+                .openEditProjectPageByName(curProjectData.getName())
+                .editProject(curProjectData.setName(Randomizer.getRandomString(10)))
+                .openEditProjectPageByName(curProjectData.getName())
                 .getProjectData();
 
-        Assert.assertEquals(editedProject, project);
-
-        this.projectName = project.getName();
+        Assert.assertEquals(editedProject, curProjectData);
     }
 
     @Test(dependsOnMethods = "editProjectTest")
     public void deleteProjectTest(){
         var adminProjectsPageSteps = new AdminProjectsPageSteps(browserService).openPage();
         var adminProjectsPage = adminProjectsPageSteps
-                .deleteProjectByName(this.projectName)
+                .deleteProjectByName(curProjectData.getName())
                 .getPageInstance();
 
-        Assert.assertFalse(adminProjectsPageSteps.isProjectExisted(this.projectName));
+        Assert.assertFalse(adminProjectsPageSteps.isProjectExisted(curProjectData.getName()));
         Assert.assertEquals(adminProjectsPage.getSuccessProjectCRUDMessage().getText(),
                 "Successfully deleted the project.");
     }
