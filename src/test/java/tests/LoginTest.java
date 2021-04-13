@@ -3,9 +3,11 @@ package tests;
 import baseTestTemplates.BaseTestWithMethodDriverInitialization;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import steps.LoginPageSteps;
+
 
 public class LoginTest extends BaseTestWithMethodDriverInitialization {
 

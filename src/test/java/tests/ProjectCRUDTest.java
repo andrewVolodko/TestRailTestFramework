@@ -13,6 +13,7 @@ import steps.DashboardPageSteps;
 import steps.LoginPageSteps;
 import utils.Randomizer;
 
+
 public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
 
     private String projectName;
@@ -27,7 +28,7 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
                         "Project - " + Randomizer.getRandomString(10),
                         "",
                         true,
-                        ProjectMode.MULTIPLE)
+                        ProjectMode.SINGLE_FOR_ALL_CASES)
                 }
         };
     }
@@ -46,12 +47,11 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
                 .openAddProjectPage()
                 .addNewProject(project);
 
-        Assert.assertTrue(
-                this.adminProjectsPageSteps
-                        .getPageInstance()
-                        .getProjectRowByName(project.getName())
-                        .getProjectNameLink()
-                        .isDisplayed());
+        var createdProjectNameLink = this.adminProjectsPageSteps
+                .getPageInstance()
+                .getProjectRowByName(project.getName())
+                .getProjectNameLink();
+        Assert.assertTrue(createdProjectNameLink.isDisplayed());
 
         this.projectName = project.getName();
     }

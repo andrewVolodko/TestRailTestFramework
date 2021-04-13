@@ -3,6 +3,7 @@ package steps;
 import baseEntities.BaseStep;
 import core.BrowserService;
 import pages.DashboardPage;
+import steps.projectPagesSteps.AddProjectPageSteps;
 
 public class DashboardPageSteps extends BaseStep<DashboardPage> {
 
@@ -16,9 +17,9 @@ public class DashboardPageSteps extends BaseStep<DashboardPage> {
         return this;
     }
 
-    public ProjectPageSteps openAddProjectPage(){
+    public AddProjectPageSteps openAddProjectPage(){
         this.page.getSidebarProjectAddBtn().click();
-        return new ProjectPageSteps(this.browserService);
+        return new AddProjectPageSteps(this.browserService);
     }
 
 }
