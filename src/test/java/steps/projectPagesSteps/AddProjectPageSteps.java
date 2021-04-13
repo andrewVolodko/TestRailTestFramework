@@ -1,7 +1,6 @@
 package steps.projectPagesSteps;
 
 import core.BrowserService;
-import enums.ProjectMode;
 import models.ProjectModel;
 import pages.projectPages.AddProjectPage;
 import steps.AdminProjectsPageSteps;

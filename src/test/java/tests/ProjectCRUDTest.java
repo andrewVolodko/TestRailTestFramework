@@ -1,7 +1,6 @@
 package tests;
 
 import baseTestTemplates.BaseTestWithClassDriverInitialization;
-import enums.ProjectMode;
 import models.ProjectModel;
 import org.testng.Assert;
 import org.testng.annotations.*;

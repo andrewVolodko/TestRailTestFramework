@@ -24,7 +24,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
 
         return new DashboardPageSteps(this.browserService);
     }
-    public LoginPageSteps loginWithInсorrectCreds(String email, String pass){
+    public LoginPageSteps loginWithIncorrectCreds(String email, String pass){
         this.page.getEmailInput().sendKeys(email);
         this.page.getPassInput().sendKeys(pass);
         this.page.getLoginBtn().click();

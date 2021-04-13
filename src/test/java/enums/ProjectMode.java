@@ -1,7 +1,5 @@
 package enums;
 
-import java.util.NoSuchElementException;
-
 public enum ProjectMode {
     SINGLE_FOR_ALL_CASES("1"),
     SINGLE_FOR_WITH_BASELINE("2"),
