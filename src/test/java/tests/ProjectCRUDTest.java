@@ -44,7 +44,7 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
         Assert.assertTrue(createdProjectNameLink.isDisplayed());
     }
 
-    @Test (dependsOnMethods = "addProjectTest")
+    @Test(dependsOnMethods = "addProjectTest")
     public void editProjectTest() {
         var editedProject = this.adminProjectsPageSteps
                 .openEditProjectPageByName(curProjectData.getName())
