@@ -17,7 +17,7 @@ public class AddProjectPageSteps extends BaseProjectPagesStep<AddProjectPage> {
         return this;
     }
 
-    public AdminProjectsPageSteps addNewProject(ProjectModel project){
+    public AdminProjectsPageSteps addNewProject(ProjectModel project) {
         this.fillProjectData(project);
         this.page.getAddProjectBtn().click();
         return new AdminProjectsPageSteps(this.browserService);

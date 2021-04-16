@@ -1,7 +1,7 @@
 package models;
 
-
 import enums.ProjectMode;
+import utils.Randomizer;
 
 import java.util.Objects;
 
@@ -17,6 +17,18 @@ public class ProjectModel {
         this.announcement = announcement;
         this.showAnnouncement = showAnnouncement;
         this.projectMode = projectMode;
+    }
+
+    public static ProjectModel getDefault() {
+        return new ProjectModel(
+                "Project" + Randomizer.getRandomString(10),
+                "Announcement" + Randomizer.getRandomString(100),
+                true,
+                ProjectMode.SINGLE_FOR_ALL_CASES);
+    }
+
+    public static ProjectModel getDefault(boolean isCompleted) {
+        return getDefault().setIsCompleted(isCompleted);
     }
 
     public String getName() {

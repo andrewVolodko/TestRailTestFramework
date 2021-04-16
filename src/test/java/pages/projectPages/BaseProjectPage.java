@@ -1,11 +1,11 @@
 package pages.projectPages;
 
-import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pages.common.CommonHeader;
 
-public abstract class BaseProjectPage extends BasePage {
+public abstract class BaseProjectPage extends CommonHeader {
 
     // Locators
     protected static final By projectTabBy = By.id("projects-tabs-project");
@@ -39,18 +39,18 @@ public abstract class BaseProjectPage extends BasePage {
     }
 
     public WebElement getProjectSingleBaselineModeRadioBtn() {
-        return this.driver.findElement(projectSingleBaselineModeRadioBtnBy);
+        return this.driver.findElement(projectSingleBaselineModeRadioBtnBy); // исправить на интерполяцию локатора
     }
 
     public WebElement getProjectMultiModeRadioBtn() {
         return this.driver.findElement(projectMultiModeRadioBtnBy);
     }
 
-    public WebElement getAddProjectBtn(){
+    public WebElement getAddProjectBtn() {
         return this.driver.findElement(addProjectBtnBy);
     }
 
-    public WebElement getSelectedProjectMode(){
+    public WebElement getSelectedProjectMode() {
         return this.driver.findElement(selectedProjectModeRadioBtnBy);
     }
 }

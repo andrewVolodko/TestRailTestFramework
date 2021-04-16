@@ -11,13 +11,13 @@ public enum ProjectMode {
         this.value = value;
     }
 
-    public String getValue(){
+    public String getValue() {
         return this.value;
     }
 
-    public static ProjectMode getEnumByValue(String value){
-        for(var mod : ProjectMode.values()){
-            if(mod.getValue().equals(value))
+    public static ProjectMode getEnumByValue(String value) {
+        for (var mod : ProjectMode.values()) {
+            if (mod.getValue().equals(value))
                 return mod;
         }
         throw new IllegalArgumentException("No enum constant with value" + value);

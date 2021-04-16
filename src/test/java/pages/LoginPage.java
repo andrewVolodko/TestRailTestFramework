@@ -14,15 +14,16 @@ public class LoginPage extends BasePage {
     protected static final By errorLabelBy = By.className("error-text");
     protected static final By fieldErrorBy = By.className("loginpage-message-image");
 
-    public LoginPage(BrowserService browserService){
+    public LoginPage(BrowserService browserService) {
         super(browserService);
     }
 
     @Override
-    public void open(){
+    public void open() {
         this.driver.get(baseUrl);
         super.open();
     }
+
     @Override
     public By getPageOpenedIndicatorEl() {
         return loginBtnBy;
@@ -45,7 +46,7 @@ public class LoginPage extends BasePage {
         return this.driver.findElement(errorLabelBy);
     }
 
-    public WebElement getFieldError(){
+    public WebElement getFieldError() {
         return this.driver.findElement(fieldErrorBy);
     }
 }

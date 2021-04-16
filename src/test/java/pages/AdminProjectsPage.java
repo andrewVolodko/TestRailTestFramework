@@ -1,12 +1,12 @@
 package pages;
 
-import baseEntities.BasePage;
 import core.BrowserService;
-import models.ProjectRowModel;
+import models.AdminPageProjectRowModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pages.common.CommonHeader;
 
-public class AdminProjectsPage extends BasePage {
+public class AdminProjectsPage extends CommonHeader {
     private static final String PATH = "index.php?/admin/projects/overview";
 
     private static final By projectsPageTitleBy = By.xpath("//div[contains(@class, 'page_title') and contains(text(), 'Projects')]");
@@ -31,15 +31,15 @@ public class AdminProjectsPage extends BasePage {
         return projectsPageTitleBy;
     }
 
-    public ProjectRowModel getProjectRowByName(String projectName){
+    public AdminPageProjectRowModel getProjectRowByName(String projectName) {
         var projectRow = this.driver.findElement(By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
-        return new ProjectRowModel(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
+        return new AdminPageProjectRowModel(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
     }
 
-    public WebElement getSuccessProjectCRUDMessage(){
+    public WebElement getSuccessProjectCRUDMessage() {
         return this.driver.findElement(successProjectCRUDMessageBy);
     }
 }

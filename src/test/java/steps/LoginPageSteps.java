@@ -17,14 +17,15 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         return this;
     }
 
-    public DashboardPageSteps loginWithCorrectCreds(String email, String pass){
+    public DashboardPageSteps loginWithCorrectCreds(String email, String pass) {
         this.page.getEmailInput().sendKeys(email);
         this.page.getPassInput().sendKeys(pass);
         this.page.getLoginBtn().click();
 
         return new DashboardPageSteps(this.browserService);
     }
-    public LoginPageSteps loginWithIncorrectCreds(String email, String pass){
+
+    public LoginPageSteps loginWithIncorrectCreds(String email, String pass) {
         this.page.getEmailInput().sendKeys(email);
         this.page.getPassInput().sendKeys(pass);
         this.page.getLoginBtn().click();

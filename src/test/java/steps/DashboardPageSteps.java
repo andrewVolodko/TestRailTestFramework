@@ -1,11 +1,11 @@
 package steps;
 
-import baseEntities.BaseStep;
 import core.BrowserService;
 import pages.DashboardPage;
+import steps.commonSteps.CommonHeaderSteps;
 import steps.projectPagesSteps.AddProjectPageSteps;
 
-public class DashboardPageSteps extends BaseStep<DashboardPage> {
+public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
 
     public DashboardPageSteps(BrowserService browserService) {
         super(browserService, DashboardPage.class);
@@ -17,7 +17,7 @@ public class DashboardPageSteps extends BaseStep<DashboardPage> {
         return this;
     }
 
-    public AddProjectPageSteps openAddProjectPage(){
+    public AddProjectPageSteps openAddProjectPage() {
         this.page.getSidebarProjectAddBtn().click();
         return new AddProjectPageSteps(this.browserService);
     }

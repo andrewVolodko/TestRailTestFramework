@@ -11,7 +11,7 @@ public class ConfirmationDeleteDialog extends BasePage {
     private static final By dialogContainerBy = By.cssSelector("[aria-labelledby]");
     private static final By title = By.id("ui-dialog-title-deleteDialog");
     private static final By deleteCheckboxBy = By.tagName("input");
-    private static final By okBtnBy= By.className("button-ok");
+    private static final By okBtnBy = By.className("button-ok");
 
     public ConfirmationDeleteDialog(BrowserService browserService) {
         super(browserService);
@@ -26,11 +26,11 @@ public class ConfirmationDeleteDialog extends BasePage {
         return getDialogContainer().findElement(deleteCheckboxBy);
     }
 
-    public WebElement getOkBtn(){
+    public WebElement getOkBtn() {
         return getDialogContainer().findElement(okBtnBy);
     }
 
-    private WebElement getDialogContainer(){
+    private WebElement getDialogContainer() {
         return this.driver.findElement(dialogContainerBy);
     }
 }

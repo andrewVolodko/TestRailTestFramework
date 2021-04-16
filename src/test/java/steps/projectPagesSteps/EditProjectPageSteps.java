@@ -6,7 +6,7 @@ import models.ProjectModel;
 import pages.projectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
-public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage>{
+public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> {
     public EditProjectPageSteps(BrowserService browserService) {
         super(browserService, EditProjectPage.class);
     }
@@ -17,7 +17,7 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage>{
         return this;
     }
 
-    public AdminProjectsPageSteps editProject(ProjectModel project){
+    public AdminProjectsPageSteps editProject(ProjectModel project) {
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();
         this.fillProjectData(project);
@@ -26,7 +26,7 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage>{
         return new AdminProjectsPageSteps(this.browserService);
     }
 
-    public ProjectModel getProjectData(){
+    public ProjectModel getProjectData() {
         return new ProjectModel(
                 this.page.getProjectNameInput().getAttribute("value"),
                 this.page.getProjectAnnouncementsInput().getAttribute("value"),
