@@ -17,7 +17,7 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
     private DashboardPageSteps dashboardPageSteps;
     private AdminProjectsPageSteps adminProjectsPageSteps;
 
-    @Factory(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class, indices = {0})
+    @Factory(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class)
     public ProjectCRUDTest(ProjectModel projectData) {
         this.curProjectData = projectData;
     }

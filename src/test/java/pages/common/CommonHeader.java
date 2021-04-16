@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import wrappers.UIElement;
 
 public abstract class CommonHeader extends BasePage {
     // Locators
@@ -13,7 +14,7 @@ public abstract class CommonHeader extends BasePage {
         super(browserService);
     }
 
-    public WebElement getDashboardTabBtn(){
-        return this.driver.findElement(dashboardTabBtnBy);
+    public UIElement getDashboardTabBtn(){
+        return new UIElement(this.driver, dashboardTabBtnBy);
     }
 }

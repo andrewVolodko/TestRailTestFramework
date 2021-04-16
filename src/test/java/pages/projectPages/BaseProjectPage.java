@@ -2,7 +2,7 @@ package pages.projectPages;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import wrappers.UIElement;
 import pages.common.CommonHeader;
 
 public abstract class BaseProjectPage extends CommonHeader {
@@ -22,35 +22,35 @@ public abstract class BaseProjectPage extends CommonHeader {
         super(browserService);
     }
 
-    public WebElement getProjectNameInput() {
-        return this.driver.findElement(projectNameInputBy);
+    public UIElement getProjectNameInput() {
+        return new UIElement(this.driver, projectNameInputBy);
     }
 
-    public WebElement getProjectAnnouncementsInput() {
-        return this.driver.findElement(projectAnnouncementsInputBy);
+    public UIElement getProjectAnnouncementsInput() {
+        return new UIElement(this.driver, projectAnnouncementsInputBy);
     }
 
-    public WebElement getProjectShowAnnouncementsCheckbox() {
-        return this.driver.findElement(projectShowAnnouncementsCheckboxBy);
+    public UIElement getProjectShowAnnouncementsCheckbox() {
+        return new UIElement(this.driver, projectShowAnnouncementsCheckboxBy);
     }
 
-    public WebElement getProjectSingleModeRadioBtn() {
-        return this.driver.findElement(projectSingleModeRadioBtnBy);
+    public UIElement getProjectSingleModeRadioBtn() {
+        return new UIElement(this.driver, projectSingleModeRadioBtnBy);
     }
 
-    public WebElement getProjectSingleBaselineModeRadioBtn() {
-        return this.driver.findElement(projectSingleBaselineModeRadioBtnBy); // исправить на интерполяцию локатора
+    public UIElement getProjectSingleBaselineModeRadioBtn() {
+        return new UIElement(this.driver, projectSingleBaselineModeRadioBtnBy); // исправить на RadioBtn обертку
     }
 
-    public WebElement getProjectMultiModeRadioBtn() {
-        return this.driver.findElement(projectMultiModeRadioBtnBy);
+    public UIElement getProjectMultiModeRadioBtn() {
+        return new UIElement(this.driver, projectMultiModeRadioBtnBy);
     }
 
-    public WebElement getAddProjectBtn() {
-        return this.driver.findElement(addProjectBtnBy);
+    public UIElement getAddProjectBtn() {
+        return new UIElement(this.driver, addProjectBtnBy);
     }
 
-    public WebElement getSelectedProjectMode() {
-        return this.driver.findElement(selectedProjectModeRadioBtnBy);
+    public UIElement getSelectedProjectMode() {
+        return new UIElement(this.driver, selectedProjectModeRadioBtnBy);
     }
 }

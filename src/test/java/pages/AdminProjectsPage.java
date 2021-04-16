@@ -3,8 +3,8 @@ package pages;
 import core.BrowserService;
 import models.AdminPageProjectRowModel;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.common.CommonHeader;
+import wrappers.UIElement;
 
 public class AdminProjectsPage extends CommonHeader {
     private static final String PATH = "index.php?/admin/projects/overview";
@@ -31,15 +31,17 @@ public class AdminProjectsPage extends CommonHeader {
         return projectsPageTitleBy;
     }
 
+
+    // Замена на использование обертки Table
     public AdminPageProjectRowModel getProjectRowByName(String projectName) {
-        var projectRow = this.driver.findElement(By.xpath(projectRowLocator.replace("%projectName%", projectName)));
+        var projectRow = new UIElement(this.driver, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
         return new AdminPageProjectRowModel(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
     }
 
-    public WebElement getSuccessProjectCRUDMessage() {
-        return this.driver.findElement(successProjectCRUDMessageBy);
+    public UIElement getSuccessProjectCRUDMessage() {
+        return new UIElement(this.driver, successProjectCRUDMessageBy);
     }
 }

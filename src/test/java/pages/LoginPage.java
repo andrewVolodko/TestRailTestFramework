@@ -3,7 +3,7 @@ package pages;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
 
@@ -30,23 +30,23 @@ public class LoginPage extends BasePage {
     }
 
 
-    public WebElement getEmailInput() {
-        return this.driver.findElement(emailInputBy);
+    public UIElement getEmailInput() {
+        return new UIElement(this.driver, emailInputBy);
     }
 
-    public WebElement getPassInput() {
-        return this.driver.findElement(passInputBy);
+    public UIElement getPassInput() {
+        return new UIElement(this.driver, passInputBy);
     }
 
-    public WebElement getLoginBtn() {
-        return this.driver.findElement(loginBtnBy);
+    public UIElement getLoginBtn() {
+        return new UIElement(this.driver, loginBtnBy);
     }
 
-    public WebElement getErrorLabel() {
-        return this.driver.findElement(errorLabelBy);
+    public UIElement getErrorLabel() {
+        return new UIElement(this.driver, errorLabelBy);
     }
 
-    public WebElement getFieldError() {
-        return this.driver.findElement(fieldErrorBy);
+    public UIElement getFieldError() {
+        return new UIElement(this.driver, fieldErrorBy);
     }
 }

@@ -1,27 +1,27 @@
 package models;
 
-import org.openqa.selenium.WebElement;
+import wrappers.UIElement;
 
 public class AdminPageProjectRowModel {
-    private final WebElement projectNameLink;
-    private final WebElement projectEditBtn;
-    private final WebElement projectDeleteBtn;
+    private final UIElement projectNameLink;
+    private final UIElement projectEditBtn;
+    private final UIElement projectDeleteBtn;
 
-    public AdminPageProjectRowModel(WebElement projectNameLink, WebElement projectEditBtn, WebElement projectDeleteBtn) {
+    public AdminPageProjectRowModel(UIElement projectNameLink, UIElement projectEditBtn, UIElement projectDeleteBtn) {
         this.projectNameLink = projectNameLink;
         this.projectEditBtn = projectEditBtn;
         this.projectDeleteBtn = projectDeleteBtn;
     }
 
-    public WebElement getProjectNameLink() {
-        return projectNameLink;
+    public UIElement getProjectNameLink() {
+        return this.projectNameLink;
     }
 
-    public WebElement getProjectEditBtn() {
-        return projectEditBtn;
+    public UIElement getProjectEditBtn() {
+        return this.projectEditBtn;
     }
 
-    public WebElement getProjectDeleteBtn() {
-        return projectDeleteBtn;
+    public UIElement getProjectDeleteBtn() {
+        return this.projectDeleteBtn;
     }
 }
