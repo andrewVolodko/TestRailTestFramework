@@ -2,6 +2,8 @@ package pages.projectPages;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import wrappers.Button;
+import wrappers.Checkbox;
 import wrappers.UIElement;
 import pages.common.CommonHeader;
 
@@ -30,8 +32,8 @@ public abstract class BaseProjectPage extends CommonHeader {
         return new UIElement(this.driver, projectAnnouncementsInputBy);
     }
 
-    public UIElement getProjectShowAnnouncementsCheckbox() {
-        return new UIElement(this.driver, projectShowAnnouncementsCheckboxBy);
+    public Checkbox getProjectShowAnnouncementsCheckbox() {
+        return new Checkbox(this.driver, projectShowAnnouncementsCheckboxBy);
     }
 
     public UIElement getProjectSingleModeRadioBtn() {
@@ -46,11 +48,12 @@ public abstract class BaseProjectPage extends CommonHeader {
         return new UIElement(this.driver, projectMultiModeRadioBtnBy);
     }
 
-    public UIElement getAddProjectBtn() {
-        return new UIElement(this.driver, addProjectBtnBy);
-    }
 
     public UIElement getSelectedProjectMode() {
         return new UIElement(this.driver, selectedProjectModeRadioBtnBy);
+    }
+
+    public Button getAddProjectBtn() {
+        return new Button(this.driver, addProjectBtnBy);
     }
 }

@@ -2,6 +2,7 @@ package pages.projectPages;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import wrappers.Checkbox;
 import wrappers.UIElement;
 
 public class EditProjectPage extends BaseProjectPage {
@@ -18,7 +19,7 @@ public class EditProjectPage extends BaseProjectPage {
         return completedProjectCheckboxBy;
     }
 
-    public UIElement getCompletedProjectCheckboxBy() {
-        return new UIElement(this.driver, completedProjectCheckboxBy);
+    public Checkbox getCompletedProjectCheckboxBy() {
+        return new Checkbox(this.driver, completedProjectCheckboxBy);
     }
 }

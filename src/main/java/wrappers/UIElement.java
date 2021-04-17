@@ -1,9 +1,11 @@
 package wrappers;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import utils.Waiter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +31,14 @@ public class UIElement implements WebElement {
         this.actions = new Actions(this.driver);
         this.jsExecutor = (JavascriptExecutor) this.driver;
         this.waiter = new Waiter(this.driver);
+    }
+
+    public Checkbox getCheckbox(){
+        return new Checkbox(this);
+    }
+
+    public Button getButton(){
+        return new Button(this);
     }
 
     @Override
@@ -90,6 +100,10 @@ public class UIElement implements WebElement {
 
     @Override
     public List<WebElement> findElements(By by) {
+        return this.element.findElements(by);
+    }
+
+    public List<UIElement> findUIElements(By by){
         return this.element.findElements(by)
                 .stream()
                 .map(el -> new UIElement(this.driver, el))
@@ -129,5 +143,11 @@ public class UIElement implements WebElement {
     @Override
     public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
         return this.element.getScreenshotAs(outputType);
+    }
+
+    public void hover() {
+        actions.moveToElement(element)
+                .build()
+                .perform();
     }
 }

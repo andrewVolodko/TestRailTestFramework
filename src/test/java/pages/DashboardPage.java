@@ -3,7 +3,7 @@ package pages;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import pages.common.CommonHeader;
-import wrappers.UIElement;
+import wrappers.Button;
 
 public class DashboardPage extends CommonHeader {
     private static final String PATH = "index.php?/dashboard";
@@ -26,7 +26,7 @@ public class DashboardPage extends CommonHeader {
         return sidebarProjectAddBtnBy;
     }
 
-    public UIElement getSidebarProjectAddBtn() {
-        return new UIElement(this.driver, sidebarProjectAddBtnBy);
+    public Button getSidebarProjectAddBtn() {
+        return new Button(this.driver, sidebarProjectAddBtnBy);
     }
 }

@@ -3,6 +3,7 @@ package pages;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
+import wrappers.Button;
 import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
@@ -38,8 +39,8 @@ public class LoginPage extends BasePage {
         return new UIElement(this.driver, passInputBy);
     }
 
-    public UIElement getLoginBtn() {
-        return new UIElement(this.driver, loginBtnBy);
+    public Button getLoginBtn() {
+        return new Button(this.driver, loginBtnBy);
     }
 
     public UIElement getErrorLabel() {

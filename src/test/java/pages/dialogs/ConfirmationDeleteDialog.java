@@ -3,6 +3,8 @@ package pages.dialogs;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
+import wrappers.Button;
+import wrappers.Checkbox;
 import wrappers.UIElement;
 
 public class ConfirmationDeleteDialog extends BasePage {
@@ -22,12 +24,12 @@ public class ConfirmationDeleteDialog extends BasePage {
         return title;
     }
 
-    public UIElement getDeleteCheckbox() {
-        return getDialogContainer().findElement(deleteCheckboxBy);
+    public Checkbox getDeleteCheckbox() {
+        return getDialogContainer().findElement(deleteCheckboxBy).getCheckbox();
     }
 
-    public UIElement getOkBtn() {
-        return getDialogContainer().findElement(okBtnBy);
+    public Button getOkBtn() {
+        return getDialogContainer().findElement(okBtnBy).getButton();
     }
 
     private UIElement getDialogContainer() {
