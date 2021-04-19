@@ -4,7 +4,6 @@ import core.BrowserService;
 import core.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -18,23 +17,19 @@ public abstract class BasePage {
     }
 
     public void open() {
-        waitUntilOnPage();
+        isPageOpened();
     }
 
-    protected abstract By getPageOpenedIndicatorEl();
+    protected abstract By getPageOpenedIndicatorElLocator();
 
-    protected boolean waitUntilOnPage() {
+    protected boolean isPageOpened() {
         var isPageOpened = browserService.getWait()
-                .waitForVisibility(getPageOpenedIndicatorEl())
+                .waitForVisibility(getPageOpenedIndicatorElLocator())
                 .isDisplayed();
 
         if (!isPageOpened) {
             throw new AssertionError("Page was not opened");
         }
         return true;
-    }
-
-    public void setCheckboxState(WebElement checkbox, boolean makeSelected){
-        if(checkbox.isSelected() != makeSelected) checkbox.click();
     }
 }

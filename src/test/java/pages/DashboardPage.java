@@ -6,7 +6,7 @@ import pages.common.CommonHeader;
 import wrappers.Button;
 
 public class DashboardPage extends CommonHeader {
-    private static final String PATH = "index.php?/dashboard";
+    private static final String PATH = "/dashboard";
 
     // Locators
     protected static final By sidebarProjectAddBtnBy = By.id("sidebar-projects-add");
@@ -22,7 +22,7 @@ public class DashboardPage extends CommonHeader {
     }
 
     @Override
-    protected By getPageOpenedIndicatorEl() {
+    protected By getPageOpenedIndicatorElLocator() {
         return sidebarProjectAddBtnBy;
     }
 

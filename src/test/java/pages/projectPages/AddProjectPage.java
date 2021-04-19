@@ -4,7 +4,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 
 public class AddProjectPage extends BaseProjectPage {
-    private static final String PATH = "index.php?/admin/projects/add";
+    private static final String PATH = "/admin/projects/add";
 
     public AddProjectPage(BrowserService browserService) {
         super(browserService);
@@ -17,7 +17,7 @@ public class AddProjectPage extends BaseProjectPage {
     }
 
     @Override
-    protected By getPageOpenedIndicatorEl() {
+    protected By getPageOpenedIndicatorElLocator() {
         return projectTabBy;
     }
 }

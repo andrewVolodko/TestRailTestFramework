@@ -17,10 +17,6 @@ public abstract class BaseStep<T extends BasePage> {
 
     public abstract BaseStep<T> openPage();
 
-    public boolean isOnPage(){
-        return this.page.waitUntilOnPage();
-    }
-
     public T getPageInstance(){
         if(pageClass == null) throw new NoClassDefFoundError("Page class was not defined.");
         T page = null;

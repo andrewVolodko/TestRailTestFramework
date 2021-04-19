@@ -20,7 +20,7 @@ public class ConfirmationDeleteDialog extends BasePage {
     }
 
     @Override
-    protected By getPageOpenedIndicatorEl() {
+    protected By getPageOpenedIndicatorElLocator() {
         return title;
     }
 

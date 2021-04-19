@@ -7,7 +7,7 @@ import pages.common.CommonHeader;
 import wrappers.UIElement;
 
 public class AdminProjectsPage extends CommonHeader {
-    private static final String PATH = "index.php?/admin/projects/overview";
+    private static final String PATH = "/admin/projects/overview";
 
     private static final By projectsPageTitleBy = By.xpath("//div[contains(@class, 'page_title') and contains(text(), 'Projects')]");
     private static final String projectRowLocator = "//a[text()='%projectName%']/ancestor::tr";
@@ -27,7 +27,7 @@ public class AdminProjectsPage extends CommonHeader {
     }
 
     @Override
-    protected By getPageOpenedIndicatorEl() {
+    protected By getPageOpenedIndicatorElLocator() {
         return projectsPageTitleBy;
     }
 

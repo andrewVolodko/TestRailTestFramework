@@ -1,11 +1,8 @@
 package wrappers;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import utils.Waiter;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,11 +30,11 @@ public class UIElement implements WebElement {
         this.waiter = new Waiter(this.driver);
     }
 
-    public Checkbox getCheckbox(){
+    public Checkbox getCheckbox() {
         return new Checkbox(this);
     }
 
-    public Button getButton(){
+    public Button getButton() {
         return new Button(this);
     }
 
@@ -55,7 +52,6 @@ public class UIElement implements WebElement {
                 jsExecutor.executeScript("arguments[0].click();", this.element);
             }
         }
-
     }
 
     @Override
@@ -103,7 +99,7 @@ public class UIElement implements WebElement {
         return this.element.findElements(by);
     }
 
-    public List<UIElement> findUIElements(By by){
+    public List<UIElement> findUIElements(By by) {
         return this.element.findElements(by)
                 .stream()
                 .map(el -> new UIElement(this.driver, el))

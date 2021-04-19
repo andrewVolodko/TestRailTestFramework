@@ -15,7 +15,7 @@ public class EditProjectPage extends BaseProjectPage {
     }
 
     @Override
-    protected By getPageOpenedIndicatorEl() {
+    protected By getPageOpenedIndicatorElLocator() {
         return completedProjectCheckboxBy;
     }
 
