@@ -4,6 +4,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Button;
 import wrappers.Checkbox;
+import wrappers.RadioBtnInterface;
 import wrappers.UIElement;
 import pages.common.CommonHeader;
 
@@ -14,9 +15,10 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectNameInputBy = By.id("name");
     private static final By projectAnnouncementsInputBy = By.id("announcement");
     private static final By projectShowAnnouncementsCheckboxBy = By.id("show_announcement");
-    private static final By projectSingleModeRadioBtnBy = By.id("suite_mode_single");
-    private static final By projectSingleBaselineModeRadioBtnBy = By.id("suite_mode_single_baseline");
-    private static final By projectMultiModeRadioBtnBy = By.id("suite_mode_multi");
+//    private static final By projectSingleModeRadioBtnBy = By.id("suite_mode_single");
+//    private static final By projectSingleBaselineModeRadioBtnBy = By.id("suite_mode_single_baseline");
+//    private static final By projectMultiModeRadioBtnBy = By.id("suite_mode_multi");
+    private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
     private static final By selectedProjectModeRadioBtnBy = By.cssSelector("[name=suite_mode][checked]");
     private static final By addProjectBtnBy = By.id("accept");
 
@@ -36,17 +38,21 @@ public abstract class BaseProjectPage extends CommonHeader {
         return new Checkbox(this.driver, projectShowAnnouncementsCheckboxBy);
     }
 
-    public UIElement getProjectSingleModeRadioBtn() {
-        return new UIElement(this.driver, projectSingleModeRadioBtnBy);
+    public RadioBtnInterface getProjectModeRadioBtnInterface(){
+        return new RadioBtnInterface(this.driver, projectModeRadioBtnBy);
     }
 
-    public UIElement getProjectSingleBaselineModeRadioBtn() {
-        return new UIElement(this.driver, projectSingleBaselineModeRadioBtnBy); // исправить на RadioBtn обертку
-    }
-
-    public UIElement getProjectMultiModeRadioBtn() {
-        return new UIElement(this.driver, projectMultiModeRadioBtnBy);
-    }
+//    public UIElement getProjectSingleModeRadioBtn() {
+//        return new UIElement(this.driver, projectSingleModeRadioBtnBy);
+//    }
+//
+//    public UIElement getProjectSingleBaselineModeRadioBtn() {
+//        return new UIElement(this.driver, projectSingleBaselineModeRadioBtnBy); // исправить на RadioBtnInterface обертку
+//    }
+//
+//    public UIElement getProjectMultiModeRadioBtn() {
+//        return new UIElement(this.driver, projectMultiModeRadioBtnBy);
+//    }
 
 
     public UIElement getSelectedProjectMode() {

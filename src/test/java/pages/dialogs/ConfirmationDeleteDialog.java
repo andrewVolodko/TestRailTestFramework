@@ -25,11 +25,11 @@ public class ConfirmationDeleteDialog extends BasePage {
     }
 
     public Checkbox getDeleteCheckbox() {
-        return getDialogContainer().findElement(deleteCheckboxBy).getCheckbox();
+        return getDialogContainer().findElement(deleteCheckboxBy).castToCheckbox();
     }
 
     public Button getOkBtn() {
-        return getDialogContainer().findElement(okBtnBy).getButton();
+        return getDialogContainer().findElement(okBtnBy).castToButton();
     }
 
     private UIElement getDialogContainer() {

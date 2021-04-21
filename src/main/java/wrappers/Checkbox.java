@@ -16,9 +16,6 @@ public class Checkbox {
 
     public void changeState(boolean makeSelected) {
         if (this.isSelected() != makeSelected) this.click();
-
-//            throw new ElementClickInterceptedException(
-//                    "Checkbox is already in " + (makeSelected ? "selected" : "unselected") + " state");
     }
 
     public boolean isSelected() {

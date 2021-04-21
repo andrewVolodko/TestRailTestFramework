@@ -10,7 +10,6 @@ public abstract class BaseTest {
     protected PropertyReader propertyReader;
 
     protected void disposeDriver() {
-        this.browserService.getDriver().close();
         this.browserService.getDriver().quit();
         this.browserService = null;
     }

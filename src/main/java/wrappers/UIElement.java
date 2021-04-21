@@ -30,12 +30,16 @@ public class UIElement implements WebElement {
         this.waiter = new Waiter(this.driver);
     }
 
-    public Checkbox getCheckbox() {
+    public Checkbox castToCheckbox() {
         return new Checkbox(this);
     }
 
-    public Button getButton() {
+    public Button castToButton() {
         return new Button(this);
+    }
+
+    public RadioBtnInterface getRadioBtnInterface(By radioBtnLocator){
+        return new RadioBtnInterface(this, radioBtnLocator);
     }
 
     @Override
@@ -145,5 +149,9 @@ public class UIElement implements WebElement {
         actions.moveToElement(element)
                 .build()
                 .perform();
+    }
+
+    public UIElement getParent(){
+       return this.findElement(By.xpath("./.."));
     }
 }
