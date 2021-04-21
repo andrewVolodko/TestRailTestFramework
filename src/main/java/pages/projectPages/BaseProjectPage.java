@@ -16,7 +16,7 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectAnnouncementsInputBy = By.id("announcement");
     private static final By projectShowAnnouncementsCheckboxBy = By.id("show_announcement");
     private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
-    private static final By selectedProjectModeRadioBtnBy = By.cssSelector("[name=suite_mode][checked]");
+//    private static final By selectedProjectModeRadioBtnBy = By.cssSelector("[name=suite_mode][checked]");
     private static final By addProjectBtnBy = By.id("accept");
 
     public BaseProjectPage(BrowserService browserService) {
@@ -39,9 +39,9 @@ public abstract class BaseProjectPage extends CommonHeader {
         return new RadioButtonInterface(this.driver, projectModeRadioBtnBy);
     }
 
-    public UIElement getSelectedProjectMode() {
-        return new UIElement(this.driver, selectedProjectModeRadioBtnBy);
-    }
+//    public UIElement getSelectedProjectMode() {
+//        return new UIElement(this.driver, selectedProjectModeRadioBtnBy);
+//    }
 
     public Button getAddProjectBtn() {
         return new Button(this.driver, addProjectBtnBy);

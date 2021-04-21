@@ -9,7 +9,9 @@ public class DashboardPage extends CommonHeader {
     private static final String PATH = "/dashboard";
 
     // Locators
-    protected static final By sidebarProjectAddBtnBy = By.id("sidebar-projects-add");
+    private static final By sidebarProjectAddBtnBy = By.id("sidebar-projects-add");
+    private static final By projectRowBy = By.xpath("//a[.='%projectName%']/ancestor::div[contains(@class, 'flex-projects-row')]");
+
 
     public DashboardPage(BrowserService browserService) {
         super(browserService);
@@ -29,4 +31,6 @@ public class DashboardPage extends CommonHeader {
     public Button getSidebarProjectAddBtn() {
         return new Button(this.driver, sidebarProjectAddBtnBy);
     }
+
+
 }

@@ -43,6 +43,10 @@ public class UIElement implements WebElement {
         return new RadioButtonInterface(this, radioBtnLocator);
     }
 
+    public WebElement getWebElement(){
+        return this.element;
+    }
+
     @Override
     public void click() {
         try {

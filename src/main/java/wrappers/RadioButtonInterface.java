@@ -36,6 +36,20 @@ public class RadioButtonInterface {
                 .collect(Collectors.toList());
     }
 
+    public RadioButtonContainer getSelectedRadioButton() {
+        return this.radioBtnContainers
+                .stream()
+                .filter(el -> {
+                    try {
+                        return el.getInput().getAttribute("checked").equals("true");
+                    } catch (NullPointerException ignored) {
+                        return false;
+                    }
+                })
+                .findAny()
+                .orElseThrow(() -> new NoSuchElementException("No radio button selected"));
+    }
+
     public void click(String value) {
         this.radioBtnContainers.stream()
                 .filter(el -> el.getInput().getAttribute("value").equals(value))
@@ -45,7 +59,7 @@ public class RadioButtonInterface {
                 .click();
     }
 
-    static class RadioButtonContainer {
+    public static class RadioButtonContainer {
         private final UIElement label;
         private final UIElement input;
         private final UIElement description;

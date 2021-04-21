@@ -31,7 +31,10 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
                 this.page.getProjectNameInput().getAttribute("value"),
                 this.page.getProjectAnnouncementsInput().getAttribute("value"),
                 this.page.getProjectShowAnnouncementsCheckbox().isSelected(),
-                ProjectMode.getEnumByValue(this.page.getSelectedProjectMode().getAttribute("value")))
+                ProjectMode.getEnumByValue(this.page.getProjectModeRadioBtnInterface()
+                        .getSelectedRadioButton()
+                        .getInput()
+                        .getAttribute("value")))
                 .setIsCompleted(this.page.getCompletedProjectCheckboxBy().isSelected());
     }
 }
