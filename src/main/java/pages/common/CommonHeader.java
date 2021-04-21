@@ -13,7 +13,7 @@ public abstract class CommonHeader extends BasePage {
         super(browserService);
     }
 
-    public Button getDashboardTabBtn(){
+    public Button getDashboardTabBtn() {
         return new Button(this.driver, dashboardTabBtnBy);
     }
 }

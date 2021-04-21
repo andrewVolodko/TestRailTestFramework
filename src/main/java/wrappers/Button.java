@@ -9,6 +9,7 @@ public class Button {
     public Button(WebDriver driver, By by) {
         this.element = new UIElement(driver, by);
     }
+
     public Button(UIElement uiElement) {
         this.element = uiElement;
     }

@@ -1,4 +1,4 @@
-package baseTestTemplates;
+package baseEntities;
 
 import core.BrowserService;
 import core.PropertyReader;

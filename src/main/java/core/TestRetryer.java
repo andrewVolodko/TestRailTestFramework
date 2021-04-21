@@ -9,8 +9,8 @@ public class TestRetryer implements IRetryAnalyzer {
 
     @Override
     public boolean retry(ITestResult iTestResult) {
-        if(!iTestResult.isSuccess())
-            if(attempt < MAX_RETRY){
+        if (!iTestResult.isSuccess())
+            if (attempt < MAX_RETRY) {
                 attempt++;
                 System.out.println("Retrying once more");
                 return true;

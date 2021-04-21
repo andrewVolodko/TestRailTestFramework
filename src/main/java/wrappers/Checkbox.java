@@ -22,7 +22,7 @@ public class Checkbox {
         return this.element.isSelected();
     }
 
-    public void click(){
+    public void click() {
         this.element.click();
     }
 }

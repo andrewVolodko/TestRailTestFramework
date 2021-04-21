@@ -1,5 +1,6 @@
 package baseTestTemplates;
 
+import baseEntities.BaseTest;
 import core.BrowserService;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

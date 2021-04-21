@@ -15,15 +15,15 @@ public class PropertyReader {
         }
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return properties.getProperty("url");
     }
 
-    public String getBrowserName(){
+    public String getBrowserName() {
         return properties.getProperty("browser");
     }
 
-    public int getTimeOut(){
+    public int getTimeOut() {
         return Integer.parseInt(properties.getProperty("timeout"));
     }
 }

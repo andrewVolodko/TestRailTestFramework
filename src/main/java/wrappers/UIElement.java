@@ -3,6 +3,7 @@ package wrappers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import utils.Waiter;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,8 +39,8 @@ public class UIElement implements WebElement {
         return new Button(this);
     }
 
-    public RadioBtnInterface getRadioBtnInterface(By radioBtnLocator){
-        return new RadioBtnInterface(this, radioBtnLocator);
+    public RadioButtonInterface getRadioBtnInterface(By radioBtnLocator) {
+        return new RadioButtonInterface(this, radioBtnLocator);
     }
 
     @Override
@@ -151,7 +152,7 @@ public class UIElement implements WebElement {
                 .perform();
     }
 
-    public UIElement getParent(){
-       return this.findElement(By.xpath("./.."));
+    public UIElement getParent() {
+        return this.findElement(By.xpath("./.."));
     }
 }
