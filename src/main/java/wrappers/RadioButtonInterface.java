@@ -40,11 +40,8 @@ public class RadioButtonInterface {
         return this.radioBtnContainers
                 .stream()
                 .filter(el -> {
-                    try {
-                        return el.getInput().getAttribute("checked").equals("true");
-                    } catch (NullPointerException ignored) {
-                        return false;
-                    }
+                    var attributeValue = el.getInput().getAttribute("checked");
+                    return attributeValue != null && attributeValue.equals("true");
                 })
                 .findAny()
                 .orElseThrow(() -> new NoSuchElementException("No radio button selected"));
