@@ -3,7 +3,6 @@ package pages.projectPages;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Checkbox;
-import wrappers.UIElement;
 
 public class EditProjectPage extends BaseProjectPage {
 

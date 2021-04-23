@@ -17,12 +17,12 @@ public abstract class BasePage {
     }
 
     public void open() {
-        isPageOpened();
+        waitUntilPageOpened();
     }
 
     protected abstract By getPageOpenedIndicatorElLocator();
 
-    protected boolean isPageOpened() {
+    protected void waitUntilPageOpened() {
         var isPageOpened = browserService.getWait()
                 .waitForVisibility(getPageOpenedIndicatorElLocator())
                 .isDisplayed();
@@ -30,6 +30,5 @@ public abstract class BasePage {
         if (!isPageOpened) {
             throw new AssertionError("Page was not opened");
         }
-        return true;
     }
 }

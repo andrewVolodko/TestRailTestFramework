@@ -2,12 +2,10 @@ package utils;
 
 import core.BrowserService;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import wrappers.UIElement;
 
 public class JsExecutorClient {
     private final JavascriptExecutor executor;
-    private static JsExecutorClient jsExecutorClient;
 
     private JsExecutorClient(JavascriptExecutor executor){
         this.executor = executor;
