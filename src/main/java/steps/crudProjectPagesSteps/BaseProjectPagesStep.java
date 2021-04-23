@@ -1,8 +1,8 @@
-package steps.projectPagesSteps;
+package steps.crudProjectPagesSteps;
 
 import core.BrowserService;
 import models.ProjectModel;
-import pages.projectPages.BaseProjectPage;
+import pages.crudProjectPages.BaseProjectPage;
 import steps.commonSteps.CommonHeaderSteps;
 
 public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends CommonHeaderSteps<T> {

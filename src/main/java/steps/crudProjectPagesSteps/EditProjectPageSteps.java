@@ -1,9 +1,9 @@
-package steps.projectPagesSteps;
+package steps.crudProjectPagesSteps;
 
 import core.BrowserService;
 import enums.ProjectMode;
 import models.ProjectModel;
-import pages.projectPages.EditProjectPage;
+import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
 public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> {

@@ -1,4 +1,4 @@
-package pages.projectPages;
+package pages.crudProjectPages;
 
 import core.BrowserService;
 import org.openqa.selenium.By;

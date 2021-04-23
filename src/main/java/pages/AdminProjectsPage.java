@@ -1,7 +1,7 @@
 package pages;
 
 import core.BrowserService;
-import models.AdminPageProjectRowModel;
+import models.AdminPageProjectRowContainer;
 import org.openqa.selenium.By;
 import pages.common.CommonHeader;
 import wrappers.UIElement;
@@ -33,12 +33,12 @@ public class AdminProjectsPage extends CommonHeader {
 
 
     // Замена на использование обертки Table
-    public AdminPageProjectRowModel getProjectRowByName(String projectName) {
+    public AdminPageProjectRowContainer getProjectRowByName(String projectName) {
         var projectRow = new UIElement(this.driver, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
-        return new AdminPageProjectRowModel(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
+        return new AdminPageProjectRowContainer(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
     }
 
     public UIElement getSuccessProjectCRUDMessage() {

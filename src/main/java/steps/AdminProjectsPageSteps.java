@@ -5,7 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import pages.AdminProjectsPage;
 import pages.dialogs.ConfirmationDeleteDialog;
 import steps.commonSteps.CommonHeaderSteps;
-import steps.projectPagesSteps.EditProjectPageSteps;
+import steps.crudProjectPagesSteps.EditProjectPageSteps;
 
 public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage> {
 

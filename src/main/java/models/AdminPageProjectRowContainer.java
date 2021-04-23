@@ -2,12 +2,12 @@ package models;
 
 import wrappers.UIElement;
 
-public class AdminPageProjectRowModel {
+public class AdminPageProjectRowContainer {
     private final UIElement projectNameLink;
     private final UIElement projectEditBtn;
     private final UIElement projectDeleteBtn;
 
-    public AdminPageProjectRowModel(UIElement projectNameLink, UIElement projectEditBtn, UIElement projectDeleteBtn) {
+    public AdminPageProjectRowContainer(UIElement projectNameLink, UIElement projectEditBtn, UIElement projectDeleteBtn) {
         this.projectNameLink = projectNameLink;
         this.projectEditBtn = projectEditBtn;
         this.projectDeleteBtn = projectDeleteBtn;

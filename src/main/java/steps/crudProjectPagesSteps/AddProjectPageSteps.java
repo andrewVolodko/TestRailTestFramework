@@ -1,8 +1,8 @@
-package steps.projectPagesSteps;
+package steps.crudProjectPagesSteps;
 
 import core.BrowserService;
 import models.ProjectModel;
-import pages.projectPages.AddProjectPage;
+import pages.crudProjectPages.AddProjectPage;
 import steps.AdminProjectsPageSteps;
 
 public class AddProjectPageSteps extends BaseProjectPagesStep<AddProjectPage> {
