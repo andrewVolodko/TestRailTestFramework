@@ -6,6 +6,7 @@ import pages.common.CommonHeader;
 import steps.DashboardPageSteps;
 
 public abstract class CommonHeaderSteps<T extends CommonHeader> extends BaseStep<T> {
+
     public CommonHeaderSteps(BrowserService browserService, Class<T> pageClass) {
         super(browserService, pageClass);
     }
