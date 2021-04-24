@@ -1,34 +1,35 @@
 package wrappers;
 
+import core.BrowserService;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import utils.JsExecutorClient;
 import utils.Waiter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class UIElement implements WebElement {
-    private final WebDriver driver;
+    private final BrowserService browserService;
     private final WebElement element;
     private final Actions actions;
-    private final JavascriptExecutor jsExecutor;
+    private final JsExecutorClient jsExecutorClient;
     private final Waiter waiter;
 
-
-    public UIElement(WebDriver driver, By by) {
-        this.driver = driver;
-        this.element = this.driver.findElement(by);
-        this.actions = new Actions(this.driver);
-        this.jsExecutor = (JavascriptExecutor) this.driver;
-        this.waiter = new Waiter(this.driver);
+    public UIElement(BrowserService browserService, By by) {
+        this.browserService = browserService;
+        this.element = browserService.getDriver().findElement(by);
+        this.actions = new Actions(browserService.getDriver());
+        this.jsExecutorClient = JsExecutorClient.get(browserService);
+        this.waiter = browserService.getWait();
     }
 
-    public UIElement(WebDriver driver, WebElement element) {
-        this.driver = driver;
+    public UIElement(BrowserService browserService, WebElement element) {
+        this.browserService = browserService;
         this.element = element;
-        this.actions = new Actions(this.driver);
-        this.jsExecutor = (JavascriptExecutor) this.driver;
-        this.waiter = new Waiter(this.driver);
+        this.actions = new Actions(browserService.getDriver());
+        this.jsExecutorClient = JsExecutorClient.get(browserService);
+        this.waiter = browserService.getWait();
     }
 
     public Checkbox castToCheckbox() {
@@ -58,7 +59,7 @@ public class UIElement implements WebElement {
                         .build()
                         .perform();
             } catch (Exception ex1) {
-                jsExecutor.executeScript("arguments[0].click();", this.element);
+                jsExecutorClient.clickOnElement(this.element);
             }
         }
     }
@@ -111,13 +112,13 @@ public class UIElement implements WebElement {
     public List<UIElement> findUIElements(By by) {
         return this.element.findElements(by)
                 .stream()
-                .map(el -> new UIElement(this.driver, el))
+                .map(el -> new UIElement(this.browserService, el))
                 .collect(Collectors.toList());
     }
 
     @Override
     public UIElement findElement(By by) {
-        return new UIElement(this.driver, this.element.findElement(by));
+        return new UIElement(this.browserService, this.element.findElement(by));
     }
 
     @Override

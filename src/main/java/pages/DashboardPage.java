@@ -32,11 +32,11 @@ public class DashboardPage extends CommonHeader {
     }
 
     public Button getSidebarProjectAddBtn() {
-        return new Button(this.driver, sidebarProjectAddBtnBy);
+        return new Button(this.browserService, sidebarProjectAddBtnBy);
     }
 
     public DashboardPageProjectRowContainer getProjectRowByName(String projectName){
-        var projectRow = new UIElement(this.driver, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
+        var projectRow = new UIElement(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectSummaryLinkEls = projectRow.findUIElements(projectSummaryLinks);
         return new DashboardPageProjectRowContainer(projectNameLinkEl, projectSummaryLinkEls);

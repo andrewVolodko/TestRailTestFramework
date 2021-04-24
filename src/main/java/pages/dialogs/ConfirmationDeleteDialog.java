@@ -33,6 +33,6 @@ public class ConfirmationDeleteDialog extends BasePage {
     }
 
     private UIElement getDialogContainer() {
-        return new UIElement(this.driver, dialogContainerBy);
+        return new UIElement(this.browserService, dialogContainerBy);
     }
 }

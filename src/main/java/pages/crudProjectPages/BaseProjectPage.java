@@ -16,7 +16,6 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectAnnouncementsInputBy = By.id("announcement");
     private static final By projectShowAnnouncementsCheckboxBy = By.id("show_announcement");
     private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
-//    private static final By selectedProjectModeRadioBtnBy = By.cssSelector("[name=suite_mode][checked]");
     private static final By addProjectBtnBy = By.id("accept");
 
     public BaseProjectPage(BrowserService browserService) {
@@ -24,26 +23,22 @@ public abstract class BaseProjectPage extends CommonHeader {
     }
 
     public UIElement getProjectNameInput() {
-        return new UIElement(this.driver, projectNameInputBy);
+        return new UIElement(this.browserService, projectNameInputBy);
     }
 
     public UIElement getProjectAnnouncementsInput() {
-        return new UIElement(this.driver, projectAnnouncementsInputBy);
+        return new UIElement(this.browserService, projectAnnouncementsInputBy);
     }
 
     public Checkbox getProjectShowAnnouncementsCheckbox() {
-        return new Checkbox(this.driver, projectShowAnnouncementsCheckboxBy);
+        return new Checkbox(this.browserService, projectShowAnnouncementsCheckboxBy);
     }
 
     public RadioButtonInterface getProjectModeRadioBtnInterface() {
-        return new RadioButtonInterface(this.driver, projectModeRadioBtnBy);
+        return new RadioButtonInterface(this.browserService, projectModeRadioBtnBy);
     }
 
-//    public UIElement getSelectedProjectMode() {
-//        return new UIElement(this.driver, selectedProjectModeRadioBtnBy);
-//    }
-
     public Button getAddProjectBtn() {
-        return new Button(this.driver, addProjectBtnBy);
+        return new Button(this.browserService, addProjectBtnBy);
     }
 }

@@ -1,9 +1,9 @@
 package wrappers;
 
+import core.BrowserService;
 import models.RadioButtonContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,11 +11,11 @@ import java.util.stream.Collectors;
 public class RadioButtonInterface {
     private final List<RadioButtonContainer> radioBtnContainers;
 
-    public RadioButtonInterface(WebDriver driver, By radioBtnInputLocator) {
-        this.radioBtnContainers = driver.findElements(radioBtnInputLocator)
+    public RadioButtonInterface(BrowserService browserService, By radioBtnInputLocator) {
+        this.radioBtnContainers = browserService.getDriver().findElements(radioBtnInputLocator)
                 .stream()
                 .map(el -> {
-                    var radioBtnContainerEl = new UIElement(driver, el).getParent();
+                    var radioBtnContainerEl = new UIElement(browserService, el).getParent();
                     return new RadioButtonContainer(
                             radioBtnContainerEl.findElement(By.tagName("strong")),
                             radioBtnContainerEl.findElement(By.tagName("input")),

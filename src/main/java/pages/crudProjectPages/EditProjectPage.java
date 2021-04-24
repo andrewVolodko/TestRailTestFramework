@@ -19,6 +19,6 @@ public class EditProjectPage extends BaseProjectPage {
     }
 
     public Checkbox getCompletedProjectCheckboxBy() {
-        return new Checkbox(this.driver, completedProjectCheckboxBy);
+        return new Checkbox(this.browserService, completedProjectCheckboxBy);
     }
 }

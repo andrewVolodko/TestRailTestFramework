@@ -32,22 +32,22 @@ public class LoginPage extends BasePage {
 
 
     public UIElement getEmailInput() {
-        return new UIElement(this.driver, emailInputBy);
+        return new UIElement(this.browserService, emailInputBy);
     }
 
     public UIElement getPassInput() {
-        return new UIElement(this.driver, passInputBy);
+        return new UIElement(this.browserService, passInputBy);
     }
 
     public Button getLoginBtn() {
-        return new Button(this.driver, loginBtnBy);
+        return new Button(this.browserService, loginBtnBy);
     }
 
     public UIElement getErrorLabel() {
-        return new UIElement(this.driver, errorLabelBy);
+        return new UIElement(this.browserService, errorLabelBy);
     }
 
     public UIElement getFieldError() {
-        return new UIElement(this.driver, fieldErrorBy);
+        return new UIElement(this.browserService, fieldErrorBy);
     }
 }

@@ -34,7 +34,7 @@ public class AdminProjectsPage extends CommonHeader {
 
     // Замена на использование обертки Table
     public AdminPageProjectRowContainer getProjectRowByName(String projectName) {
-        var projectRow = new UIElement(this.driver, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
+        var projectRow = new UIElement(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
@@ -42,6 +42,6 @@ public class AdminProjectsPage extends CommonHeader {
     }
 
     public UIElement getSuccessProjectCRUDMessage() {
-        return new UIElement(this.driver, successProjectCRUDMessageBy);
+        return new UIElement(this.browserService, successProjectCRUDMessageBy);
     }
 }

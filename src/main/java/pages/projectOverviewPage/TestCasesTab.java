@@ -20,6 +20,6 @@ public class TestCasesTab extends CommonHeader {
     }
 
     public Button getSidebarAddTestCaseButton(){
-        return new Button(this.driver, sidebarAddTestCaseBtnBy);
+        return new Button(this.browserService, sidebarAddTestCaseBtnBy);
     }
 }

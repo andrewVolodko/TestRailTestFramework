@@ -1,13 +1,13 @@
 package wrappers;
 
+import core.BrowserService;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class Checkbox {
     private final UIElement element;
 
-    public Checkbox(WebDriver driver, By by) {
-        this.element = new UIElement(driver, by);
+    public Checkbox(BrowserService browserService, By by) {
+        this.element = new UIElement(browserService, by);
     }
 
     public Checkbox(UIElement uiElement) {
