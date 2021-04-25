@@ -30,9 +30,9 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
 
     @Test
     public void addProjectTest() {
-        this.adminProjectsPageSteps = this.dashboardPageSteps
-                .openAddProjectPage()
-                .addNewProject(this.curProjectData);
+        this.adminProjectsPageSteps = this.dashboardPageSteps // на странице дашборд
+                .openAddProjectPage() // открываем страницу add proj - мы на этой странице
+                .addNewProject(this.curProjectData); // добавляем проект и сабмитаем
 
         var createdProjectNameLink = this.adminProjectsPageSteps
                 .getPageInstance()

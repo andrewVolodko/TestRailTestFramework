@@ -10,7 +10,7 @@ public class EditProjectPage extends BaseProjectPage {
     private static final By completedProjectCheckboxBy = By.id("is_completed");
 
     public EditProjectPage(BrowserService browserService) {
-        super(browserService);
+        super(browserService, null);
     }
 
     @Override

@@ -10,7 +10,7 @@ public class AddTestCasePage extends CommonHeader {
     private static final By testCaseSettingsSectionBy = By.className("io-container");
 
     public AddTestCasePage(BrowserService browserService) {
-        super(browserService);
+        super(browserService, null);
     }
 
     @Override

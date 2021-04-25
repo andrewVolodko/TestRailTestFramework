@@ -21,7 +21,7 @@ public abstract class BaseStep<T extends BasePage> {
         if (pageClass == null) throw new NoClassDefFoundError("Page class was not defined.");
         T page = null;
         try {
-            page = pageClass.getConstructor(BrowserService.class).newInstance(browserService);
+            page = pageClass.getConstructor(BrowserService.class).newInstance(this.browserService);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }

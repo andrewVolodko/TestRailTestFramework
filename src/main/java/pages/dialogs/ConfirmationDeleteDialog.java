@@ -16,7 +16,7 @@ public class ConfirmationDeleteDialog extends BasePage {
     private static final By okBtnBy = By.className("button-ok");
 
     public ConfirmationDeleteDialog(BrowserService browserService) {
-        super(browserService);
+        super(browserService, null);
     }
 
     @Override

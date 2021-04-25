@@ -18,8 +18,8 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
     private static final By addProjectBtnBy = By.id("accept");
 
-    public BaseProjectPage(BrowserService browserService) {
-        super(browserService);
+    public BaseProjectPage(BrowserService browserService, String path) {
+        super(browserService, path);
     }
 
     public UIElement getProjectNameInput() {

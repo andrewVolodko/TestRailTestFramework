@@ -9,20 +9,23 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected BrowserService browserService;
     public String baseUrl;
+    private final String path;
 
-    public BasePage(BrowserService browserService) {
+    public BasePage(BrowserService browserService, String path) {
         this.browserService = browserService;
         this.driver = browserService.getDriver();
         this.baseUrl = new PropertyReader().getUrl();
+        this.path = path;
     }
 
     public void open() {
+        if (this.path != null) this.driver.get(baseUrl + path);
         waitUntilPageOpened();
     }
 
     protected abstract By getPageOpenedIndicatorElLocator();
 
-    protected void waitUntilPageOpened() {
+    private void waitUntilPageOpened() {
         var isPageOpened = browserService.getWait()
                 .waitForVisibility(getPageOpenedIndicatorElLocator())
                 .isDisplayed();

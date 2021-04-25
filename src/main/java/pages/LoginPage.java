@@ -16,13 +16,7 @@ public class LoginPage extends BasePage {
     protected static final By fieldErrorBy = By.className("loginpage-message-image");
 
     public LoginPage(BrowserService browserService) {
-        super(browserService);
-    }
-
-    @Override
-    public void open() {
-        this.driver.get(baseUrl);
-        super.open();
+        super(browserService, "/auth/login");
     }
 
     @Override

@@ -7,8 +7,8 @@ import pages.common.CommonHeader;
 import wrappers.UIElement;
 
 public class AdminProjectsPage extends CommonHeader {
-    private static final String PATH = "/admin/projects/overview";
 
+    // Locators
     private static final By projectsPageTitleBy = By.xpath("//div[contains(@class, 'page_title') and contains(text(), 'Projects')]");
     private static final String projectRowLocator = "//a[text()='%projectName%']/ancestor::tr";
     private static final By projectNameLinkBy = By.xpath("//td/a[normalize-space()]");
@@ -17,20 +17,13 @@ public class AdminProjectsPage extends CommonHeader {
     private static final By successProjectCRUDMessageBy = By.className("message-success");
 
     public AdminProjectsPage(BrowserService browserService) {
-        super(browserService);
-    }
-
-    @Override
-    public void open() {
-        this.driver.get(baseUrl + PATH);
-        super.open();
+        super(browserService, "/admin/projects/overview");
     }
 
     @Override
     protected By getPageOpenedIndicatorElLocator() {
         return projectsPageTitleBy;
     }
-
 
     // Замена на использование обертки Table
     public AdminPageProjectRowContainer getProjectRowByName(String projectName) {
