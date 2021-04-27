@@ -14,27 +14,24 @@ public class RadioButtonInterface {
     public RadioButtonInterface(BrowserService browserService, By radioBtnInputLocator) {
         this.radioBtnContainers = browserService.getDriver().findElements(radioBtnInputLocator)
                 .stream()
-                .map(el -> {
-                    var radioBtnContainerEl = new UIElement(browserService, el).getParent();
-                    return new RadioButtonContainer(
-                            radioBtnContainerEl.findElement(By.tagName("strong")),
-                            radioBtnContainerEl.findElement(By.tagName("input")),
-                            radioBtnContainerEl.findElement(By.tagName("p")));
-                })
+                .map(el -> new UIElement(browserService, el).getParent())
+                .map(this::getRadioButtonContainer)
                 .collect(Collectors.toList());
     }
 
     public RadioButtonInterface(UIElement radioBtnsContainer, By radioBtnInputLocator) {
         this.radioBtnContainers = radioBtnsContainer.findUIElements(radioBtnInputLocator)
                 .stream()
-                .map(el -> {
-                    var radioBtnContainerEl = el.getParent();
-                    return new RadioButtonContainer(
-                            radioBtnContainerEl.findElement(By.tagName("strong")),
-                            radioBtnContainerEl.findElement(By.tagName("input")),
-                            radioBtnContainerEl.findElement(By.tagName("p")));
-                })
+                .map(UIElement::getParent)
+                .map(this::getRadioButtonContainer)
                 .collect(Collectors.toList());
+    }
+
+    private RadioButtonContainer getRadioButtonContainer(UIElement radioBtnContainerEl){
+        return new RadioButtonContainer(
+                radioBtnContainerEl.findElement(By.tagName("strong")),
+                radioBtnContainerEl.findElement(By.tagName("input")),
+                radioBtnContainerEl.findElement(By.tagName("p")));
     }
 
     public RadioButtonContainer getSelectedRadioButton() {
