@@ -10,7 +10,7 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
 
     @BeforeClass
     @Parameters({"validEmail", "validPassword"})
-    public void setupClass(String email, String password){
+    public void setupClass(String email, String password) {
         ProjectModel projectData = ProjectModel.getDefault();
 
         login(email, password)
@@ -18,12 +18,13 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
                 .addNewProject(projectData)
                 .goToDashboardTab()
                 .openProjectTestCasesTabByProjName(projectData.getName())
-                .openAddTestCasePage();
+                .openAddTestCasePage()
+                .selectTemplateByOptionValue("Exploratory Session");
 
     }
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println();
     }
 }

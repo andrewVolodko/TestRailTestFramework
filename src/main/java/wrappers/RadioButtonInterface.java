@@ -19,8 +19,8 @@ public class RadioButtonInterface {
                 .collect(Collectors.toList());
     }
 
-    public RadioButtonInterface(UIElement radioBtnsContainer, By radioBtnInputLocator) {
-        this.radioBtnContainers = radioBtnsContainer.findUIElements(radioBtnInputLocator)
+    public RadioButtonInterface(UIElement radioBtnsContainer, By radioBtnInputBy) {
+        this.radioBtnContainers = radioBtnsContainer.findUIElements(radioBtnInputBy)
                 .stream()
                 .map(UIElement::getParent)
                 .map(this::getRadioButtonContainer)

@@ -15,4 +15,9 @@ public class AddTestCasePageSteps extends CommonHeaderSteps<AddTestCasePage> {
         this.page.open();
         return this;
     }
+
+    public AddTestCasePageSteps selectTemplateByOptionValue(String optionTextValue){
+        this.page.getSelectByName("Template").selectOptionByTextValue(optionTextValue);
+        return this;
+    }
 }

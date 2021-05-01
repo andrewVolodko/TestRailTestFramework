@@ -21,8 +21,8 @@ public class ProjectModel {
 
     public static ProjectModel getDefault() {
         return new ProjectModel(
-                "Project" + Randomizer.getRandomString(10),
-                "Announcement" + Randomizer.getRandomString(100),
+                "Project - " + Randomizer.getRandomString(10),
+                "Announcement - " + Randomizer.getRandomString(100),
                 true,
                 ProjectMode.SINGLE_FOR_ALL_CASES);
     }
