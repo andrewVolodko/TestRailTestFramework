@@ -40,11 +40,15 @@ public class UIElement implements WebElement {
         return new Button(this);
     }
 
+    public SelectWithDropdown castToSelectWithDropdown() {
+        return new SelectWithDropdown(this);
+    }
+
     public RadioButtonInterface getRadioBtnInterface(By radioBtnLocator) {
         return new RadioButtonInterface(this, radioBtnLocator);
     }
 
-    public WebElement getWebElement(){
+    public WebElement getWebElement() {
         return this.element;
     }
 

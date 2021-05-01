@@ -13,8 +13,8 @@ public class SelectWithDropdown {
         this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
     }
 
-    public SelectWithDropdown(UIElement uiElement, By selectWithDropdownContainerBy) {
-        this.selectWithDropdownContainer = getSelectWithDropdownContainer(uiElement.findElement(selectWithDropdownContainerBy));
+    public SelectWithDropdown(UIElement selectWithDropdownContainerEl) {
+        this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
     }
 
     private SelectWithDropdownContainer getSelectWithDropdownContainer(UIElement selectWithDropdownContainerEl){
