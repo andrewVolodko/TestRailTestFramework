@@ -12,14 +12,14 @@ public class RadioButtonInterface {
     private final List<RadioButtonContainer> radioBtnContainers;
 
     public RadioButtonInterface(BrowserService browserService, By radioBtnInputLocator) {
-        this.radioBtnContainers = getRadioBtnContainers(UIElement.findUIElements(browserService, radioBtnInputLocator));
+        this.radioBtnContainers = getRadioBtnContainersList(UIElement.findUIElements(browserService, radioBtnInputLocator));
     }
 
     public RadioButtonInterface(UIElement radioBtnsContainer, By radioBtnInputBy) {
-        this.radioBtnContainers = getRadioBtnContainers(radioBtnsContainer.findUIElements(radioBtnInputBy));
+        this.radioBtnContainers = getRadioBtnContainersList(radioBtnsContainer.findUIElements(radioBtnInputBy));
     }
 
-    private List<RadioButtonContainer> getRadioBtnContainers(List<UIElement> radioBtnContainerEls) {
+    private List<RadioButtonContainer> getRadioBtnContainersList(List<UIElement> radioBtnContainerEls) {
         return radioBtnContainerEls.stream()
                 .map(UIElement::getParent)
                 .map(el -> new RadioButtonContainer(

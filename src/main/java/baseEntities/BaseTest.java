@@ -6,7 +6,7 @@ import steps.DashboardPageSteps;
 import steps.LoginPageSteps;
 
 public abstract class BaseTest {
-    protected BrowserService browserService;
+    public BrowserService browserService;
     protected PropertyReader propertyReader;
 
     protected void disposeDriver() {

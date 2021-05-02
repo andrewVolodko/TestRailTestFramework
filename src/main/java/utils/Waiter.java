@@ -25,7 +25,7 @@ public class Waiter {
         return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOfElementLocated(by)));
     }
 
-    public UIElement waitForVisibility(WebElement element){
-        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOf(element)));
+    public UIElement waitForVisibility(UIElement element){
+        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOf(element.getWebElement())));
     }
 }

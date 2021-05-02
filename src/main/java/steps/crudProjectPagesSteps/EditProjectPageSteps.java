@@ -2,6 +2,7 @@ package steps.crudProjectPagesSteps;
 
 import core.BrowserService;
 import enums.ProjectMode;
+import io.qameta.allure.Step;
 import models.ProjectModel;
 import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
@@ -26,7 +27,8 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
         return new AdminProjectsPageSteps(this.browserService);
     }
 
-    public ProjectModel getProjectData() {
+    @Step("Collect Project Data")
+    public ProjectModel collectProjectData() {
         return new ProjectModel(
                 this.page.getProjectNameInput().getAttribute("value"),
                 this.page.getProjectAnnouncementsInput().getAttribute("value"),

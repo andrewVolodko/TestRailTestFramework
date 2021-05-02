@@ -1,5 +1,6 @@
 package steps.projectOverviewPageSteps;
 import core.BrowserService;
+import io.qameta.allure.Step;
 import pages.projectOverviewPage.TestCasesTab;
 import steps.commonSteps.CommonHeaderSteps;
 import steps.crudTestCasePagesSteps.AddTestCasePageSteps;
@@ -15,6 +16,7 @@ public class TestCasesTabSteps extends CommonHeaderSteps<TestCasesTab> {
         return this;
     }
 
+    @Step("Open Add Test Case Page")
     public AddTestCasePageSteps openAddTestCasePage(){
         this.page.getSidebarAddTestCaseButton().click();
         return new AddTestCasePageSteps(this.browserService);
