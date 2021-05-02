@@ -51,4 +51,11 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
 
         Assert.assertEquals(loginPage.getFieldError().getText(), "Password is required.");
     }
+
+    @Test(description = "Test For Failing")
+    public void loginTestToFailAndLogScreenshot(){
+        this.loginPageSteps.loginWithCorrectCreds("aefdwefwef", "wefwefwef");
+
+        Assert.assertEquals(browserService.getDriver().getTitle(), "All Projects - TestRail");
+    }
 }
