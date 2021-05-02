@@ -3,9 +3,12 @@ package tests;
 import baseTestTemplates.BaseTestWithClassDriverInitialization;
 import models.ProjectModel;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import utils.Listener;
 
+@Listeners(Listener.class)
 public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
 
     @BeforeClass
@@ -20,7 +23,6 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
                 .openProjectTestCasesTabByProjName(projectData.getName())
                 .openAddTestCasePage()
                 .selectTemplateByOptionValue("Exploratory Session");
-
     }
 
     @Test

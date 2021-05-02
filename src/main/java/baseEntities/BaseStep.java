@@ -1,6 +1,7 @@
 package baseEntities;
 
 import core.BrowserService;
+import io.qameta.allure.Step;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,6 +16,7 @@ public abstract class BaseStep<T extends BasePage> {
         this.page = getPageInstance();
     }
 
+    @Step("Open Page")
     public abstract BaseStep<T> openPage();
 
     public T getPageInstance() {

@@ -1,6 +1,7 @@
 package steps.crudProjectPagesSteps;
 
 import core.BrowserService;
+import io.qameta.allure.Step;
 import models.ProjectModel;
 import pages.crudProjectPages.AddProjectPage;
 import steps.AdminProjectsPageSteps;
@@ -17,6 +18,7 @@ public class AddProjectPageSteps extends BaseProjectPagesStep<AddProjectPage> {
         return this;
     }
 
+    @Step("Add Project")
     public AdminProjectsPageSteps addNewProject(ProjectModel project) {
         this.fillProjectData(project);
         this.page.getAddProjectBtn().click();
