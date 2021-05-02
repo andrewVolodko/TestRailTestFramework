@@ -12,26 +12,21 @@ public class RadioButtonInterface {
     private final List<RadioButtonContainer> radioBtnContainers;
 
     public RadioButtonInterface(BrowserService browserService, By radioBtnInputLocator) {
-        this.radioBtnContainers = browserService.getDriver().findElements(radioBtnInputLocator)
-                .stream()
-                .map(el -> new UIElement(browserService, el).getParent())
-                .map(this::getRadioButtonContainer)
-                .collect(Collectors.toList());
+        this.radioBtnContainers = getRadioBtnContainers(UIElement.findUIElements(browserService, radioBtnInputLocator));
     }
 
     public RadioButtonInterface(UIElement radioBtnsContainer, By radioBtnInputBy) {
-        this.radioBtnContainers = radioBtnsContainer.findUIElements(radioBtnInputBy)
-                .stream()
-                .map(UIElement::getParent)
-                .map(this::getRadioButtonContainer)
-                .collect(Collectors.toList());
+        this.radioBtnContainers = getRadioBtnContainers(radioBtnsContainer.findUIElements(radioBtnInputBy));
     }
 
-    private RadioButtonContainer getRadioButtonContainer(UIElement radioBtnContainerEl){
-        return new RadioButtonContainer(
-                radioBtnContainerEl.findElement(By.tagName("strong")),
-                radioBtnContainerEl.findElement(By.tagName("input")),
-                radioBtnContainerEl.findElement(By.tagName("p")));
+    private List<RadioButtonContainer> getRadioBtnContainers(List<UIElement> radioBtnContainerEls) {
+        return radioBtnContainerEls.stream()
+                .map(UIElement::getParent)
+                .map(el -> new RadioButtonContainer(
+                        el.findElement(By.tagName("strong")),
+                        el.findElement(By.tagName("input")),
+                        el.findElement(By.tagName("p"))))
+                .collect(Collectors.toList());
     }
 
     public RadioButtonContainer getSelectedRadioButton() {

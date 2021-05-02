@@ -1,28 +1,31 @@
 package utils;
 
+import core.BrowserService;
 import core.PropertyReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import wrappers.UIElement;
 
 public class Waiter {
+    private final BrowserService browserService;
     private final WebDriverWait wait;
 
-    public Waiter(WebDriver driver, int timeOut) {
-        this.wait = new WebDriverWait(driver, timeOut);
+    public Waiter(BrowserService browserService, int timeOut) {
+        this.browserService = browserService;
+        this.wait = new WebDriverWait(this.browserService.getDriver(), timeOut);
     }
 
-    public Waiter(WebDriver driver) {
-        this(driver, new PropertyReader().getTimeOut());
+    public Waiter(BrowserService browserService) {
+        this(browserService, new PropertyReader().getTimeOut());
     }
 
-    public WebElement waitForVisibility(By by){
-        return this.wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    public UIElement waitForVisibility(By by){
+        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOfElementLocated(by)));
     }
 
-    public WebElement waitForVisibility(WebElement element){
-        return this.wait.until(ExpectedConditions.visibilityOf(element));
+    public UIElement waitForVisibility(WebElement element){
+        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOf(element)));
     }
 }

@@ -41,10 +41,10 @@ public class BrowserService {
     }
 
     public Waiter getWait(){
-        return new Waiter(this.driver);
+        return new Waiter(this);
     }
     public Waiter getWait(int timeout){
-        return new Waiter(this.driver, timeout);
+        return new Waiter(this, timeout);
     }
 }
 

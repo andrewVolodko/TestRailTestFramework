@@ -32,6 +32,10 @@ public class UIElement implements WebElement {
         this.waiter = browserService.getWait();
     }
 
+    private UIElement(BrowserService browserService){
+        this(browserService, browserService.getDriver().findElement(By.xpath("//*")));
+    }
+
     public Checkbox castToCheckbox() {
         return new Checkbox(this);
     }
@@ -120,6 +124,11 @@ public class UIElement implements WebElement {
                 .collect(Collectors.toList());
     }
 
+    public static List<UIElement> findUIElements(BrowserService browserService, By by) {
+        var tmpUIElementObj = new UIElement(browserService);
+        return tmpUIElementObj.findUIElements(by);
+    }
+
     @Override
     public UIElement findElement(By by) {
         return new UIElement(this.browserService, this.element.findElement(by));
@@ -127,7 +136,7 @@ public class UIElement implements WebElement {
 
     @Override
     public boolean isDisplayed() {
-        return waiter.waitForVisibility(this.element).isDisplayed();
+        return this.element.isDisplayed();
     }
 
     @Override
