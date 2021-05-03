@@ -3,15 +3,14 @@ package pages;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import wrappers.Button;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class LoginPage extends BasePage {
 
     @FindBy(id = "name")
-    public UIElement emailInput;
+    public Element emailInput;
 
     // Locators
 //    protected static final By emailInputBy = By.id("name");
@@ -30,23 +29,23 @@ public class LoginPage extends BasePage {
     }
 
 
-//    public UIElement getEmailInput() {
-//        return new UIElement(this.browserService, emailInputBy);
+//    public Element getEmailInput() {
+//        return new Element(this.browserService, emailInputBy);
 //    }
 
-    public UIElement getPassInput() {
-        return new UIElement(this.browserService, passInputBy);
+    public Element getPassInput() {
+        return new Element(this.browserService, passInputBy);
     }
 
     public Button getLoginBtn() {
         return new Button(this.browserService, loginBtnBy);
     }
 
-    public UIElement getErrorLabel() {
-        return new UIElement(this.browserService, errorLabelBy);
+    public Element getErrorLabel() {
+        return new Element(this.browserService, errorLabelBy);
     }
 
-    public UIElement getFieldError() {
-        return new UIElement(this.browserService, fieldErrorBy);
+    public Element getFieldError() {
+        return new Element(this.browserService, fieldErrorBy);
     }
 }

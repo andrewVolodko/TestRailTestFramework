@@ -2,16 +2,17 @@ package wrappers;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-public class Button {
-    private final UIElement element;
+public class Button extends ElementWrapper {
+//    private final Element element;
 
     public Button(BrowserService browserService, By by) {
-        this.element = new UIElement(browserService, by);
+        super(browserService, by);
     }
 
-    public Button(UIElement uiElement) {
-        this.element = uiElement;
+    public Button(BrowserService browserService, WebElement element) {
+        super(browserService, element);
     }
 
     public void click() {

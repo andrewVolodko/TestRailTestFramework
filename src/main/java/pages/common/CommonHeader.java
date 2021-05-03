@@ -5,7 +5,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Button;
 import wrappers.DropdownMenu;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public abstract class CommonHeader extends BasePage {
 
@@ -22,8 +22,8 @@ public abstract class CommonHeader extends BasePage {
         return new Button(this.browserService, dashboardTabBtnBy);
     }
 
-    public UIElement getHelpDropdownMenuLink() {
-        return new UIElement(this.browserService, helpDropdownMenuLinkBy);
+    public Element getHelpDropdownMenuLink() {
+        return new Element(this.browserService, helpDropdownMenuLinkBy);
     }
 
     public DropdownMenu getHelpDropdownMenu() {

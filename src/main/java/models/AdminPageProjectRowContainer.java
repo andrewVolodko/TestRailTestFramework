@@ -1,27 +1,27 @@
 package models;
 
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class AdminPageProjectRowContainer {
-    private final UIElement projectNameLink;
-    private final UIElement projectEditBtn;
-    private final UIElement projectDeleteBtn;
+    private final Element projectNameLink;
+    private final Element projectEditBtn;
+    private final Element projectDeleteBtn;
 
-    public AdminPageProjectRowContainer(UIElement projectNameLink, UIElement projectEditBtn, UIElement projectDeleteBtn) {
+    public AdminPageProjectRowContainer(Element projectNameLink, Element projectEditBtn, Element projectDeleteBtn) {
         this.projectNameLink = projectNameLink;
         this.projectEditBtn = projectEditBtn;
         this.projectDeleteBtn = projectDeleteBtn;
     }
 
-    public UIElement getProjectNameLink() {
+    public Element getProjectNameLink() {
         return this.projectNameLink;
     }
 
-    public UIElement getProjectEditBtn() {
+    public Element getProjectEditBtn() {
         return this.projectEditBtn;
     }
 
-    public UIElement getProjectDeleteBtn() {
+    public Element getProjectDeleteBtn() {
         return this.projectDeleteBtn;
     }
 }

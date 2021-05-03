@@ -5,7 +5,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Button;
 import wrappers.Checkbox;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class ConfirmationDeleteDialog extends BasePage {
 
@@ -32,7 +32,7 @@ public class ConfirmationDeleteDialog extends BasePage {
         return getDialogContainer().findElement(okBtnBy).castToButton();
     }
 
-    private UIElement getDialogContainer() {
-        return new UIElement(this.browserService, dialogContainerBy);
+    private Element getDialogContainer() {
+        return new Element(this.browserService, dialogContainerBy);
     }
 }

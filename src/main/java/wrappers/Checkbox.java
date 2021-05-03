@@ -4,14 +4,14 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 
 public class Checkbox {
-    private final UIElement element;
+    private final Element element;
 
     public Checkbox(BrowserService browserService, By by) {
-        this.element = new UIElement(browserService, by);
+        this.element = new Element(browserService, by);
     }
 
-    public Checkbox(UIElement uiElement) {
-        this.element = uiElement;
+    public Checkbox(Element element) {
+        this.element = element;
     }
 
     public void changeState(boolean makeSelected) {

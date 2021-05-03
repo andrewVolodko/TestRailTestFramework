@@ -4,8 +4,8 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Button;
 import wrappers.Checkbox;
+import wrappers.Element;
 import wrappers.RadioButtonInterface;
-import wrappers.UIElement;
 import pages.common.CommonHeader;
 
 public abstract class BaseProjectPage extends CommonHeader {
@@ -22,12 +22,12 @@ public abstract class BaseProjectPage extends CommonHeader {
         super(browserService, path);
     }
 
-    public UIElement getProjectNameInput() {
-        return new UIElement(this.browserService, projectNameInputBy);
+    public Element getProjectNameInput() {
+        return new Element(this.browserService, projectNameInputBy);
     }
 
-    public UIElement getProjectAnnouncementsInput() {
-        return new UIElement(this.browserService, projectAnnouncementsInputBy);
+    public Element getProjectAnnouncementsInput() {
+        return new Element(this.browserService, projectAnnouncementsInputBy);
     }
 
     public Checkbox getProjectShowAnnouncementsCheckbox() {

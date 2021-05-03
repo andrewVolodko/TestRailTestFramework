@@ -1,35 +1,35 @@
 package models;
 
-import wrappers.UIElement;
+import wrappers.Element;
 
 import java.util.List;
 
 public class SelectWithDropdownContainer {
-    private final UIElement label;
-    private final UIElement select;
-    private final UIElement search;
-    private final List<UIElement> values;
+    private final Element label;
+    private final Element select;
+    private final Element search;
+    private final List<Element> values;
 
-    public SelectWithDropdownContainer(UIElement label, UIElement select, UIElement search, List<UIElement> values) {
+    public SelectWithDropdownContainer(Element label, Element select, Element search, List<Element> values) {
         this.label = label;
         this.select = select;
         this.search = search;
         this.values = values;
     }
 
-    public UIElement getLabel() {
+    public Element getLabel() {
         return label;
     }
 
-    public UIElement getSelect() {
+    public Element getSelect() {
         return select;
     }
 
-    public UIElement getSearch() {
+    public Element getSearch() {
         return search;
     }
 
-    public List<UIElement> getValues() {
+    public List<Element> getValues() {
         return values;
     }
 }

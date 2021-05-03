@@ -1,24 +1,24 @@
 package models;
 
 import enums.ProjectSummaryLink;
-import wrappers.UIElement;
+import wrappers.Element;
 
 import java.util.List;
 
 public class DashboardPageProjectRowContainer {
-    private final UIElement projectNameLink;
-    private final List<UIElement> projectSummaryLinks;
+    private final Element projectNameLink;
+    private final List<Element> projectSummaryLinks;
 
-    public DashboardPageProjectRowContainer(UIElement projectNameLink, List<UIElement> projectSummaryLinks) {
+    public DashboardPageProjectRowContainer(Element projectNameLink, List<Element> projectSummaryLinks) {
         this.projectNameLink = projectNameLink;
         this.projectSummaryLinks = projectSummaryLinks;
     }
 
-    public UIElement getProjectNameLink() {
+    public Element getProjectNameLink() {
         return projectNameLink;
     }
 
-    public UIElement getProjectSummaryLink(ProjectSummaryLink projectSummaryLink) {
+    public Element getProjectSummaryLink(ProjectSummaryLink projectSummaryLink) {
         return projectSummaryLinks.get(projectSummaryLink.getValue());
     }
 }

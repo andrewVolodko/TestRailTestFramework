@@ -1,27 +1,27 @@
 package models;
 
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class RadioButtonContainer {
-    private final UIElement label;
-    private final UIElement input;
-    private final UIElement description;
+    private final Element label;
+    private final Element input;
+    private final Element description;
 
-    public RadioButtonContainer(UIElement label, UIElement input, UIElement description) {
+    public RadioButtonContainer(Element label, Element input, Element description) {
         this.label = label;
         this.input = input;
         this.description = description;
     }
 
-    public UIElement getLabel() {
+    public Element getLabel() {
         return label;
     }
 
-    public UIElement getInput() {
+    public Element getInput() {
         return input;
     }
 
-    public UIElement getDescription() {
+    public Element getDescription() {
         return description;
     }
 }

@@ -19,7 +19,7 @@ public abstract class BasePage {
         this.baseUrl = new PropertyReader().getUrl();
         this.path = path;
 
-        PageFactory.initElements(new CustomFieldDecorator(this.driver), this);
+        PageFactory.initElements(new CustomFieldDecorator(this.browserService), this);
     }
 
     public void open() {

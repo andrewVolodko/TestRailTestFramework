@@ -3,10 +3,9 @@ package utils;
 import core.BrowserService;
 import core.PropertyReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class Waiter {
     private final BrowserService browserService;
@@ -21,11 +20,11 @@ public class Waiter {
         this(browserService, new PropertyReader().getTimeOut());
     }
 
-    public UIElement waitForVisibility(By by){
-        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOfElementLocated(by)));
+    public Element waitForVisibility(By by){
+        return new Element(this.browserService, this.wait.until(ExpectedConditions.visibilityOfElementLocated(by)));
     }
 
-    public UIElement waitForVisibility(UIElement element){
-        return new UIElement(this.browserService, this.wait.until(ExpectedConditions.visibilityOf(element.getWebElement())));
+    public Element waitForVisibility(Element element){
+        return new Element(this.browserService, this.wait.until(ExpectedConditions.visibilityOf(element.getWebElement())));
     }
 }

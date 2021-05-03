@@ -9,15 +9,15 @@ public class SelectWithDropdown {
     private final SelectWithDropdownContainer selectWithDropdownContainer;
 
     public SelectWithDropdown(BrowserService browserService, By selectWithDropdownContainerBy) {
-        var selectWithDropdownContainerEl = new UIElement(browserService, selectWithDropdownContainerBy);
+        var selectWithDropdownContainerEl = new Element(browserService, selectWithDropdownContainerBy);
         this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
     }
 
-    public SelectWithDropdown(UIElement selectWithDropdownContainerEl) {
+    public SelectWithDropdown(Element selectWithDropdownContainerEl) {
         this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
     }
 
-    private SelectWithDropdownContainer getSelectWithDropdownContainer(UIElement selectWithDropdownContainerEl){
+    private SelectWithDropdownContainer getSelectWithDropdownContainer(Element selectWithDropdownContainerEl){
         return new SelectWithDropdownContainer(
                 selectWithDropdownContainerEl.findElement(By.tagName("label")),
                 selectWithDropdownContainerEl.findElement(By.className("chzn-container")),

@@ -7,14 +7,14 @@ import org.openqa.selenium.NoSuchElementException;
 import java.util.List;
 
 public class DropdownMenu {
-    private final List<UIElement> dropdownMenuOptions;
+    private final List<Element> dropdownMenuOptions;
 
     public DropdownMenu(BrowserService browserService, By dropdownMenuDivElBy) {
         var element = browserService.getWait().waitForVisibility(dropdownMenuDivElBy);
         this.dropdownMenuOptions = element.findUIElements(By.tagName("a"));
     }
 
-    public UIElement getOptionByTextValue(String optionTextValue){
+    public Element getOptionByTextValue(String optionTextValue){
         return this.dropdownMenuOptions
                 .stream()
                 .filter(el -> el.getText().equals(optionTextValue))

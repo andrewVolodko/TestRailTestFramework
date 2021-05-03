@@ -5,7 +5,7 @@ import models.DashboardPageProjectRowContainer;
 import org.openqa.selenium.By;
 import pages.common.CommonHeader;
 import wrappers.Button;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public class DashboardPage extends CommonHeader {
 
@@ -29,7 +29,7 @@ public class DashboardPage extends CommonHeader {
     }
 
     public DashboardPageProjectRowContainer getProjectRowByName(String projectName){
-        var projectRow = new UIElement(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
+        var projectRow = new Element(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectSummaryLinkEls = projectRow.findUIElements(projectSummaryLinks);
         return new DashboardPageProjectRowContainer(projectNameLinkEl, projectSummaryLinkEls);
