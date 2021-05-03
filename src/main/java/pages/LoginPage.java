@@ -3,13 +3,18 @@ package pages;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import wrappers.Button;
 import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
 
+    @FindBy(id = "name")
+    public UIElement emailInput;
+
     // Locators
-    protected static final By emailInputBy = By.id("name");
+//    protected static final By emailInputBy = By.id("name");
     protected static final By passInputBy = By.id("password");
     protected static final By loginBtnBy = By.id("button_primary");
     protected static final By errorLabelBy = By.className("error-text");
@@ -25,9 +30,9 @@ public class LoginPage extends BasePage {
     }
 
 
-    public UIElement getEmailInput() {
-        return new UIElement(this.browserService, emailInputBy);
-    }
+//    public UIElement getEmailInput() {
+//        return new UIElement(this.browserService, emailInputBy);
+//    }
 
     public UIElement getPassInput() {
         return new UIElement(this.browserService, passInputBy);

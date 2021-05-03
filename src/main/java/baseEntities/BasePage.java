@@ -4,6 +4,8 @@ import core.BrowserService;
 import core.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import utils.CustomFieldDecorator;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -16,6 +18,8 @@ public abstract class BasePage {
         this.driver = browserService.getDriver();
         this.baseUrl = new PropertyReader().getUrl();
         this.path = path;
+
+        PageFactory.initElements(new CustomFieldDecorator(this.driver), this);
     }
 
     public void open() {

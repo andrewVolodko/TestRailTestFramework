@@ -46,7 +46,7 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
     @Parameters("validEmail")
     public void provideOnlyEmailLoginTest(String email) {
         var loginPage = this.loginPageSteps.getPageInstance();
-        loginPage.getEmailInput().sendKeys(email);
+        loginPage.emailInput.sendKeys(email);
         loginPage.getLoginBtn().click();
 
         Assert.assertEquals(loginPage.getFieldError().getText(), "Password is required.");

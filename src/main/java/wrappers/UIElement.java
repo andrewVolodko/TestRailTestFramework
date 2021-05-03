@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UIElement implements WebElement {
-    private final BrowserService browserService;
+    private  BrowserService browserService;
     private final WebElement element;
-    private final Actions actions;
-    private final JsExecutorClient jsExecutorClient;
-    private final Waiter waiter;
+    private  Actions actions;
+    private  JsExecutorClient jsExecutorClient;
+    private  Waiter waiter;
 
     public UIElement(BrowserService browserService, By by) {
         this.browserService = browserService;
@@ -30,6 +30,10 @@ public class UIElement implements WebElement {
         this.actions = new Actions(browserService.getDriver());
         this.jsExecutorClient = JsExecutorClient.get(browserService);
         this.waiter = browserService.getWait();
+    }
+
+    public UIElement(WebElement element) {
+        this.element = element;
     }
 
     private UIElement(BrowserService browserService){

@@ -3,6 +3,7 @@ package baseEntities;
 import core.BrowserService;
 import io.qameta.allure.Step;
 
+import javax.management.RuntimeErrorException;
 import java.lang.reflect.InvocationTargetException;
 
 public abstract class BaseStep<T extends BasePage> {
@@ -26,6 +27,7 @@ public abstract class BaseStep<T extends BasePage> {
             page = pageClass.getConstructor(BrowserService.class).newInstance(this.browserService);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
+            throw new RuntimeException("Was not able to instantiate page object");
         }
         return page;
     }
