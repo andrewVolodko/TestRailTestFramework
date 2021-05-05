@@ -4,15 +4,15 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Button extends ElementWrapper {
-//    private final Element element;
+public class Button {
+    private final Element element;
 
     public Button(BrowserService browserService, By by) {
-        super(browserService, by);
+        this.element = new Element(browserService, by);
     }
 
     public Button(BrowserService browserService, WebElement element) {
-        super(browserService, element);
+        this.element = new Element(browserService, element);
     }
 
     public void click() {

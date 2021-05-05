@@ -31,7 +31,7 @@ public class DashboardPage extends CommonHeader {
     public DashboardPageProjectRowContainer getProjectRowByName(String projectName){
         var projectRow = new Element(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
-        var projectSummaryLinkEls = projectRow.findUIElements(projectSummaryLinks);
+        var projectSummaryLinkEls = projectRow.findAllElements(projectSummaryLinks);
         return new DashboardPageProjectRowContainer(projectNameLinkEl, projectSummaryLinkEls);
     }
 

@@ -42,7 +42,6 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
 
         Class<?> clazz = field.getType();
 
-        // у элемента должен быть конструктор, принимающий WebElement
         try {
             clazz.getConstructor(BrowserService.class, WebElement.class);
         } catch (Exception e) {

@@ -9,40 +9,32 @@ import utils.Waiter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Element extends ElementWrapper implements WebElement {
+public class Element implements WebElement {
+
+    private final BrowserService browserService;
+    private final WebElement element;
+    private final Actions actions;
+    private final JsExecutorClient jsExecutorClient;
+    private final Waiter waiter;
+
     public Element(BrowserService browserService, By by) {
-        super(browserService, by);
+        this(browserService, browserService.getDriver().findElement(by));
     }
 
     public Element(BrowserService browserService, WebElement element) {
-        super(browserService, element);
+        this.browserService = browserService;
+        this.element = element;
+        this.actions = new Actions(browserService.getDriver());
+        this.jsExecutorClient = JsExecutorClient.get(browserService);
+        this.waiter = browserService.getWait();
     }
 
     private Element(BrowserService browserService){
         this(browserService, browserService.getDriver().findElement(By.xpath("//*")));
     }
 
-//    protected final BrowserService browserService;
-//    protected final WebElement element;
-//    protected final Actions actions;
-//    protected final JsExecutorClient jsExecutorClient;
-//    protected final Waiter waiter;
-
-//    public Element(BrowserService browserService, By by) {
-//        this(browserService, browserService.getDriver().findElement(by));
-//    }
-//
-//    public Element(BrowserService browserService, WebElement element) {
-//        this.browserService = browserService;
-//        this.element = element;
-//        this.actions = new Actions(browserService.getDriver());
-//        this.jsExecutorClient = JsExecutorClient.get(browserService);
-//        this.waiter = browserService.getWait();
-//    }
-
-
     public Checkbox castToCheckbox() {
-        return new Checkbox(this);
+        return new Checkbox(this.browserService, this.element);
     }
 
     public Button castToButton() {
@@ -53,8 +45,11 @@ public class Element extends ElementWrapper implements WebElement {
         return new SelectWithDropdown(this);
     }
 
-    public RadioButtonInterface getRadioBtnInterface(By radioBtnLocator) {
-        return new RadioButtonInterface(this, radioBtnLocator);
+    /**
+     * Current Element should store radioBtnsContainer webElement
+     */
+    public RadioButtonInterface castToRadioButtonInterface() {
+        return new RadioButtonInterface(this.browserService, this.element);
     }
 
     public WebElement getWebElement() {
@@ -122,16 +117,16 @@ public class Element extends ElementWrapper implements WebElement {
         return this.element.findElements(by);
     }
 
-    public List<Element> findUIElements(By by) {
+    public List<Element> findAllElements(By by) {
         return this.element.findElements(by)
                 .stream()
                 .map(el -> new Element(this.browserService, el))
                 .collect(Collectors.toList());
     }
 
-    public static List<Element> findUIElements(BrowserService browserService, By by) {
+    public static List<Element> findAllElements(BrowserService browserService, By by) {
         var tmpUIElementObj = new Element(browserService);
-        return tmpUIElementObj.findUIElements(by);
+        return tmpUIElementObj.findAllElements(by);
     }
 
     @Override

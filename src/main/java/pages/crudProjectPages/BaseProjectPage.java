@@ -15,7 +15,7 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectNameInputBy = By.id("name");
     private static final By projectAnnouncementsInputBy = By.id("announcement");
     private static final By projectShowAnnouncementsCheckboxBy = By.id("show_announcement");
-    private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
+    private static final By projectModeRadioButtonsContainerBy = By.xpath("//div[@class='row add-project-row']/..");
     private static final By addProjectBtnBy = By.id("accept");
 
     public BaseProjectPage(BrowserService browserService, String path) {
@@ -35,7 +35,7 @@ public abstract class BaseProjectPage extends CommonHeader {
     }
 
     public RadioButtonInterface getProjectModeRadioBtnInterface() {
-        return new RadioButtonInterface(this.browserService, projectModeRadioBtnBy);
+        return new RadioButtonInterface(this.browserService, projectModeRadioButtonsContainerBy);
     }
 
     public Button getAddProjectBtn() {

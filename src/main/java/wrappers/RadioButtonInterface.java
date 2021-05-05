@@ -4,6 +4,7 @@ import core.BrowserService;
 import models.RadioButtonContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,17 +12,17 @@ import java.util.stream.Collectors;
 public class RadioButtonInterface {
     private final List<RadioButtonContainer> radioBtnContainers;
 
-    public RadioButtonInterface(BrowserService browserService, By radioBtnInputLocator) {
-        this.radioBtnContainers = getRadioBtnContainersList(Element.findUIElements(browserService, radioBtnInputLocator));
+    public RadioButtonInterface(BrowserService browserService, By radioButtonsContainerElBy) {
+        this(browserService, browserService.getDriver().findElement(radioButtonsContainerElBy));
     }
 
-    public RadioButtonInterface(Element radioBtnsContainer, By radioBtnInputBy) {
-        this.radioBtnContainers = getRadioBtnContainersList(radioBtnsContainer.findUIElements(radioBtnInputBy));
+    public RadioButtonInterface(BrowserService browserService, WebElement radioButtonsContainerEl) {
+        this.radioBtnContainers = getRadioBtnContainersList(new Element(browserService, radioButtonsContainerEl));
     }
 
-    private List<RadioButtonContainer> getRadioBtnContainersList(List<Element> radioBtnContainerEls) {
-        return radioBtnContainerEls.stream()
-                .map(Element::getParent)
+    private List<RadioButtonContainer> getRadioBtnContainersList(Element radioButtonsContainerEl) {
+        return radioButtonsContainerEl.findAllElements(By.tagName("label"))
+                .stream()
                 .map(el -> new RadioButtonContainer(
                         el.findElement(By.tagName("strong")),
                         el.findElement(By.tagName("input")),

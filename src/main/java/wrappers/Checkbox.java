@@ -2,6 +2,7 @@ package wrappers;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class Checkbox {
     private final Element element;
@@ -10,8 +11,8 @@ public class Checkbox {
         this.element = new Element(browserService, by);
     }
 
-    public Checkbox(Element element) {
-        this.element = element;
+    public Checkbox(BrowserService browserService, WebElement element) {
+        this.element = new Element(browserService, element);
     }
 
     public void changeState(boolean makeSelected) {

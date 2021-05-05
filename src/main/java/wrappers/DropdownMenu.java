@@ -3,6 +3,7 @@ package wrappers;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -11,7 +12,12 @@ public class DropdownMenu {
 
     public DropdownMenu(BrowserService browserService, By dropdownMenuDivElBy) {
         var element = browserService.getWait().waitForVisibility(dropdownMenuDivElBy);
-        this.dropdownMenuOptions = element.findUIElements(By.tagName("a"));
+        this.dropdownMenuOptions = element.findAllElements(By.tagName("a"));
+    }
+
+    public DropdownMenu(BrowserService browserService, WebElement dropDownElement){
+        var element = browserService.getWait().waitForVisibility(dropDownElement);
+        this.dropdownMenuOptions = element.findAllElements(By.tagName("a"));
     }
 
     public Element getOptionByTextValue(String optionTextValue){

@@ -22,7 +22,7 @@ public class SelectWithDropdown {
                 selectWithDropdownContainerEl.findElement(By.tagName("label")),
                 selectWithDropdownContainerEl.findElement(By.className("chzn-container")),
                 selectWithDropdownContainerEl.findElement(By.tagName("input")),
-                selectWithDropdownContainerEl.findUIElements(By.tagName("li"))
+                selectWithDropdownContainerEl.findAllElements(By.tagName("li"))
         );
     }
 
