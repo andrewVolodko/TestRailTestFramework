@@ -20,8 +20,8 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
     @Step("Login with correct creds")
     public DashboardPageSteps loginWithCorrectCreds(String email, String pass) {
         this.page.emailInput.sendKeys(email);
-        this.page.getPassInput().sendKeys(pass);
-        this.page.getLoginBtn().click();
+        this.page.passInput.sendKeys(pass);
+        this.page.loginBtn.click();
 
         return new DashboardPageSteps(this.browserService);
     }
@@ -29,8 +29,8 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
     @Step("Login with incorrect creds")
     public LoginPageSteps loginWithIncorrectCreds(String email, String pass) {
         this.page.emailInput.sendKeys(email);
-        this.page.getPassInput().sendKeys(pass);
-        this.page.getLoginBtn().click();
+        this.page.passInput.sendKeys(pass);
+        this.page.loginBtn.click();
 
         return this;
     }

@@ -3,30 +3,23 @@ package pages.common;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 import wrappers.Button;
 import wrappers.DropdownMenu;
 import wrappers.Element;
 
 public abstract class CommonHeader extends BasePage {
 
-    // Locators
-    private static final By dashboardTabBtnBy = By.id("navigation-dashboard");
-    private static final By helpDropdownMenuLinkBy = By.id("navigation-menu");
-    private static final By helpDropdownMenuBy = By.id("helpDropdown");
+    @FindBy(id = "navigation-dashboard")
+    public Button dashboardTabBtn;
+
+    @FindBy(id = "navigation-menu")
+    public Element helpDropdownMenuLink;
+
+    @FindBy(id = "helpDropdown")
+    public DropdownMenu helpDropdownMenu;
 
     public CommonHeader(BrowserService browserService, String path) {
         super(browserService, path);
-    }
-
-    public Button getDashboardTabBtn() {
-        return new Button(this.browserService, dashboardTabBtnBy);
-    }
-
-    public Element getHelpDropdownMenuLink() {
-        return new Element(this.browserService, helpDropdownMenuLinkBy);
-    }
-
-    public DropdownMenu getHelpDropdownMenu() {
-        return new DropdownMenu(this.browserService, helpDropdownMenuBy);
     }
 }

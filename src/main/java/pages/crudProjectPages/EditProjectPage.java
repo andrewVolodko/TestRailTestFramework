@@ -2,12 +2,16 @@ package pages.crudProjectPages;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 import wrappers.Checkbox;
 
 public class EditProjectPage extends BaseProjectPage {
 
     // Locators
-    private static final By completedProjectCheckboxBy = By.id("is_completed");
+    private static final String completedProjectCheckboxId = "is_completed";
+
+    @FindBy(id = completedProjectCheckboxId)
+    public Checkbox completedProjectCheckbox;
 
     public EditProjectPage(BrowserService browserService) {
         super(browserService, null);
@@ -15,10 +19,6 @@ public class EditProjectPage extends BaseProjectPage {
 
     @Override
     protected By getPageOpenedIndicatorElLocator() {
-        return completedProjectCheckboxBy;
-    }
-
-    public Checkbox getCompletedProjectCheckboxBy() {
-        return new Checkbox(this.browserService, completedProjectCheckboxBy);
+        return By.id(completedProjectCheckboxId);
     }
 }

@@ -16,7 +16,7 @@ public class DropdownMenu {
     }
 
     public DropdownMenu(BrowserService browserService, WebElement dropDownElement){
-        var element = browserService.getWait().waitForVisibility(dropDownElement);
+        var element = new Element(browserService, dropDownElement);
         this.dropdownMenuOptions = element.findAllElements(By.tagName("a"));
     }
 

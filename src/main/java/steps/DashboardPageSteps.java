@@ -22,7 +22,7 @@ public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
 
     @Step("Open Add Project Page")
     public AddProjectPageSteps openAddProjectPage() {
-        this.page.getSidebarProjectAddBtn().click();
+        this.page.sidebarProjectAddBtn.click();
         return new AddProjectPageSteps(this.browserService);
     }
 

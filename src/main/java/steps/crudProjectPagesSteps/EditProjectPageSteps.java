@@ -19,24 +19,24 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
     }
 
     public AdminProjectsPageSteps editProject(ProjectModel project) {
-        this.page.getProjectNameInput().clear();
-        this.page.getProjectAnnouncementsInput().clear();
+        this.page.projectNameInput.clear();
+        this.page.projectAnnouncementsInput.clear();
         this.fillProjectData(project);
-        this.page.getCompletedProjectCheckboxBy().changeState(project.getIsCompleted());
-        this.page.getAddProjectBtn().click();
+        this.page.completedProjectCheckbox.changeState(project.getIsCompleted());
+        this.page.addProjectBtn.click();
         return new AdminProjectsPageSteps(this.browserService);
     }
 
     @Step("Collect Project Data")
     public ProjectModel collectProjectData() {
         return new ProjectModel(
-                this.page.getProjectNameInput().getAttribute("value"),
-                this.page.getProjectAnnouncementsInput().getAttribute("value"),
-                this.page.getProjectShowAnnouncementsCheckbox().isSelected(),
-                ProjectMode.getEnumByValue(this.page.getProjectModeRadioBtnInterface()
+                this.page.projectNameInput.getAttribute("value"),
+                this.page.projectAnnouncementsInput.getAttribute("value"),
+                this.page.projectShowAnnouncementsCheckbox.isSelected(),
+                ProjectMode.getEnumByValue(this.page.projectModeRadioBtnInterface
                         .getSelectedRadioButton()
                         .getInput()
                         .getAttribute("value")))
-                .setIsCompleted(this.page.getCompletedProjectCheckboxBy().isSelected());
+                .setIsCompleted(this.page.completedProjectCheckbox.isSelected());
     }
 }

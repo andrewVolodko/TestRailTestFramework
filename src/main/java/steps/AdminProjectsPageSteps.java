@@ -30,8 +30,8 @@ public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage>
     public AdminProjectsPageSteps deleteProjectByName(String projectName) {
         this.page.getProjectRowByName(projectName).getProjectDeleteBtn().click();
         ConfirmationDeleteDialog confirmationDeleteDialog = new ConfirmationDeleteDialog(browserService);
-        confirmationDeleteDialog.getDeleteCheckbox().changeState(true);
-        confirmationDeleteDialog.getOkBtn().click();
+        confirmationDeleteDialog.deleteCheckbox.changeState(true);
+        confirmationDeleteDialog.okBtn.click();
         return this;
     }
 

@@ -4,17 +4,18 @@ import core.BrowserService;
 import models.SelectWithDropdownContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 public class SelectWithDropdown {
     private final SelectWithDropdownContainer selectWithDropdownContainer;
 
     public SelectWithDropdown(BrowserService browserService, By selectWithDropdownContainerBy) {
-        var selectWithDropdownContainerEl = new Element(browserService, selectWithDropdownContainerBy);
-        this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
+        this(browserService, browserService.getDriver().findElement(selectWithDropdownContainerBy));
     }
 
-    public SelectWithDropdown(Element selectWithDropdownContainerEl) {
-        this.selectWithDropdownContainer = getSelectWithDropdownContainer(selectWithDropdownContainerEl);
+    public SelectWithDropdown(BrowserService browserService, WebElement selectWithDropdownElement){
+        this.selectWithDropdownContainer =
+                getSelectWithDropdownContainer(new Element(browserService, selectWithDropdownElement));
     }
 
     private SelectWithDropdownContainer getSelectWithDropdownContainer(Element selectWithDropdownContainerEl){

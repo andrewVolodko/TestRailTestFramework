@@ -37,7 +37,7 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
                 .loginWithIncorrectCreds(email, password)
                 .getPageInstance();
 
-        Assert.assertEquals(loginPage.getErrorLabel().getText(),
+        Assert.assertEquals(loginPage.errorLabel.getText(),
                 "Email/Login or Password is incorrect. Please try again.");
     }
 
@@ -47,8 +47,8 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
     public void provideOnlyEmailLoginTest(String email) {
         var loginPage = this.loginPageSteps.getPageInstance();
         loginPage.emailInput.sendKeys(email);
-        loginPage.getLoginBtn().click();
+        loginPage.loginBtn.click();
 
-        Assert.assertEquals(loginPage.getFieldError().getText(), "Password is required.");
+        Assert.assertEquals(loginPage.fieldError.getText(), "Password is required.");
     }
 }

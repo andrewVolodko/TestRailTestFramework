@@ -21,7 +21,7 @@ public class AddProjectPageSteps extends BaseProjectPagesStep<AddProjectPage> {
     @Step("Add Project")
     public AdminProjectsPageSteps addNewProject(ProjectModel project) {
         this.fillProjectData(project);
-        this.page.getAddProjectBtn().click();
+        this.page.addProjectBtn.click();
         return new AdminProjectsPageSteps(this.browserService);
     }
 }

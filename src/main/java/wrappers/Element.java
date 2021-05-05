@@ -42,7 +42,7 @@ public class Element implements WebElement {
     }
 
     public SelectWithDropdown castToSelectWithDropdown() {
-        return new SelectWithDropdown(this);
+        return new SelectWithDropdown(this.browserService, this.element);
     }
 
     /**

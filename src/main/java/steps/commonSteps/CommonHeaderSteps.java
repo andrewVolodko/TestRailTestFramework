@@ -14,7 +14,7 @@ public abstract class CommonHeaderSteps<T extends CommonHeader> extends BaseStep
 
     @Step("Select Dashboard Tab")
     public DashboardPageSteps goToDashboardTab() {
-        this.page.getDashboardTabBtn().click();
+        this.page.dashboardTabBtn.click();
         return new DashboardPageSteps(browserService);
     }
 }

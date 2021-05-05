@@ -19,7 +19,7 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
     private DashboardPageSteps dashboardPageSteps;
     private AdminProjectsPageSteps adminProjectsPageSteps;
 
-    @Factory(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class)
+    @Factory(dataProvider = "projectDataProvider", dataProviderClass = StaticDataProvider.class, indices = {1})
     public ProjectCRUDTest(ProjectModel projectData) {
         this.curProjectData = projectData;
     }
@@ -33,9 +33,9 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
     @Test(description = "Add Project Test")
     @Description("Adding project verification")
     public void addProjectTest() {
-        this.adminProjectsPageSteps = this.dashboardPageSteps // на странице дашборд
-                .openAddProjectPage() // открываем страницу add proj - мы на этой странице
-                .addNewProject(this.curProjectData); // добавляем проект и сабмитаем
+        this.adminProjectsPageSteps = this.dashboardPageSteps
+                .openAddProjectPage()
+                .addNewProject(this.curProjectData);
 
         var createdProjectNameLink = this.adminProjectsPageSteps
                 .getPageInstance()
@@ -66,7 +66,7 @@ public class ProjectCRUDTest extends BaseTestWithClassDriverInitialization {
                 .getPageInstance();
 
         Assert.assertFalse(this.adminProjectsPageSteps.isProjectExisted(this.curProjectData.getName()));
-        Assert.assertEquals(adminProjectsPage.getSuccessProjectCRUDMessage().getText(),
+        Assert.assertEquals(adminProjectsPage.successProjectCRUDMessage.getText(),
                 "Successfully deleted the project.");
     }
 }

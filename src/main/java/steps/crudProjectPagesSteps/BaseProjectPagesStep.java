@@ -13,9 +13,9 @@ public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends Co
 
     @Step("Fill Project Data")
     protected void fillProjectData(ProjectModel projectData) {
-        this.page.getProjectNameInput().sendKeys(projectData.getName());
-        this.page.getProjectAnnouncementsInput().sendKeys(projectData.getAnnouncement());
-        this.page.getProjectShowAnnouncementsCheckbox().changeState(projectData.isShowAnnouncement());
-        this.page.getProjectModeRadioBtnInterface().click(projectData.getProjectType().getValue());
+        this.page.projectNameInput.sendKeys(projectData.getName());
+        this.page.projectAnnouncementsInput.sendKeys(projectData.getAnnouncement());
+        this.page.projectShowAnnouncementsCheckbox.changeState(projectData.isShowAnnouncement());
+        this.page.projectModeRadioBtnInterface.click(projectData.getProjectType().getValue());
     }
 }

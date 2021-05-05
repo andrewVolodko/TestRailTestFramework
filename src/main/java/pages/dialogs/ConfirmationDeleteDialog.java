@@ -3,17 +3,19 @@ package pages.dialogs;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import wrappers.Button;
 import wrappers.Checkbox;
 import wrappers.Element;
 
 public class ConfirmationDeleteDialog extends BasePage {
 
-    // Locators
-    private static final By dialogContainerBy = By.cssSelector("[aria-labelledby]");
-    private static final By title = By.id("ui-dialog-title-deleteDialog");
-    private static final By deleteCheckboxBy = By.tagName("input");
-    private static final By okBtnBy = By.className("button-ok");
+    @FindBys({@FindBy(css = "[aria-labelledby]"), @FindBy(tagName = "input")})
+    public Checkbox deleteCheckbox;
+
+    @FindBys({@FindBy(css = "[aria-labelledby]"), @FindBy(className = "button-ok")})
+    public Button okBtn;
 
     public ConfirmationDeleteDialog(BrowserService browserService) {
         super(browserService, null);
@@ -21,18 +23,6 @@ public class ConfirmationDeleteDialog extends BasePage {
 
     @Override
     protected By getPageOpenedIndicatorElLocator() {
-        return title;
-    }
-
-    public Checkbox getDeleteCheckbox() {
-        return getDialogContainer().findElement(deleteCheckboxBy).castToCheckbox();
-    }
-
-    public Button getOkBtn() {
-        return getDialogContainer().findElement(okBtnBy).castToButton();
-    }
-
-    private Element getDialogContainer() {
-        return new Element(this.browserService, dialogContainerBy);
+        return By.id("ui-dialog-title-deleteDialog");
     }
 }

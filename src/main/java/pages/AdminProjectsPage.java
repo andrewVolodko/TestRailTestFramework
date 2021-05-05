@@ -3,6 +3,7 @@ package pages;
 import core.BrowserService;
 import models.AdminPageProjectRowContainer;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 import pages.common.CommonHeader;
 import wrappers.Element;
 
@@ -14,7 +15,9 @@ public class AdminProjectsPage extends CommonHeader {
     private static final By projectNameLinkBy = By.xpath("//td/a[normalize-space()]");
     private static final By projectEditBtnBy = By.className("icon-small-edit");
     private static final By projectDeleteBtnBy = By.className("icon-small-delete");
-    private static final By successProjectCRUDMessageBy = By.className("message-success");
+
+    @FindBy(className = "message-success")
+    public Element successProjectCRUDMessage;
 
     public AdminProjectsPage(BrowserService browserService) {
         super(browserService, "/admin/projects/overview");
@@ -25,16 +28,11 @@ public class AdminProjectsPage extends CommonHeader {
         return projectsPageTitleBy;
     }
 
-    // Замена на использование обертки Table
     public AdminPageProjectRowContainer getProjectRowByName(String projectName) {
         var projectRow = new Element(this.browserService, By.xpath(projectRowLocator.replace("%projectName%", projectName)));
         var projectNameLinkEl = projectRow.findElement(projectNameLinkBy);
         var projectEditBtnEl = projectRow.findElement(projectEditBtnBy);
         var projectDeleteBtnEl = projectRow.findElement(projectDeleteBtnBy);
         return new AdminPageProjectRowContainer(projectNameLinkEl, projectEditBtnEl, projectDeleteBtnEl);
-    }
-
-    public Element getSuccessProjectCRUDMessage() {
-        return new Element(this.browserService, successProjectCRUDMessageBy);
     }
 }

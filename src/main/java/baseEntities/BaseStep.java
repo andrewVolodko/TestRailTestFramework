@@ -22,12 +22,14 @@ public abstract class BaseStep<T extends BasePage> {
 
     public T getPageInstance() {
         if (pageClass == null) throw new NoClassDefFoundError("Page class was not defined.");
-        T page = null;
+        T page;
         try {
             page = pageClass.getConstructor(BrowserService.class).newInstance(this.browserService);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
-            throw new RuntimeException("Was not able to instantiate page object");
+
+            throw new RuntimeException(e.getMessage());
+//            throw new RuntimeException("Was not able to instantiate page object");
         }
         return page;
     }
