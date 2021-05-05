@@ -10,7 +10,8 @@ public class WrapperFactory {
             return clazz.getConstructor(BrowserService.class, WebElement.class).newInstance(browserService, element);
         } catch (Exception e) {
             throw new AssertionError(
-                    "WebElement can't be represented as " + clazz
+                    "WebElement can't be represented as " + clazz +
+                            ". Wrapper class must contain constructor with BrowserService and WebElement arguments"
             );
         }
     }
