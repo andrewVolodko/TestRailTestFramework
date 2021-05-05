@@ -4,7 +4,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Button {
+public class Button implements IElement {
     private final Element element;
 
     public Button(BrowserService browserService, By by) {

@@ -6,19 +6,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class SelectWithDropdown {
+public class SelectWithDropdown implements IElement {
     private final SelectWithDropdownContainer selectWithDropdownContainer;
 
     public SelectWithDropdown(BrowserService browserService, By selectWithDropdownContainerBy) {
         this(browserService, browserService.getDriver().findElement(selectWithDropdownContainerBy));
     }
 
-    public SelectWithDropdown(BrowserService browserService, WebElement selectWithDropdownElement){
+    public SelectWithDropdown(BrowserService browserService, WebElement selectWithDropdownElement) {
         this.selectWithDropdownContainer =
                 getSelectWithDropdownContainer(new Element(browserService, selectWithDropdownElement));
     }
 
-    private SelectWithDropdownContainer getSelectWithDropdownContainer(Element selectWithDropdownContainerEl){
+    private SelectWithDropdownContainer getSelectWithDropdownContainer(Element selectWithDropdownContainerEl) {
         return new SelectWithDropdownContainer(
                 selectWithDropdownContainerEl.findElement(By.tagName("label")),
                 selectWithDropdownContainerEl.findElement(By.className("chzn-container")),
@@ -27,7 +27,7 @@ public class SelectWithDropdown {
         );
     }
 
-    public SelectWithDropdown selectOptionByTextValue(String optionTextValue){
+    public SelectWithDropdown selectOptionByTextValue(String optionTextValue) {
         this.selectWithDropdownContainer.getSelect().click();
         this.selectWithDropdownContainer.getValues()
                 .stream()

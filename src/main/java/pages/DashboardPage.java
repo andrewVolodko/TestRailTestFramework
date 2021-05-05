@@ -3,11 +3,14 @@ package pages;
 import core.BrowserService;
 import models.DashboardPageProjectRowContainer;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import pages.common.CommonHeader;
 import wrappers.Button;
 import wrappers.Element;
+
+import java.util.List;
 
 public class DashboardPage extends CommonHeader {
 
@@ -18,6 +21,9 @@ public class DashboardPage extends CommonHeader {
 
     @FindBy(id = "sidebar-projects-add")
     public Button sidebarProjectAddBtn;
+
+    @FindBy(className = "flex-projects-row")
+    public List<Element> projectRows;
 
     public DashboardPage(BrowserService browserService) {
         super(browserService, "/dashboard");

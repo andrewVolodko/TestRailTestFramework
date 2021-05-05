@@ -9,7 +9,7 @@ import utils.Waiter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Element implements WebElement {
+public class Element implements WebElement, IElement {
 
     private final BrowserService browserService;
     private final WebElement element;

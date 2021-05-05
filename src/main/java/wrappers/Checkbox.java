@@ -4,7 +4,7 @@ import core.BrowserService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Checkbox {
+public class Checkbox implements IElement {
     private final Element element;
 
     public Checkbox(BrowserService browserService, By by) {

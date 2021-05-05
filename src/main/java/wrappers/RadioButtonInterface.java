@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RadioButtonInterface {
+public class RadioButtonInterface implements IElement {
     private final List<RadioButtonContainer> radioBtnContainers;
 
     public RadioButtonInterface(BrowserService browserService, By radioButtonsContainerElBy) {

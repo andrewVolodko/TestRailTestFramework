@@ -5,7 +5,7 @@ import core.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import utils.CustomFieldDecorator;
+import utils.customFieldDecorator.CustomFieldDecorator;
 
 public abstract class BasePage {
     protected WebDriver driver;
