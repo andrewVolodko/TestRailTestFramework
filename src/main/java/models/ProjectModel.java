@@ -44,24 +44,27 @@ public class ProjectModel {
         return announcement;
     }
 
-    public void setAnnouncement(String announcement) {
+    public ProjectModel setAnnouncement(String announcement) {
         this.announcement = announcement;
+        return this;
     }
 
     public boolean isShowAnnouncement() {
         return showAnnouncement;
     }
 
-    public void setShowAnnouncement(boolean showAnnouncement) {
+    public ProjectModel setShowAnnouncement(boolean showAnnouncement) {
         this.showAnnouncement = showAnnouncement;
+        return this;
     }
 
     public ProjectMode getProjectType() {
         return projectMode;
     }
 
-    public void setProjectType(ProjectMode projectMode) {
+    public ProjectModel setProjectType(ProjectMode projectMode) {
         this.projectMode = projectMode;
+        return this;
     }
 
     public boolean getIsCompleted() {
