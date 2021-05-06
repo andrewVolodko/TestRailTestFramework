@@ -13,7 +13,7 @@ public class RadioButtonInterface implements IElement {
     private final List<RadioButtonContainer> radioBtnContainers;
 
     public RadioButtonInterface(BrowserService browserService, By radioButtonsContainerElBy) {
-        this(browserService, browserService.getDriver().findElement(radioButtonsContainerElBy));
+        this.radioBtnContainers = getRadioBtnContainersList(new Element(browserService, radioButtonsContainerElBy));
     }
 
     public RadioButtonInterface(BrowserService browserService, WebElement radioButtonsContainerEl) {

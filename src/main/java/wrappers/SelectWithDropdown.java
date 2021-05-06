@@ -10,7 +10,8 @@ public class SelectWithDropdown implements IElement {
     private final SelectWithDropdownContainer selectWithDropdownContainer;
 
     public SelectWithDropdown(BrowserService browserService, By selectWithDropdownContainerBy) {
-        this(browserService, browserService.getDriver().findElement(selectWithDropdownContainerBy));
+        this.selectWithDropdownContainer =
+                getSelectWithDropdownContainer(new Element(browserService, selectWithDropdownContainerBy));
     }
 
     public SelectWithDropdown(BrowserService browserService, WebElement selectWithDropdownElement) {
@@ -28,13 +29,20 @@ public class SelectWithDropdown implements IElement {
     }
 
     public SelectWithDropdown selectOptionByTextValue(String optionTextValue) {
-        this.selectWithDropdownContainer.getSelect().click();
+        this.changeState(true);
         this.selectWithDropdownContainer.getValues()
                 .stream()
                 .filter(el -> el.getText().equals(optionTextValue))
                 .findAny()
                 .orElseThrow(() -> new NoSuchElementException("No option found with text value provided."))
                 .click();
+
+        return this;
+    }
+
+    public SelectWithDropdown changeState(boolean makeExpanded) {
+        if(this.selectWithDropdownContainer.getSearch().isDisplayed() != makeExpanded)
+            this.selectWithDropdownContainer.getSelect().click();
 
         return this;
     }
