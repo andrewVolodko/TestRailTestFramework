@@ -19,7 +19,7 @@ public class StaticDataProvider {
                     "Announcement" + Randomizer.getRandomString(100),
                     i % 2 != 0,
                     modes[i])
-                    .setIsCompleted(i % 2 == 0)
+                    .setCompleted(i % 2 == 0)
             };
         }
         return data;

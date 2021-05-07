@@ -16,6 +16,6 @@ public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends Co
         this.page.projectNameInput.sendKeys(projectData.getName());
         this.page.projectAnnouncementsInput.sendKeys(projectData.getAnnouncement());
         this.page.projectShowAnnouncementsCheckbox.changeState(projectData.isShowAnnouncement());
-        this.page.projectModeRadioBtnInterface.click(projectData.getProjectType().getValue());
+        this.page.projectModeRadioBtnInterface.click(projectData.getProjectMode().getValue());
     }
 }

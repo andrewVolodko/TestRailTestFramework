@@ -1,5 +1,10 @@
 package enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum ProjectSummaryLink {
     TODOS(0),
     MILESTONES(1),
@@ -9,12 +14,4 @@ public enum ProjectSummaryLink {
     REPORTS(4);
 
     private final int value;
-
-    ProjectSummaryLink(int value){
-        this.value = value;
-    }
-
-    public int getValue(){
-        return this.value;
-    }
 }
