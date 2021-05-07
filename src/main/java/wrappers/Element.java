@@ -33,25 +33,6 @@ public class Element implements WebElement, IElement {
         this(browserService, browserService.getDriver().findElement(By.xpath("//*")));
     }
 
-    public Checkbox castToCheckbox() {
-        return new Checkbox(this.browserService, this.element);
-    }
-
-    public Button castToButton() {
-        return new Button(this.browserService, this.element);
-    }
-
-    public SelectWithDropdown castToSelectWithDropdown() {
-        return new SelectWithDropdown(this.browserService, this.element);
-    }
-
-    /**
-     * Current Element should store radioBtnsContainer webElement
-     */
-    public RadioButtonInterface castToRadioButtonInterface() {
-        return new RadioButtonInterface(this.browserService, this.element);
-    }
-
     public WebElement getWebElement() {
         return this.element;
     }
