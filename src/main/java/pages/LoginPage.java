@@ -26,7 +26,6 @@ public class LoginPage extends BasePage {
     @FindBy(className = "loginpage-message-image")
     public Element fieldError;
 
-
     public LoginPage(BrowserService browserService) {
         super(browserService, "/auth/login");
     }

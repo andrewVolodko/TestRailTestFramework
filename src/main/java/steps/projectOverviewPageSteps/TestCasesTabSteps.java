@@ -18,7 +18,7 @@ public class TestCasesTabSteps extends CommonHeaderSteps<TestCasesTab> {
 
     @Step("Open Add Test Case Page")
     public AddTestCasePageSteps openAddTestCasePage(){
-        this.page.getSidebarAddTestCaseButton().click();
+        this.page.sidebarAddTestCaseBtn.click();
         return new AddTestCasePageSteps(this.browserService);
     }
 }

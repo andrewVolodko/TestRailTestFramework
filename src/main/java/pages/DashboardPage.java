@@ -22,9 +22,6 @@ public class DashboardPage extends CommonHeader {
     @FindBy(id = "sidebar-projects-add")
     public Button sidebarProjectAddBtn;
 
-    @FindBy(className = "flex-projects-row")
-    public List<Element> projectRows;
-
     public DashboardPage(BrowserService browserService) {
         super(browserService, "/dashboard");
     }

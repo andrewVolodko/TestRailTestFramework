@@ -11,9 +11,6 @@ import pages.common.CommonHeader;
 
 public abstract class BaseProjectPage extends CommonHeader {
 
-    // Locators
-    protected static final By projectTabBy = By.id("projects-tabs-project");
-
     @FindBy(id = "name")
     public Element projectNameInput;
 

@@ -11,6 +11,6 @@ public class AddProjectPage extends BaseProjectPage {
 
     @Override
     protected By getPageOpenedIndicatorElLocator() {
-        return projectTabBy;
+        return By.id("projects-tabs-project");
     }
 }
