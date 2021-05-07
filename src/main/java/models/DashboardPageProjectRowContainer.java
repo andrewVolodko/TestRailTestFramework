@@ -1,22 +1,16 @@
 package models;
 
 import enums.ProjectSummaryLink;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import wrappers.UIElement;
 
 import java.util.List;
 
+@AllArgsConstructor
 public class DashboardPageProjectRowContainer {
-    private final UIElement projectNameLink;
+    @Getter private final UIElement projectNameLink;
     private final List<UIElement> projectSummaryLinks;
-
-    public DashboardPageProjectRowContainer(UIElement projectNameLink, List<UIElement> projectSummaryLinks) {
-        this.projectNameLink = projectNameLink;
-        this.projectSummaryLinks = projectSummaryLinks;
-    }
-
-    public UIElement getProjectNameLink() {
-        return projectNameLink;
-    }
 
     public UIElement getProjectSummaryLink(ProjectSummaryLink projectSummaryLink) {
         return projectSummaryLinks.get(projectSummaryLink.getValue());

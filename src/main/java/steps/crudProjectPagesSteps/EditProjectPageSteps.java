@@ -22,7 +22,7 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();
         this.fillProjectData(project);
-        this.page.getCompletedProjectCheckboxBy().changeState(project.getIsCompleted());
+        this.page.getCompletedProjectCheckboxBy().changeState(project.isCompleted());
         this.page.getAddProjectBtn().click();
         return new AdminProjectsPageSteps(this.browserService);
     }
@@ -37,6 +37,6 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
                         .getSelectedRadioButton()
                         .getInput()
                         .getAttribute("value")))
-                .setIsCompleted(this.page.getCompletedProjectCheckboxBy().isSelected());
+                .setCompleted(this.page.getCompletedProjectCheckboxBy().isSelected());
     }
 }
