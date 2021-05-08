@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public By getPageOpenedIndicatorElLocator() {
-        return loginBtnBy;
+        return By.id("wefw");
     }
 
 
