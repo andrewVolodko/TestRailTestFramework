@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestWithMethodDriverInitialization extends BaseTest {
+public abstract class BaseTestWithMethodDriverInitialization extends BaseTest {
 
     @BeforeMethod
     public void setupMethod() {

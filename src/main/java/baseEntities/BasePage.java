@@ -3,6 +3,7 @@ package baseEntities;
 import core.BrowserService;
 import core.PropertyReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import utils.customFieldDecorator.CustomFieldDecorator;
@@ -10,7 +11,7 @@ import utils.customFieldDecorator.CustomFieldDecorator;
 public abstract class BasePage {
     protected WebDriver driver;
     protected BrowserService browserService;
-    public String baseUrl;
+    public final String baseUrl;
     private final String path;
 
     public BasePage(BrowserService browserService, String path) {
@@ -24,18 +25,12 @@ public abstract class BasePage {
 
     public void open() {
         if (this.path != null) this.driver.get(baseUrl + path);
-        waitUntilPageOpened();
-    }
-
-    protected abstract By getPageOpenedIndicatorElLocator();
-
-    private void waitUntilPageOpened() {
-        var isPageOpened = browserService.getWait()
-                .waitForVisibility(getPageOpenedIndicatorElLocator())
-                .isDisplayed();
-
-        if (!isPageOpened) {
+        try {
+            this.browserService.getWait().waitForVisibility(getPageOpenedIndicatorElLocator());
+        } catch (TimeoutException ex){
             throw new AssertionError("Page was not opened");
         }
     }
+
+    protected abstract By getPageOpenedIndicatorElLocator();
 }
