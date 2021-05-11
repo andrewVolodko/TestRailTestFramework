@@ -3,26 +3,24 @@ package models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import enums.ProjectMode;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.*;
 import lombok.experimental.Accessors;
 import utils.Randomizer;
 
-@SuppressWarnings("NullableProblems")
 @Data
-@AllArgsConstructor
-@RequiredArgsConstructor
 @Accessors(chain = true)
 public class ProjectModel {
     @Expose(serialize = false)
     private int id;
-    @NonNull @Expose
+    @NotNull @Expose
     private String name;
-    @NonNull @Expose
+    @Expose
     private String announcement;
-    @NonNull @Expose @SerializedName(value = "show_announcement")
+    @Expose @SerializedName(value = "show_announcement")
     private boolean showAnnouncement;
-    @NonNull @Expose @SerializedName(value = "suite_mode")
-    private ProjectMode projectMode;
+    @Expose @SerializedName(value = "suite_mode")
+    private int projectMode;
     @Expose(serialize = false) @SerializedName(value = "is_completed")
     private boolean isCompleted;
     @Expose(serialize = false) @SerializedName(value = "completed_on")
@@ -38,7 +36,19 @@ public class ProjectModel {
                 ProjectMode.SINGLE_FOR_ALL_CASES);
     }
 
+    public ProjectModel(String name, String announcement, boolean showAnnouncement, ProjectMode projectMode) {
+        this.name = name;
+        this.announcement = announcement;
+        this.showAnnouncement = showAnnouncement;
+        this.projectMode = projectMode.getValue();
+    }
+
     public static ProjectModel getDefault(boolean isCompleted) {
         return getDefault().setCompleted(isCompleted);
+    }
+
+    public ProjectModel setProjectMode(ProjectMode projectMode){
+        this.projectMode = projectMode.getValue();
+        return this;
     }
 }

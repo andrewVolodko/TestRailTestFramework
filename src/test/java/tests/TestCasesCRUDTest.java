@@ -1,5 +1,6 @@
 package tests;
 
+import apiSteps.ApiSteps;
 import baseTestTemplates.BaseTestWithClassDriverInitialization;
 import models.ProjectModel;
 import org.testng.annotations.BeforeClass;
@@ -16,10 +17,13 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
     public void setupClass(String email, String password) {
         ProjectModel projectData = ProjectModel.getDefault();
 
+        new ApiSteps(email, password)
+                .addProject(projectData);
+
         login(email, password)
-                .openAddProjectPage()
-                .addNewProject(projectData)
-                .goToDashboardTab()
+//                .openAddProjectPage()
+//                .addNewProject(projectData)
+//                .goToDashboardTab()
                 .openProjectTestCasesTabByProjName(projectData.getName())
                 .openAddTestCasePage()
                 .selectTemplateByOptionValue("Exploratory Session");

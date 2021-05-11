@@ -3,7 +3,6 @@ package enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-
 @Getter
 @AllArgsConstructor
 public enum ProjectMode {
@@ -20,7 +19,8 @@ public enum ProjectMode {
         }
         throw new IllegalArgumentException("No enum constant with value" + value);
     }
-    public static ProjectMode getEnumByValue(String value){
+
+    public static ProjectMode getEnumByValue(String value) {
         return getEnumByValue(Integer.parseInt(value));
     }
 }
