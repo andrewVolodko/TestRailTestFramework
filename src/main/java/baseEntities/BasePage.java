@@ -15,7 +15,7 @@ public abstract class BasePage {
     public BasePage(BrowserService browserService, String path) {
         this.browserService = browserService;
         this.driver = browserService.getDriver();
-        this.baseUrl = new PropertyReader().getUrl();
+        this.baseUrl = new PropertyReader().getBaseUrl();
         this.path = path;
     }
 

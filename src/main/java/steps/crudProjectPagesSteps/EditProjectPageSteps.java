@@ -7,7 +7,7 @@ import models.ProjectModel;
 import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
-public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> {
+public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage> {
     public EditProjectPageSteps(BrowserService browserService) {
         super(browserService, EditProjectPage.class);
     }

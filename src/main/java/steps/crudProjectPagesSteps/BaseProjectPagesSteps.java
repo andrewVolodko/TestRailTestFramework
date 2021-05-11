@@ -6,8 +6,8 @@ import models.ProjectModel;
 import pages.crudProjectPages.BaseProjectPage;
 import steps.commonSteps.CommonHeaderSteps;
 
-public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends CommonHeaderSteps<T> {
-    public BaseProjectPagesStep(BrowserService browserService, Class<T> pageClass) {
+public abstract class BaseProjectPagesSteps<T extends BaseProjectPage> extends CommonHeaderSteps<T> {
+    public BaseProjectPagesSteps(BrowserService browserService, Class<T> pageClass) {
         super(browserService, pageClass);
     }
 

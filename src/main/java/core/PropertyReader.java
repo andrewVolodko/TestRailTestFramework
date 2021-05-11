@@ -15,8 +15,8 @@ public class PropertyReader {
         }
     }
 
-    public String getUrl() {
-        return properties.getProperty("url");
+    public String getBaseUrl() {
+        return properties.getProperty("baseurl");
     }
 
     public String getBrowserName() {

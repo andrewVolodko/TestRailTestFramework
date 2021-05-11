@@ -40,9 +40,9 @@ public class RadioButtonInterface {
                 .orElseThrow(() -> new NoSuchElementException("No radio button selected"));
     }
 
-    public void click(String value) {
+    public void click(int value) {
         this.radioBtnContainers.stream()
-                .filter(el -> el.getInput().getAttribute("value").equals(value))
+                .filter(el -> el.getInput().getAttribute("value").equals(String.valueOf(value)))
                 .findAny()
                 .orElseThrow(() -> new NoSuchElementException("No radio button found with provided value"))
                 .getInput()

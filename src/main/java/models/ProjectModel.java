@@ -1,11 +1,11 @@
 package models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import enums.ProjectMode;
 import lombok.*;
 import lombok.experimental.Accessors;
 import utils.Randomizer;
-
-import java.util.Objects;
 
 @SuppressWarnings("NullableProblems")
 @Data
@@ -13,11 +13,22 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Accessors(chain = true)
 public class ProjectModel {
-    @NonNull private String name;
-    @NonNull private String announcement;
-    @NonNull private boolean showAnnouncement;
-    @NonNull private ProjectMode projectMode;
-             private boolean isCompleted;
+    @Expose(serialize = false)
+    private int id;
+    @NonNull @Expose
+    private String name;
+    @NonNull @Expose
+    private String announcement;
+    @NonNull @Expose @SerializedName(value = "show_announcement")
+    private boolean showAnnouncement;
+    @NonNull @Expose @SerializedName(value = "suite_mode")
+    private ProjectMode projectMode;
+    @Expose(serialize = false) @SerializedName(value = "is_completed")
+    private boolean isCompleted;
+    @Expose(serialize = false) @SerializedName(value = "completed_on")
+    private long completedOn;
+    @Expose(serialize = false)
+    private String url;
 
     public static ProjectModel getDefault() {
         return new ProjectModel(
