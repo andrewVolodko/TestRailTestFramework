@@ -21,9 +21,10 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
         int createdProjectId = new ApiSteps(email, password)
                 .addProject(projectData).getBody().jsonPath().getInt("id");
 
-        login(email, password)
-//        new ProjectOverviewTabSteps(browserService)
-                .openProjectTestCasesTabByProjName(projectData.getName())
+        login(email, password);
+        new ProjectOverviewTabSteps(browserService)
+                .openProjectOverviewPageByProjId(createdProjectId)
+                .openProjectTestCasesTab()
                 .openAddTestCasePage()
                 .selectTemplateByOptionValue("Exploratory Session");
     }
