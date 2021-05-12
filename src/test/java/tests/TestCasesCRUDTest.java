@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import steps.projectOverviewPageSteps.ProjectOverviewTabSteps;
 import utils.Listener;
 
 @Listeners(Listener.class)
@@ -17,13 +18,11 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
     public void setupClass(String email, String password) {
         ProjectModel projectData = ProjectModel.getDefault();
 
-        new ApiSteps(email, password)
-                .addProject(projectData);
+        int createdProjectId = new ApiSteps(email, password)
+                .addProject(projectData).getBody().jsonPath().getInt("id");
 
         login(email, password)
-//                .openAddProjectPage()
-//                .addNewProject(projectData)
-//                .goToDashboardTab()
+//        new ProjectOverviewTabSteps(browserService)
                 .openProjectTestCasesTabByProjName(projectData.getName())
                 .openAddTestCasePage()
                 .selectTemplateByOptionValue("Exploratory Session");

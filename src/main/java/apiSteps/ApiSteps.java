@@ -8,12 +8,12 @@ import io.restassured.RestAssured;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import models.ProjectModel;
 
 import static io.restassured.RestAssured.given;
 
 public class ApiSteps {
+    private final static String API_PATH_QUERY_PART = "/api/v2";
     private final Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     public ApiSteps(String email, String password) {
@@ -28,7 +28,7 @@ public class ApiSteps {
     @Step("Send add_project API request")
     public Response addProject(ProjectModel project){
         var response = given()
-                .queryParam("/api/v2" + "/add_project")
+                .queryParam(API_PATH_QUERY_PART + "/add_project")
                 .contentType(ContentType.JSON)
                 .body(this.gson.toJson(project))
                 .log().all()
