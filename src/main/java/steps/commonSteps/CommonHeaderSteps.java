@@ -8,8 +8,8 @@ import steps.DashboardPageSteps;
 
 public abstract class CommonHeaderSteps<T extends CommonHeader> extends BaseStep<T> {
 
-    public CommonHeaderSteps(BrowserService browserService, Class<T> pageClass) {
-        super(browserService, pageClass);
+    public CommonHeaderSteps(BrowserService browserService) {
+        super(browserService);
     }
 
     @Step("Select Dashboard Tab")

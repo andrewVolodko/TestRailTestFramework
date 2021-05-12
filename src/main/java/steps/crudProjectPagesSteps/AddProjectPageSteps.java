@@ -9,7 +9,7 @@ import steps.AdminProjectsPageSteps;
 public class AddProjectPageSteps extends BaseProjectPagesSteps<AddProjectPage> {
 
     public AddProjectPageSteps(BrowserService browserService) {
-        super(browserService, AddProjectPage.class);
+        super(browserService);
     }
 
     @Override

@@ -11,7 +11,7 @@ import steps.crudProjectPagesSteps.AddProjectPageSteps;
 public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
 
     public DashboardPageSteps(BrowserService browserService) {
-        super(browserService, DashboardPage.class);
+        super(browserService);
     }
 
     @Override

@@ -8,7 +8,7 @@ import pages.LoginPage;
 public class LoginPageSteps extends BaseStep<LoginPage> {
 
     public LoginPageSteps(BrowserService browserService) {
-        super(browserService, LoginPage.class);
+        super(browserService);
     }
 
     @Override

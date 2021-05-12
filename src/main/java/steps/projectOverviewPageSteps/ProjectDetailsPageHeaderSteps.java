@@ -6,7 +6,7 @@ import pages.projectDetailsPage.ProjectDetailsPageHeader;
 
 public abstract class ProjectDetailsPageHeaderSteps<T extends ProjectDetailsPageHeader> extends BaseStep<T> {
 
-    public ProjectDetailsPageHeaderSteps(BrowserService browserService, Class<T> pageClass) {
-        super(browserService, pageClass);
+    public ProjectDetailsPageHeaderSteps(BrowserService browserService) {
+        super(browserService);
     }
 }

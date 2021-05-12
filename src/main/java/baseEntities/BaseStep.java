@@ -4,15 +4,17 @@ import core.BrowserService;
 import io.qameta.allure.Step;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
 
 public abstract class BaseStep<T extends BasePage> {
     protected BrowserService browserService;
     protected T page;
     private final Class<T> pageClass;
 
-    public BaseStep(BrowserService browserService, Class<T> pageClass) {
+    @SuppressWarnings("unchecked")
+    public BaseStep(BrowserService browserService) {
         this.browserService = browserService;
-        this.pageClass = pageClass;
+        this.pageClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         this.page = getPageInstance();
     }
 

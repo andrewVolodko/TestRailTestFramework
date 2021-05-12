@@ -7,7 +7,7 @@ import steps.crudTestCasePagesSteps.AddTestCasePageSteps;
 
 public class ProjectTestCasesTabSteps extends ProjectDetailsPageHeaderSteps<ProjectTestCasesTab> {
     public ProjectTestCasesTabSteps(BrowserService browserService) {
-        super(browserService, ProjectTestCasesTab.class);
+        super(browserService);
     }
 
     @Override

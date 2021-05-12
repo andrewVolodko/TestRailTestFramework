@@ -5,7 +5,7 @@ import pages.projectDetailsPage.ProjectOverviewTab;
 
 public class ProjectOverviewTabSteps extends ProjectDetailsPageHeaderSteps<ProjectOverviewTab> {
     public ProjectOverviewTabSteps(BrowserService browserService) {
-        super(browserService, ProjectOverviewTab.class);
+        super(browserService);
     }
 
     @Override

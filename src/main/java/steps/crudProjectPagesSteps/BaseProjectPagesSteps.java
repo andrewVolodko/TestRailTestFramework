@@ -7,8 +7,8 @@ import pages.crudProjectPages.BaseProjectPage;
 import steps.commonSteps.CommonHeaderSteps;
 
 public abstract class BaseProjectPagesSteps<T extends BaseProjectPage> extends CommonHeaderSteps<T> {
-    public BaseProjectPagesSteps(BrowserService browserService, Class<T> pageClass) {
-        super(browserService, pageClass);
+    public BaseProjectPagesSteps(BrowserService browserService) {
+        super(browserService);
     }
 
     @Step("Fill Project Data")
