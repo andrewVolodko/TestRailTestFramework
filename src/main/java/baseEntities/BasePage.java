@@ -12,7 +12,7 @@ public abstract class BasePage {
 
     public BasePage(BrowserService browserService, String path) {
         this.browserService = browserService;
-        this.baseUrl = new PropertyReader().getBaseUrl();
+        this.baseUrl = PropertyReader.getBaseUrl();
         this.path = path;
     }
 
