@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiSteps {
     private final static String API_PATH_QUERY_PART = "/api/v2";
-    private final Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    private final Gson gson = new Gson();
 
     public ApiSteps(String email, String password) {
         RestAssured.baseURI = new PropertyReader().getBaseUrl();
