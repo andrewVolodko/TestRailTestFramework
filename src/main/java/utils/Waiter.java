@@ -18,7 +18,7 @@ public class Waiter {
     }
 
     public Waiter(BrowserService browserService) {
-        this(browserService, new PropertyReader().getTimeOut());
+        this(browserService, PropertyReader.getTimeOut());
     }
 
     public UIElement waitForVisibility(By by){
