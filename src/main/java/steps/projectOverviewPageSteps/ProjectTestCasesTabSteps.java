@@ -1,17 +1,17 @@
 package steps.projectOverviewPageSteps;
 import core.BrowserService;
 import io.qameta.allure.Step;
-import pages.projectOverviewPage.TestCasesTab;
+import pages.projectDetailsPage.ProjectTestCasesTab;
 import steps.commonSteps.CommonHeaderSteps;
 import steps.crudTestCasePagesSteps.AddTestCasePageSteps;
 
-public class TestCasesTabSteps extends CommonHeaderSteps<TestCasesTab> {
-    public TestCasesTabSteps(BrowserService browserService) {
-        super(browserService, TestCasesTab.class);
+public class ProjectTestCasesTabSteps extends ProjectDetailsPageHeaderSteps<ProjectTestCasesTab> {
+    public ProjectTestCasesTabSteps(BrowserService browserService) {
+        super(browserService);
     }
 
     @Override
-    public TestCasesTabSteps openPage() {
+    public ProjectTestCasesTabSteps openPage() {
         this.page.open();
         return this;
     }

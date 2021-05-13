@@ -7,9 +7,9 @@ import models.ProjectModel;
 import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
-public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> {
+public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage> {
     public EditProjectPageSteps(BrowserService browserService) {
-        super(browserService, EditProjectPage.class);
+        super(browserService);
     }
 
     @Override
@@ -18,6 +18,7 @@ public class EditProjectPageSteps extends BaseProjectPagesStep<EditProjectPage> 
         return this;
     }
 
+    @Step("Edit Project")
     public AdminProjectsPageSteps editProject(ProjectModel project) {
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();

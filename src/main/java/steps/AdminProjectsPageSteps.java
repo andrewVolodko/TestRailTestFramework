@@ -11,7 +11,7 @@ import steps.crudProjectPagesSteps.EditProjectPageSteps;
 public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage> {
 
     public AdminProjectsPageSteps(BrowserService browserService) {
-        super(browserService, AdminProjectsPage.class);
+        super(browserService);
     }
 
     @Override

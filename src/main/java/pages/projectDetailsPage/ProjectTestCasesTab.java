@@ -1,17 +1,16 @@
-package pages.projectOverviewPage;
+package pages.projectDetailsPage;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
-import pages.common.CommonHeader;
 import wrappers.Button;
 
-public class TestCasesTab extends CommonHeader {
+public class ProjectTestCasesTab extends ProjectDetailsPageHeader {
 
     // Locators
     private static final By pageTitleBy = By.xpath("//div[contains(@class, 'page_title') and contains(text(), 'Test Cases')]");
     private static final By sidebarAddTestCaseBtnBy = By.id("sidebar-cases-add");
 
-    public TestCasesTab(BrowserService browserService) {
+    public ProjectTestCasesTab(BrowserService browserService) {
         super(browserService, null);
     }
 

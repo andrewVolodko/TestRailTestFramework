@@ -6,9 +6,9 @@ import models.ProjectModel;
 import pages.crudProjectPages.BaseProjectPage;
 import steps.commonSteps.CommonHeaderSteps;
 
-public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends CommonHeaderSteps<T> {
-    public BaseProjectPagesStep(BrowserService browserService, Class<T> pageClass) {
-        super(browserService, pageClass);
+public abstract class BaseProjectPagesSteps<T extends BaseProjectPage> extends CommonHeaderSteps<T> {
+    public BaseProjectPagesSteps(BrowserService browserService) {
+        super(browserService);
     }
 
     @Step("Fill Project Data")
@@ -16,6 +16,6 @@ public abstract class BaseProjectPagesStep<T extends BaseProjectPage> extends Co
         this.page.getProjectNameInput().sendKeys(projectData.getName());
         this.page.getProjectAnnouncementsInput().sendKeys(projectData.getAnnouncement());
         this.page.getProjectShowAnnouncementsCheckbox().changeState(projectData.isShowAnnouncement());
-        this.page.getProjectModeRadioBtnInterface().click(projectData.getProjectMode().getValue());
+        this.page.getProjectModeRadioBtnInterface().click(projectData.getProjectMode());
     }
 }
