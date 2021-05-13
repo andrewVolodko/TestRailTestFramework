@@ -18,6 +18,7 @@ public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage>
         return this;
     }
 
+    @Step("Edit Project")
     public AdminProjectsPageSteps editProject(ProjectModel project) {
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();

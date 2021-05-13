@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
         <testng.version>7.4.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>

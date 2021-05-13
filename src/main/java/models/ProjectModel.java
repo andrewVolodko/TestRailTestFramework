@@ -36,7 +36,6 @@ public class ProjectModel {
     @Expose(serialize = false)
     private String url;
 
-
     public static ProjectModel getDefault() {
         return new ProjectModel(
                 "Project - " + Randomizer.getRandomString(10),

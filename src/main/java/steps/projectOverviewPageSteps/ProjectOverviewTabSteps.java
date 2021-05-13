@@ -1,6 +1,7 @@
 package steps.projectOverviewPageSteps;
 
 import core.BrowserService;
+import io.qameta.allure.Step;
 import pages.projectDetailsPage.ProjectOverviewTab;
 
 public class ProjectOverviewTabSteps extends ProjectDetailsPageHeaderSteps<ProjectOverviewTab> {
@@ -9,11 +10,10 @@ public class ProjectOverviewTabSteps extends ProjectDetailsPageHeaderSteps<Proje
     }
 
     @Override
-    public ProjectOverviewTabSteps openPage() {
-        return this;
-    }
+    public ProjectOverviewTabSteps openPage() { return this; }
 
-    public ProjectOverviewTabSteps openProjectOverviewPageByProjId(int projectId){
+    @Step("Open Project Overview Page By Project Id")
+    public ProjectOverviewTabSteps openPage(int projectId) {
         this.page.openProjectOverviewPageByProjId(projectId);
         return this;
     }

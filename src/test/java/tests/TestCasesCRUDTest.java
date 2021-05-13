@@ -23,7 +23,7 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
 
         login(email, password);
         new ProjectOverviewTabSteps(browserService)
-                .openProjectOverviewPageByProjId(createdProjectId)
+                .openPage(createdProjectId)
                 .openProjectTestCasesTab()
                 .openAddTestCasePage()
                 .selectTemplateByOptionValue("Exploratory Session");
