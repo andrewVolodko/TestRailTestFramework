@@ -20,7 +20,7 @@ public abstract class BasePage {
         if (this.path != null) this.browserService.getDriver().get(baseUrl + path);
         try {
             this.browserService.getWait().waitForVisibility(getPageOpenedIndicatorElLocator());
-        } catch (TimeoutException ex){
+        } catch (TimeoutException ex) {
             throw new AssertionError("Page was not opened");
         }
     }

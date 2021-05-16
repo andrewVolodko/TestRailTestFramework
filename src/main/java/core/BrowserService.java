@@ -20,12 +20,12 @@ public class BrowserService {
             case "chrome" -> {
                 driverManagerType = DriverManagerType.CHROME;
                 WebDriverManager.getInstance(driverManagerType).setup();
-                driver = new ChromeDriver();
+                this.driver = new ChromeDriver();
             }
             case "firefox" -> {
                 driverManagerType = DriverManagerType.FIREFOX;
                 WebDriverManager.getInstance(driverManagerType).setup();
-                driver = new FirefoxDriver();
+                this.driver = new FirefoxDriver();
             }
             case "ie" -> driverManagerType = DriverManagerType.IEXPLORER;
             case "safari" -> driverManagerType = DriverManagerType.SAFARI;
