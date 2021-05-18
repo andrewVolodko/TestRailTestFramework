@@ -11,26 +11,19 @@ import utils.Waiter;
 import java.util.NoSuchElementException;
 
 public class BrowserService {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public BrowserService() {
 
-        DriverManagerType driverManagerType;
         switch (PropertyReader.getBrowserName().toLowerCase()) {
             case "chrome" -> {
-                driverManagerType = DriverManagerType.CHROME;
-                WebDriverManager.getInstance(driverManagerType).setup();
+                WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
                 this.driver = new ChromeDriver();
             }
             case "firefox" -> {
-                driverManagerType = DriverManagerType.FIREFOX;
-                WebDriverManager.getInstance(driverManagerType).setup();
+                WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
                 this.driver = new FirefoxDriver();
             }
-            case "ie" -> driverManagerType = DriverManagerType.IEXPLORER;
-            case "safari" -> driverManagerType = DriverManagerType.SAFARI;
-            case "remote" -> driverManagerType = DriverManagerType.SELENIUM_SERVER_STANDALONE;
-            case "edge" -> driverManagerType = DriverManagerType.EDGE;
             default -> throw new NoSuchElementException();
         }
     }
