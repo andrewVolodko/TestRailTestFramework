@@ -8,13 +8,13 @@ import steps.DashboardPageSteps;
 
 public abstract class CommonHeaderSteps<T extends CommonHeader> extends BaseStep<T> {
 
-    public CommonHeaderSteps(BrowserService browserService) {
-        super(browserService);
+    public CommonHeaderSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Step("Select Dashboard Tab")
     public DashboardPageSteps goToDashboardTab() {
         this.page.getDashboardTabBtn().click();
-        return new DashboardPageSteps(browserService);
+        return new DashboardPageSteps(browserService, false);
     }
 }

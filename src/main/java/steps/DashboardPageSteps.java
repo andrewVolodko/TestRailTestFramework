@@ -10,8 +10,8 @@ import steps.crudProjectPagesSteps.AddProjectPageSteps;
 
 public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
 
-    public DashboardPageSteps(BrowserService browserService) {
-        super(browserService);
+    public DashboardPageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override
@@ -23,13 +23,13 @@ public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
     @Step("Open Add Project Page")
     public AddProjectPageSteps openAddProjectPage() {
         this.page.getSidebarProjectAddBtn().click();
-        return new AddProjectPageSteps(this.browserService);
+        return new AddProjectPageSteps(this.browserService, false);
     }
 
     @Step("Open Project Test Cases Tab By Project Name")
     public ProjectTestCasesTabSteps openProjectTestCasesTabByProjName(String projectName){
         this.clickProjectSummaryLink(projectName, ProjectSummaryLink.TEST_CASES);
-        return new ProjectTestCasesTabSteps(this.browserService);
+        return new ProjectTestCasesTabSteps(this.browserService, false);
     }
 
     @Step("Click Project {projectSummaryLink} summary link")

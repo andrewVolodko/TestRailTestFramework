@@ -22,7 +22,7 @@ public class TestCasesCRUDTest extends BaseTestWithClassDriverInitialization {
                 .addProject(projectData).getBody().jsonPath().getInt("id");
 
         login(email, password);
-        new ProjectOverviewTabSteps(browserService)
+        new ProjectOverviewTabSteps(browserService, false)
                 .openPage(createdProjectId)
                 .openProjectTestCasesTab()
                 .openAddTestCasePage()

@@ -18,6 +18,10 @@ public abstract class BasePage {
 
     public void open() {
         if (this.path != null) this.browserService.getDriver().get(baseUrl + path);
+        this.verifyPageOpened();
+    }
+
+    public void verifyPageOpened() {
         try {
             this.browserService.getWait().waitForVisibility(getPageOpenedIndicatorElLocator());
         } catch (TimeoutException ex) {

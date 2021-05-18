@@ -7,8 +7,8 @@ import steps.commonSteps.CommonHeaderSteps;
 
 public class AddTestCasePageSteps extends CommonHeaderSteps<AddTestCasePage> {
 
-    public AddTestCasePageSteps(BrowserService browserService) {
-        super(browserService);
+    public AddTestCasePageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override

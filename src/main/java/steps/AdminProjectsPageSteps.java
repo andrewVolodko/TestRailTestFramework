@@ -10,8 +10,8 @@ import steps.crudProjectPagesSteps.EditProjectPageSteps;
 
 public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage> {
 
-    public AdminProjectsPageSteps(BrowserService browserService) {
-        super(browserService);
+    public AdminProjectsPageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage>
     @Step("Open Edit Project Page By Project Name")
     public EditProjectPageSteps openEditProjectPageByName(String projectName) {
         this.page.getProjectRowByName(projectName).getProjectEditBtn().click();
-        return new EditProjectPageSteps(this.browserService);
+        return new EditProjectPageSteps(this.browserService, false);
     }
 
     @Step("Delete Project By Name")

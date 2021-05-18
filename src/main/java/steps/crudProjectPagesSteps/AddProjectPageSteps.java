@@ -8,8 +8,8 @@ import steps.AdminProjectsPageSteps;
 
 public class AddProjectPageSteps extends BaseProjectPagesSteps<AddProjectPage> {
 
-    public AddProjectPageSteps(BrowserService browserService) {
-        super(browserService);
+    public AddProjectPageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override
@@ -22,6 +22,6 @@ public class AddProjectPageSteps extends BaseProjectPagesSteps<AddProjectPage> {
     public AdminProjectsPageSteps addNewProject(ProjectModel project) {
         this.fillProjectData(project);
         this.page.getAddProjectBtn().click();
-        return new AdminProjectsPageSteps(this.browserService);
+        return new AdminProjectsPageSteps(this.browserService, false);
     }
 }

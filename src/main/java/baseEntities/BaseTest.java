@@ -15,8 +15,7 @@ public abstract class BaseTest {
     }
 
     protected DashboardPageSteps login(String email, String password) {
-        return new LoginPageSteps(browserService)
-                .openPage()
+        return new LoginPageSteps(browserService, true)
                 .loginWithCorrectCreds(email, password);
     }
 }

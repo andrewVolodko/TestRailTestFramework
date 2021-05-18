@@ -8,8 +8,8 @@ import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
 public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage> {
-    public EditProjectPageSteps(BrowserService browserService) {
-        super(browserService);
+    public EditProjectPageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage>
         this.fillProjectData(project);
         this.page.getCompletedProjectCheckboxBy().changeState(project.isCompleted());
         this.page.getAddProjectBtn().click();
-        return new AdminProjectsPageSteps(this.browserService);
+        return new AdminProjectsPageSteps(this.browserService, false);
     }
 
     @Step("Collect Project Data")

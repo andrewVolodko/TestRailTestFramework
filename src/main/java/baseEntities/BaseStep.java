@@ -12,17 +12,23 @@ public abstract class BaseStep<T extends BasePage> {
     private final Class<T> pageClass;
 
     @SuppressWarnings("unchecked")
-    public BaseStep(BrowserService browserService) {
+    public BaseStep(BrowserService browserService, boolean openPageByUrl) {
         this.browserService = browserService;
         this.pageClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         this.page = getPageInstance();
+
+        if (openPageByUrl) {
+            this.page.open();
+        } else {
+            this.page.verifyPageOpened();
+        }
     }
 
     @Step("Open Page")
     public abstract BaseStep<T> openPage();
 
     public T getPageInstance() {
-        if(this.page != null) return this.page;
+        if (this.page != null) return this.page;
         if (this.pageClass == null) throw new NoClassDefFoundError("Page class was not defined.");
         T page = null;
         try {

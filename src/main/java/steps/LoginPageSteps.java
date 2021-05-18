@@ -7,8 +7,8 @@ import pages.LoginPage;
 
 public class LoginPageSteps extends BaseStep<LoginPage> {
 
-    public LoginPageSteps(BrowserService browserService) {
-        super(browserService);
+    public LoginPageSteps(BrowserService browserService, boolean openPageByUrl) {
+        super(browserService, openPageByUrl);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class LoginPageSteps extends BaseStep<LoginPage> {
         this.page.getPassInput().sendKeys(pass);
         this.page.getLoginBtn().click();
 
-        return new DashboardPageSteps(this.browserService);
+        return new DashboardPageSteps(this.browserService, false);
     }
 
     @Step("Login with incorrect creds")

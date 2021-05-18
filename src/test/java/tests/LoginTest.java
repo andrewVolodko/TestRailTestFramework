@@ -17,7 +17,7 @@ public class LoginTest extends BaseTestWithMethodDriverInitialization {
 
     @BeforeMethod
     public void initializeLoginSteps() {
-        this.loginPageSteps = new LoginPageSteps(browserService).openPage();
+        this.loginPageSteps = new LoginPageSteps(browserService, true);
     }
 
     @Test(description = "Login Test")
