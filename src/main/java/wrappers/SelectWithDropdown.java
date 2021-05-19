@@ -1,7 +1,7 @@
 package wrappers;
 
 import core.BrowserService;
-import models.SelectWithDropdownContainer;
+import models.containers.SelectWithDropdownContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 

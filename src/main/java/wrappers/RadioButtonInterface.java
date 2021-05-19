@@ -1,7 +1,7 @@
 package wrappers;
 
 import core.BrowserService;
-import models.RadioButtonContainer;
+import models.containers.RadioButtonContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 

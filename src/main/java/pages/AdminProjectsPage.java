@@ -1,7 +1,7 @@
 package pages;
 
 import core.BrowserService;
-import models.AdminPageProjectRowContainer;
+import models.containers.AdminPageProjectRowContainer;
 import org.openqa.selenium.By;
 import pages.common.CommonHeader;
 import wrappers.UIElement;

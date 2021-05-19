@@ -1,7 +1,7 @@
 package pages;
 
 import core.BrowserService;
-import models.DashboardPageProjectRowContainer;
+import models.containers.DashboardPageProjectRowContainer;
 import org.openqa.selenium.By;
 import pages.common.CommonHeader;
 import wrappers.Button;

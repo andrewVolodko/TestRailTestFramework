@@ -1,4 +1,4 @@
-package models;
+package models.containers;
 
 import enums.ProjectSummaryLink;
 import lombok.AllArgsConstructor;
