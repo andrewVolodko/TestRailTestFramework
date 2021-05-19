@@ -28,7 +28,7 @@ public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage>
         } else {
             this.page.getCompletedProjectCheckboxBy().unselect();
         }
-        this.page.getAddProjectBtn().click();
+        this.page.getSubmitProjectBtn().click();
         return new AdminProjectsPageSteps(this.browserService, false);
     }
 
