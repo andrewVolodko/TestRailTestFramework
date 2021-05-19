@@ -29,7 +29,7 @@ public class DashboardPageSteps extends CommonHeaderSteps<DashboardPage> {
     @Step("Open Project Test Cases Tab By Project Name")
     public ProjectTestCasesTabSteps openProjectTestCasesTabByProjName(String projectName){
         this.clickProjectSummaryLink(projectName, ProjectSummaryLink.TEST_CASES);
-        return new ProjectTestCasesTabSteps(this.browserService, false);
+        return new ProjectTestCasesTabSteps(this.browserService);
     }
 
     @Step("Click Project {projectSummaryLink} summary link")

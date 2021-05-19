@@ -15,7 +15,11 @@ public abstract class BaseProjectPagesSteps<T extends BaseProjectPage> extends C
     protected void fillProjectData(ProjectModel projectData) {
         this.page.getProjectNameInput().sendKeys(projectData.getName());
         this.page.getProjectAnnouncementsInput().sendKeys(projectData.getAnnouncement());
-        this.page.getProjectShowAnnouncementsCheckbox().changeState(projectData.isShowAnnouncement());
+        if (projectData.isShowAnnouncement()) {
+            this.page.getProjectShowAnnouncementsCheckbox().select();
+        } else {
+            this.page.getProjectShowAnnouncementsCheckbox().unselect();
+        }
         this.page.getProjectModeRadioBtnInterface().click(projectData.getProjectMode());
     }
 }

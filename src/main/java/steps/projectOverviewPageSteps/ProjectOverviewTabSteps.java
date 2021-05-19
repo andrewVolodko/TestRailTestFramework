@@ -5,8 +5,8 @@ import io.qameta.allure.Step;
 import pages.projectDetailsPage.ProjectOverviewTab;
 
 public class ProjectOverviewTabSteps extends ProjectDetailsPageHeaderSteps<ProjectOverviewTab> {
-    public ProjectOverviewTabSteps(BrowserService browserService, boolean openPageByUrl) {
-        super(browserService, openPageByUrl);
+    public ProjectOverviewTabSteps(BrowserService browserService) {
+        super(browserService, false);
     }
 
     @Override

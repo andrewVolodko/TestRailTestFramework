@@ -9,168 +9,160 @@ import utils.Waiter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UIElement implements WebElement {
+public class Element implements WebElement {
     private final BrowserService browserService;
-    private final WebElement element;
+    private final WebElement webElement;
     private final Actions actions;
     private final JsExecutorClient jsExecutorClient;
     private final Waiter waiter;
 
-    public UIElement(BrowserService browserService, By by) {
+    public Element(BrowserService browserService, By by) {
         this.browserService = browserService;
-        this.element = browserService.getDriver().findElement(by);
+        this.webElement = browserService.getDriver().findElement(by);
         this.actions = new Actions(browserService.getDriver());
         this.jsExecutorClient = JsExecutorClient.get(browserService);
         this.waiter = browserService.getWait();
     }
 
-    public UIElement(BrowserService browserService, WebElement element) {
+    public Element(BrowserService browserService, WebElement webElement) {
         this.browserService = browserService;
-        this.element = element;
+        this.webElement = webElement;
         this.actions = new Actions(browserService.getDriver());
         this.jsExecutorClient = JsExecutorClient.get(browserService);
         this.waiter = browserService.getWait();
     }
 
-    private UIElement(BrowserService browserService){
+    private Element(BrowserService browserService){
         this(browserService, browserService.getDriver().findElement(By.xpath("//*")));
     }
 
     public Checkbox castToCheckbox() {
-        return new Checkbox(this);
+        return new Checkbox(this.browserService, this.webElement);
     }
 
     public Button castToButton() {
-        return new Button(this);
-    }
-
-    public SelectWithDropdown castToSelectWithDropdown() {
-        return new SelectWithDropdown(this);
-    }
-
-    public RadioButtonInterface getRadioBtnInterface(By radioBtnLocator) {
-        return new RadioButtonInterface(this, radioBtnLocator);
+        return new Button(this.browserService, this.webElement);
     }
 
     public WebElement getWebElement() {
-        return this.element;
+        return this.webElement;
     }
 
     @Override
     public void click() {
         try {
-            this.element.click();
+            this.webElement.click();
         } catch (Exception ex) {
             try {
-                actions.moveToElement(this.element)
+                actions.moveToElement(this.webElement)
                         .click()
                         .build()
                         .perform();
             } catch (Exception ex1) {
-                jsExecutorClient.clickOnElement(this.element);
+                jsExecutorClient.clickOnElement(this.webElement);
             }
         }
     }
 
     @Override
     public void submit() {
-        this.element.submit();
+        this.webElement.submit();
     }
 
     @Override
     public void sendKeys(CharSequence... charSequences) {
-        this.element.sendKeys(charSequences);
+        this.webElement.sendKeys(charSequences);
     }
 
     @Override
     public void clear() {
-        this.element.clear();
+        this.webElement.clear();
     }
 
     @Override
     public String getTagName() {
-        return this.element.getTagName();
+        return this.webElement.getTagName();
     }
 
     @Override
     public String getAttribute(String s) {
-        return this.element.getAttribute(s);
+        return this.webElement.getAttribute(s);
     }
 
     @Override
     public boolean isSelected() {
-        return this.element.isSelected();
+        return this.webElement.isSelected();
     }
 
     @Override
     public boolean isEnabled() {
-        return this.element.isEnabled();
+        return this.webElement.isEnabled();
     }
 
     @Override
     public String getText() {
-        return this.element.getText();
+        return this.webElement.getText();
     }
 
     @Override
     public List<WebElement> findElements(By by) {
-        return this.element.findElements(by);
+        return this.webElement.findElements(by);
     }
 
-    public List<UIElement> findUIElements(By by) {
-        return this.element.findElements(by)
+    public List<Element> findAllElements(By by) {
+        return this.webElement.findElements(by)
                 .stream()
-                .map(el -> new UIElement(this.browserService, el))
+                .map(el -> new Element(this.browserService, el))
                 .collect(Collectors.toList());
     }
 
-    public static List<UIElement> findUIElements(BrowserService browserService, By by) {
-        var tmpUIElementObj = new UIElement(browserService);
-        return tmpUIElementObj.findUIElements(by);
+    public static List<Element> findAllElements(BrowserService browserService, By by) {
+        var tmpUIElementObj = new Element(browserService);
+        return tmpUIElementObj.findAllElements(by);
     }
 
     @Override
-    public UIElement findElement(By by) {
-        return new UIElement(this.browserService, this.element.findElement(by));
+    public Element findElement(By by) {
+        return new Element(this.browserService, this.webElement.findElement(by));
     }
 
     @Override
     public boolean isDisplayed() {
-        return this.element.isDisplayed();
+        return this.webElement.isDisplayed();
     }
 
     @Override
     public Point getLocation() {
-        return this.element.getLocation();
+        return this.webElement.getLocation();
     }
 
     @Override
     public Dimension getSize() {
-        return this.element.getSize();
+        return this.webElement.getSize();
     }
 
     @Override
     public Rectangle getRect() {
-        return this.element.getRect();
+        return this.webElement.getRect();
     }
 
     @Override
     public String getCssValue(String s) {
-        return this.element.getCssValue(s);
+        return this.webElement.getCssValue(s);
     }
 
     @Override
     public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
-        return this.element.getScreenshotAs(outputType);
+        return this.webElement.getScreenshotAs(outputType);
     }
 
     public void hover() {
-        actions.moveToElement(element)
+        actions.moveToElement(webElement)
                 .build()
                 .perform();
     }
 
-    public UIElement getParent() {
+    public Element getParent() {
         return this.findElement(By.xpath("./.."));
     }
 }

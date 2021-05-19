@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import wrappers.Button;
 import wrappers.Checkbox;
 import wrappers.RadioButtonInterface;
-import wrappers.UIElement;
+import wrappers.Element;
 import pages.common.CommonHeader;
 
 public abstract class BaseProjectPage extends CommonHeader {
@@ -15,19 +15,19 @@ public abstract class BaseProjectPage extends CommonHeader {
     private static final By projectNameInputBy = By.id("name");
     private static final By projectAnnouncementsInputBy = By.id("announcement");
     private static final By projectShowAnnouncementsCheckboxBy = By.id("show_announcement");
-    private static final By projectModeRadioBtnBy = By.cssSelector("[name=suite_mode]");
+    private static final By projectModeRadioBtnsContainerBy = By.xpath("//div[@class='row add-project-row']/..");
     private static final By addProjectBtnBy = By.id("accept");
 
     public BaseProjectPage(BrowserService browserService, String path) {
         super(browserService, path);
     }
 
-    public UIElement getProjectNameInput() {
-        return new UIElement(this.browserService, projectNameInputBy);
+    public Element getProjectNameInput() {
+        return new Element(this.browserService, projectNameInputBy);
     }
 
-    public UIElement getProjectAnnouncementsInput() {
-        return new UIElement(this.browserService, projectAnnouncementsInputBy);
+    public Element getProjectAnnouncementsInput() {
+        return new Element(this.browserService, projectAnnouncementsInputBy);
     }
 
     public Checkbox getProjectShowAnnouncementsCheckbox() {
@@ -35,7 +35,7 @@ public abstract class BaseProjectPage extends CommonHeader {
     }
 
     public RadioButtonInterface getProjectModeRadioBtnInterface() {
-        return new RadioButtonInterface(this.browserService, projectModeRadioBtnBy);
+        return new RadioButtonInterface(this.browserService, projectModeRadioBtnsContainerBy);
     }
 
     public Button getAddProjectBtn() {

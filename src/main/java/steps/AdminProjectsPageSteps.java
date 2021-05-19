@@ -23,14 +23,14 @@ public class AdminProjectsPageSteps extends CommonHeaderSteps<AdminProjectsPage>
     @Step("Open Edit Project Page By Project Name")
     public EditProjectPageSteps openEditProjectPageByName(String projectName) {
         this.page.getProjectRowByName(projectName).getProjectEditBtn().click();
-        return new EditProjectPageSteps(this.browserService, false);
+        return new EditProjectPageSteps(this.browserService);
     }
 
     @Step("Delete Project By Name")
     public AdminProjectsPageSteps deleteProjectByName(String projectName) {
         this.page.getProjectRowByName(projectName).getProjectDeleteBtn().click();
         ConfirmationDeleteDialog confirmationDeleteDialog = new ConfirmationDeleteDialog(browserService);
-        confirmationDeleteDialog.getDeleteCheckbox().changeState(true);
+        confirmationDeleteDialog.getDeleteCheckbox().select();
         confirmationDeleteDialog.getOkBtn().click();
         return this;
     }

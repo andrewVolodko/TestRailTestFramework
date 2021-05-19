@@ -12,6 +12,6 @@ public abstract class ProjectDetailsPageHeaderSteps<T extends ProjectDetailsPage
 
     public ProjectTestCasesTabSteps openProjectTestCasesTab() {
         this.page.getTestCasesTab().click();
-        return new ProjectTestCasesTabSteps(this.browserService, false);
+        return new ProjectTestCasesTabSteps(this.browserService);
     }
 }

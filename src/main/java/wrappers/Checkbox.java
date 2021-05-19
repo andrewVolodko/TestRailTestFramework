@@ -2,20 +2,26 @@ package wrappers;
 
 import core.BrowserService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class Checkbox {
-    private final UIElement element;
+    private final Element element;
 
     public Checkbox(BrowserService browserService, By by) {
-        this.element = new UIElement(browserService, by);
+        this.element = new Element(browserService, by);
     }
 
-    public Checkbox(UIElement uiElement) {
-        this.element = uiElement;
+    public Checkbox(BrowserService browserService, WebElement element) {
+        this.element = new Element(browserService, element);
     }
 
-    public void changeState(boolean makeSelected) {
-        if (this.isSelected() != makeSelected) this.click();
+    public void select(){
+        if (!this.isSelected()) this.click();
+    }
+
+    public void unselect(){
+        if (this.isSelected()) this.click();
+
     }
 
     public boolean isSelected() {

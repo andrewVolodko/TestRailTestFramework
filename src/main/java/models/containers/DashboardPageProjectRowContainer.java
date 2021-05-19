@@ -3,16 +3,16 @@ package models.containers;
 import enums.ProjectSummaryLink;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import wrappers.UIElement;
+import wrappers.Element;
 
 import java.util.List;
 
 @AllArgsConstructor
 public class DashboardPageProjectRowContainer {
-    @Getter private final UIElement projectNameLink;
-    private final List<UIElement> projectSummaryLinks;
+    @Getter private final Element projectNameLink;
+    private final List<Element> projectSummaryLinks;
 
-    public UIElement getProjectSummaryLink(ProjectSummaryLink projectSummaryLink) {
+    public Element getProjectSummaryLink(ProjectSummaryLink projectSummaryLink) {
         return projectSummaryLinks.get(projectSummaryLink.getValue());
     }
 }

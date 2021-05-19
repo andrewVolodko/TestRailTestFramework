@@ -5,8 +5,8 @@ import pages.projectDetailsPage.ProjectTestCasesTab;
 import steps.crudTestCasePagesSteps.AddTestCasePageSteps;
 
 public class ProjectTestCasesTabSteps extends ProjectDetailsPageHeaderSteps<ProjectTestCasesTab> {
-    public ProjectTestCasesTabSteps(BrowserService browserService, boolean openPageByUrl) {
-        super(browserService, openPageByUrl);
+    public ProjectTestCasesTabSteps(BrowserService browserService) {
+        super(browserService, false);
     }
 
     @Override
@@ -18,6 +18,6 @@ public class ProjectTestCasesTabSteps extends ProjectDetailsPageHeaderSteps<Proj
     @Step("Open Add Test Case Page")
     public AddTestCasePageSteps openAddTestCasePage(){
         this.page.getSidebarAddTestCaseButton().click();
-        return new AddTestCasePageSteps(this.browserService, false);
+        return new AddTestCasePageSteps(this.browserService);
     }
 }

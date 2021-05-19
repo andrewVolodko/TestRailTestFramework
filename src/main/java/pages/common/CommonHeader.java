@@ -4,8 +4,8 @@ import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
 import wrappers.Button;
-import wrappers.DropdownMenu;
-import wrappers.UIElement;
+import wrappers.DropdownContextMenu;
+import wrappers.Element;
 
 public abstract class CommonHeader extends BasePage {
 
@@ -22,11 +22,11 @@ public abstract class CommonHeader extends BasePage {
         return new Button(this.browserService, dashboardTabBtnBy);
     }
 
-    public UIElement getHelpDropdownMenuLink() {
-        return new UIElement(this.browserService, helpDropdownMenuLinkBy);
+    public Element getHelpDropdownMenuLink() {
+        return new Element(this.browserService, helpDropdownMenuLinkBy);
     }
 
-    public DropdownMenu getHelpDropdownMenu() {
-        return new DropdownMenu(this.browserService, helpDropdownMenuBy);
+    public DropdownContextMenu getHelpDropdownMenu() {
+        return new DropdownContextMenu(this.browserService, helpDropdownMenuBy);
     }
 }

@@ -2,15 +2,15 @@ package models.containers;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import wrappers.UIElement;
+import wrappers.Element;
 
 import java.util.List;
 
 @Getter
 @AllArgsConstructor
 public class SelectWithDropdownContainer {
-    private final UIElement label;
-    private final UIElement select;
-    private final UIElement search;
-    private final List<UIElement> values;
+    private final Element label;
+    private final Element select;
+    private final Element search;
+    private final List<Element> values;
 }

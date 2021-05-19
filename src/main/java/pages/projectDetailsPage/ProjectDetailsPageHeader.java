@@ -3,7 +3,7 @@ package pages.projectDetailsPage;
 import baseEntities.BasePage;
 import core.BrowserService;
 import org.openqa.selenium.By;
-import wrappers.UIElement;
+import wrappers.Element;
 
 public abstract class ProjectDetailsPageHeader extends BasePage {
 
@@ -14,7 +14,7 @@ public abstract class ProjectDetailsPageHeader extends BasePage {
         super(browserService, path);
     }
 
-    public UIElement getTestCasesTab(){
-        return new UIElement(this.browserService, testCasesTabBy);
+    public Element getTestCasesTab(){
+        return new Element(this.browserService, testCasesTabBy);
     }
 }

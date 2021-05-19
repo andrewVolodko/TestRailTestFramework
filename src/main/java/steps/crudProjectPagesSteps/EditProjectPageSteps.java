@@ -8,8 +8,8 @@ import pages.crudProjectPages.EditProjectPage;
 import steps.AdminProjectsPageSteps;
 
 public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage> {
-    public EditProjectPageSteps(BrowserService browserService, boolean openPageByUrl) {
-        super(browserService, openPageByUrl);
+    public EditProjectPageSteps(BrowserService browserService) {
+        super(browserService, false);
     }
 
     @Override
@@ -23,7 +23,11 @@ public class EditProjectPageSteps extends BaseProjectPagesSteps<EditProjectPage>
         this.page.getProjectNameInput().clear();
         this.page.getProjectAnnouncementsInput().clear();
         this.fillProjectData(project);
-        this.page.getCompletedProjectCheckboxBy().changeState(project.isCompleted());
+        if(project.isCompleted()) {
+            this.page.getCompletedProjectCheckboxBy().select();
+        } else {
+            this.page.getCompletedProjectCheckboxBy().unselect();
+        }
         this.page.getAddProjectBtn().click();
         return new AdminProjectsPageSteps(this.browserService, false);
     }
