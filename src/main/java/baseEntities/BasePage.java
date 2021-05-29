@@ -28,6 +28,10 @@ public abstract class BasePage {
             throw new AssertionError("Page was not opened");
         }
     }
+    public void openAndVerifyThatOpened(){
+        this.open();
+        this.verifyPageOpened();
+    }
 
     protected abstract By getPageOpenedIndicatorElLocator();
 }

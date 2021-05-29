@@ -39,8 +39,8 @@ public class SelectWithDropdown {
         this.selectWithDropdownContainer.getValues()
                 .stream()
                 .filter(el -> el.getText().equals(optionTextValue))
-                .findAny()
-                .orElseThrow(() -> new NoSuchElementException("No option found with text value provided."))
+                .reduce((el1, el2) -> {throw new IllegalStateException("More than one option found with provided text value");})
+                .orElseThrow(() -> new NoSuchElementException("No option found with provided text value"))
                 .click();
 
         return this;

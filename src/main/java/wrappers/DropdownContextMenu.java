@@ -30,7 +30,7 @@ public class DropdownContextMenu {
         return this.dropdownMenuOptions
                 .stream()
                 .filter(el -> el.getText().equals(optionTextValue))
-                .findAny()
+                .reduce((el1, el2) -> {throw new IllegalStateException("More than one option found");})
                 .orElseThrow(() -> new NoSuchElementException("No such option found"));
     }
 
